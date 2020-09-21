@@ -1,0 +1,242 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <!-- <meta charset="utf-8">
+
+  <title>The HTML5 Herald</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint"> -->
+  <script src="https://twgljs.org/dist/4.x/twgl-full.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    html{
+      height:100%;
+    }
+    body{
+      margin:0;
+      height:100%;
+      font-size:0;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 550px}
+
+    .fill-height {
+        min-height: 100%;
+        height:auto !important;
+        height: 100%;
+    }
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #dd5;
+      color: white;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;}
+    }
+  </style>
+
+</head>
+<body>
+
+<!-- <nav class="navbar navbar-inverse">
+  <div class="container-fluid"> -->
+    <!-- <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div> -->
+  <!-- </div>
+</nav> -->
+
+<div class="container-fluid text-center fill-height">
+  <canvas id="canvasholder">
+  </canvas>
+  <div class="row">
+    <div class="col-sm-2">
+      <!-- <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p> -->
+    </div>
+    <div class="col-sm-8">
+      <!-- <h1>Welcome</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <hr>
+      <h3>Test</h3>
+      <p>Lorem ipsum...</p> -->
+    </div>
+    <div class="col-sm-2">
+      <!-- <div class="well">
+        <p>ADS</p>
+      </div>
+      <div class="well">
+        <p>ADS</p>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<!-- <footer class="container-fluid text-center">
+  <p>Footer Text</p>
+</footer> -->
+
+</body>
+<script src="scripts.js"></script>
+<script id="vs" type="x-shader/x-vertex">
+  attribute vec4 a_position;
+  attribute vec2 a_texcoord;
+
+  varying vec2 v_texcoord;
+
+  void main() {
+    v_texcoord = a_texcoord;
+    gl_Position = a_position;
+  }
+</script>
+<script id="fs_init" type="x-shader/x-fragment">
+  precision highp float;
+
+  void main() {
+    gl_FragColor= vec4(1.0 / 4.0);
+  }
+</script>
+<script id="fs_frame" type="x-shader/x-fragment">
+  precision highp float;
+
+  varying vec2 v_texcoord;
+
+  uniform float u_heatflow;
+  uniform float u_intensity;
+  uniform vec2 u_resolution;
+  uniform float u_scale;
+  uniform vec2 u_smudgepos[4];
+  uniform sampler2D u_texture;
+  uniform float u_whiteout;
+
+  float softlim(float v) {
+    float l = abs(v);
+    // if (v < 1e-4) {
+    //   return 0.0;
+    // }
+    return v * (sqrt(4.0 * l * l + 1.0) - 1.0) / (2.0 * l * l);
+  }
+
+  vec4 safeadd(vec4 v, vec4 w) {
+    // return v + w;
+    float os = 0.0;
+    w -= (w.r + w.g + w.b + w.a) / 4.0;
+    return v + w;
+    for(int i = 0; i < 4; i++) {
+      float tmp = 0.0 < w[i] ? 1.0 - v[i] : 0.0;
+      // if (tmp < 1e-4) {
+      //   return v;
+      // }
+      os = max(os, abs(w[i]) / tmp);
+    }
+    // if (os < 1e-4) {
+    //   return v;
+    // }
+    w *= softlim(os) / os;
+    return v + w;
+    return max(vec4(0.0), min(vec4(1.0), v + w));
+  }
+
+  float sqlength(vec2 v) {
+    return v.x * v.x + v.y * v.y;
+  }
+
+  void main() {
+    vec4 fetch, tmp;
+    // nbs[0] = texture2D(u_texture, v_texcoord + vec2(-1.0, 0.0) / u_resolution);
+    // nbs[1] = texture2D(u_texture, v_texcoord + vec2(0.0, -1.0) / u_resolution);
+    fetch = texture2D(u_texture, v_texcoord);
+    // nbs[3] = texture2D(u_texture, v_texcoord + vec2(0.0, 1.0) / u_resolution);
+    // nbs[4] = texture2D(u_texture, v_texcoord + vec2(1.0, 0.0) / u_resolution);
+    // tmp = u_heatflow * (nbs[0] + nbs[1] + nbs[3] + nbs[4] - 4.0 * nbs[2]);
+    for (int i = 0; i < 4; i++) {
+      tmp[i] += u_intensity *
+        exp(-sqlength(u_scale * (v_texcoord * u_resolution - u_smudgepos[i])));
+    }
+      gl_FragColor = safeadd((1.0 - u_whiteout) * fetch, tmp);
+  }
+</script>
+<script id="fs_render" type="x-shader/x-fragment">
+  precision highp float;
+
+  varying vec2 v_texcoord;
+
+  uniform vec3 u_colors[4];
+  uniform sampler2D u_texture;
+
+  float sq(float v) {
+    return v * v;
+  }
+
+  void main() {
+    vec4 fetch = texture2D(u_texture, v_texcoord);
+    float maxval = max(fetch[0], max(fetch[1], max(fetch[2], fetch[3])));
+    float secmaxval = 0.0;
+    bool flag = false;
+    for(int i = 0; i < 4; i++) {
+      if(fetch[i] < maxval) {
+        secmaxval = max(secmaxval, fetch[i]);
+      } else if (flag) {
+        secmaxval = maxval;
+        break;
+      } else {
+        flag = true;
+      }
+    }
+    fetch = max(vec4(0.0), min(vec4(1.0), fetch - secmaxval));
+    gl_FragColor = vec4(
+      1.0 -
+      sq(fetch[0]) * (1.0 - u_colors[0]) -
+      sq(fetch[1]) * (1.0 - u_colors[1]) -
+      sq(fetch[2]) * (1.0 - u_colors[2]) -
+      sq(fetch[3]) * (1.0 - u_colors[3]),
+      1.0
+    );
+  }
+</script>
+
+</html>
