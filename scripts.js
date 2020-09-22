@@ -2,7 +2,7 @@ const colrs = ["ff0000", "00ff00", "0000ff", "000000"],
   dmnsn = [120, 300],
   frctn = 0.0001,
   // glCtx = document.getElementById("canvasholder").getContext("webgl")
-  glCtx = (() => twgl.getContext(document.getElementById("canvasholder")))(
+  glCtx = (() => twgl.getContext(document.createElement("canvas")))(
     twgl.setDefaults({ attribPrefix: "a_" })
   ),
   htflw = 0.01,
