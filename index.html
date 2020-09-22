@@ -2,19 +2,11 @@
 
 <html lang="en">
 <head>
-  <!-- <meta charset="utf-8">
-
-  <title>The HTML5 Herald</title>
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint"> -->
-  <script src="https://twgljs.org/dist/4.x/twgl-full.min.js"></script>
+  <script type="text/javascript" src="https://twgljs.org/dist/4.x/twgl-full.min.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
-
     html{
       height:100%;
     }
@@ -23,133 +15,257 @@
       height:100%;
       font-size:0;
     }
-
+    canvas{
+      width:100%;
+      height:100%;
+    }
   </style>
 
-<script type="text/javascript" src="https://twgljs.org/dist/4.x/twgl-full.min.js"></script>
-<script src="scripts.js"></script>
-<script id="vs" type="x-shader/x-vertex">
-  attribute vec4 a_position;
-  attribute vec2 a_texcoord;
 
-  varying vec2 v_texcoord;
-
-  void main() {
-    v_texcoord = a_texcoord;
-    gl_Position = a_position;
-  }
-</script>
-<script id="fs_init" type="x-shader/x-fragment">
-  precision highp float;
-
-  void main() {
-    gl_FragColor= vec4(1.0 / 4.0);
-  }
-</script>
-<script id="fs_frame" type="x-shader/x-fragment">
-  precision highp float;
-
-  varying vec2 v_texcoord;
-
-  uniform float u_heatflow;
-  uniform float u_intensity;
-  uniform vec2 u_resolution;
-  uniform float u_scale;
-  uniform vec2 u_smudgepos[4];
-  uniform sampler2D u_texture;
-  uniform float u_whiteout;
-
-  float softlim(float v) {
-    float l = abs(v);
-    // if (v < 1e-4) {
-    //   return 0.0;
-    // }
-    return v * (sqrt(4.0 * l * l + 1.0) - 1.0) / (2.0 * l * l);
-  }
-
-  vec4 safeadd(vec4 v, vec4 w) {
-    // return v + w;
-    float os = 0.0;
-    w -= (w.r + w.g + w.b + w.a) / 4.0;
-    return v + w;
-    for(int i = 0; i < 4; i++) {
-      float tmp = 0.0 < w[i] ? 1.0 - v[i] : 0.0;
-      // if (tmp < 1e-4) {
-      //   return v;
-      // }
-      os = max(os, abs(w[i]) / tmp);
-    }
-    // if (os < 1e-4) {
-    //   return v;
-    // }
-    w *= softlim(os) / os;
-    return v + w;
-    return max(vec4(0.0), min(vec4(1.0), v + w));
-  }
-
-  float sqlength(vec2 v) {
-    return v.x * v.x + v.y * v.y;
-  }
-
-  void main() {
-    vec4 fetch, tmp;
-    // nbs[0] = texture2D(u_texture, v_texcoord + vec2(-1.0, 0.0) / u_resolution);
-    // nbs[1] = texture2D(u_texture, v_texcoord + vec2(0.0, -1.0) / u_resolution);
-    fetch = texture2D(u_texture, v_texcoord);
-    // nbs[3] = texture2D(u_texture, v_texcoord + vec2(0.0, 1.0) / u_resolution);
-    // nbs[4] = texture2D(u_texture, v_texcoord + vec2(1.0, 0.0) / u_resolution);
-    // tmp = u_heatflow * (nbs[0] + nbs[1] + nbs[3] + nbs[4] - 4.0 * nbs[2]);
-    for (int i = 0; i < 4; i++) {
-      tmp[i] += u_intensity *
-        exp(-sqlength(u_scale * (v_texcoord * u_resolution - u_smudgepos[i])));
-    }
-      gl_FragColor = safeadd((1.0 - u_whiteout) * fetch, tmp);
-  }
-</script>
-<script id="fs_render" type="x-shader/x-fragment">
-  precision highp float;
-
-  varying vec2 v_texcoord;
-
-  uniform vec3 u_colors[4];
-  uniform sampler2D u_texture;
-
-  float sq(float v) {
-    return v * v;
-  }
-
-  void main() {
-    vec4 fetch = texture2D(u_texture, v_texcoord);
-    float maxval = max(fetch[0], max(fetch[1], max(fetch[2], fetch[3])));
-    float secmaxval = 0.0;
-    bool flag = false;
-    for(int i = 0; i < 4; i++) {
-      if(fetch[i] < maxval) {
-        secmaxval = max(secmaxval, fetch[i]);
-      } else if (flag) {
-        secmaxval = maxval;
-        break;
-      } else {
-        flag = true;
-      }
-    }
-    fetch = max(vec4(0.0), min(vec4(1.0), fetch - secmaxval));
-    gl_FragColor = vec4(
-      1.0 -
-      sq(fetch[0]) * (1.0 - u_colors[0]) -
-      sq(fetch[1]) * (1.0 - u_colors[1]) -
-      sq(fetch[2]) * (1.0 - u_colors[2]) -
-      sq(fetch[3]) * (1.0 - u_colors[3]),
-      1.0
-    );
-  }
-</script>
 </head>
 <body>
 
-<!-- <footer class="container-fluid text-center">
-  <p>Footer Text</p>
-</footer> -->
+  <script id="vs" type="x-shader/x-vertex">
+    attribute vec4 a_position;
+    attribute vec2 a_texcoord;
+
+    varying vec2 v_texcoord;
+
+    void main() {
+      v_texcoord = a_texcoord;
+      gl_Position = a_position;
+    }
+  </script>
+  <script id="fs_init" type="x-shader/x-fragment">
+    precision highp float;
+
+    void main() {
+      gl_FragColor= vec4(0.0);
+    }
+  </script>
+  <script id="fs_frame" type="x-shader/x-fragment">
+    precision highp float;
+
+    varying vec2 v_texcoord;
+
+    uniform float u_heatflow;
+    uniform float u_intensity;
+    uniform vec2 u_resolution;
+    uniform float u_scale;
+    uniform vec2 u_smudgepos[4];
+    uniform vec2 u_smudgevel[4];
+    uniform sampler2D u_texture;
+    uniform float u_whiteout;
+
+    float softlim(float v) {
+      float l = abs(v);
+      // if (v < 1e-4) {
+      //   return 0.0;
+      // }
+      return v * (sqrt(4.0 * l * l + 1.0) - 1.0) / (2.0 * l * l);
+    }
+
+    vec4 safeadd(vec4 v, vec4 w) {
+      float dfp = (1.0 - v.r - v.g - v.b - v.a);
+      if (dfp < 1e-4) {
+        return v;
+      }
+      float os = (w.r + w.g + w.b + w.a) / dfp;
+      if (os < 1e-4) {
+        return v + w;
+      }
+      // return  v + w;
+      // for(int i = 0; i < 4; i++) {
+      //   float tmp = 0.0 < w[i] ? 1.0 - v[i] : 0.0;
+      //   if (tmp < 1e-4) {
+      //     return v;
+      //   }
+      //   os = max(os, abs(w[i]) / tmp);
+      // }
+      w *= softlim(os) / os;
+      return v + w;
+      return max(vec4(0.0), min(vec4(1.0), v + w));
+    }
+
+    float sqlength(vec2 v) {
+      return v.x * v.x + v.y * v.y;
+    }
+
+    void main() {
+      vec4 fetch, tmp;
+      // nbs[0] = texture2D(u_texture, v_texcoord + vec2(-1.0, 0.0) / u_resolution);
+      // nbs[1] = texture2D(u_texture, v_texcoord + vec2(0.0, -1.0) / u_resolution);
+      fetch = texture2D(u_texture, v_texcoord);
+      // nbs[3] = texture2D(u_texture, v_texcoord + vec2(0.0, 1.0) / u_resolution);
+      // nbs[4] = texture2D(u_texture, v_texcoord + vec2(1.0, 0.0) / u_resolution);
+      // tmp = u_heatflow * (nbs[0] + nbs[1] + nbs[3] + nbs[4] - 4.0 * nbs[2]);
+      for (int i = 0; i < 4; i++) {
+        tmp[i] += u_intensity *
+          exp(-sqlength(length(u_smudgevel[i]) * (v_texcoord * u_resolution - u_smudgepos[i]) / (0.1 + u_scale)));
+      }
+        gl_FragColor = safeadd((1.0 - u_whiteout) * fetch, tmp);
+    }
+  </script>
+  <script id="fs_render" type="x-shader/x-fragment">
+    precision highp float;
+
+    varying vec2 v_texcoord;
+
+    uniform vec3 u_colors[4];
+    uniform sampler2D u_texture;
+
+    float sq(float v) {
+      return v * v;
+    }
+
+    void main() {
+      vec4 fetch = texture2D(u_texture, v_texcoord);
+      // float maxval = max(fetch[0], max(fetch[1], max(fetch[2], fetch[3])));
+      // float secmaxval = 0.0;
+      // bool flag = false;
+      // for(int i = 0; i < 4; i++) {
+      //   if(fetch[i] < maxval) {
+      //     secmaxval = max(secmaxval, fetch[i]);
+      //   } else if (flag) {
+      //     secmaxval = maxval;
+      //     break;
+      //   } else {
+      //     flag = true;
+      //   }
+      // }
+      // fetch = max(vec4(0.0), min(vec4(1.0), fetch - secmaxval));
+      gl_FragColor = vec4(
+        1.0 -
+        sq(fetch[0]) * (1.0 - u_colors[0]) -
+        sq(fetch[1]) * (1.0 - u_colors[1]) -
+        sq(fetch[2]) * (1.0 - u_colors[2]) -
+        sq(fetch[3]) * (1.0 - u_colors[3]),
+        1.0
+      );
+    }
+  </script>
+  <div class="container-fluid">
+    <canvas id="canvasholder">
+    </canvas>
+  </div>
+  <script type="text/javascript">
+  const colrs = ["ff0000", "00ff00", "0000ff", "000000"],
+    canvasdoc = document.getElementById("canvasholder"),
+    containerdoc = document.getElementsByClassName("container-fluid"),
+    dmnsn = [canvasdoc.offsetWidth, canvasdoc.offsetHeight],
+    glCtx = (() => twgl.getContext(canvasdoc))(
+      twgl.setDefaults({ attribPrefix: "a_" })
+    ),
+    frctn = 0.0001,
+    htflw = 0.01,
+    impls = 0.5, //0.5
+    ntnst = 0.05,
+    repel = 100,  //100
+    rmSng = 50,  // 50
+    scale = 500,
+    whout = 0.01;
+  var bfInf = twgl.primitives.createXYQuadBufferInfo(glCtx),
+    bffrs = Array(2)
+      .fill()
+      .map(() =>
+        twgl.createFramebufferInfo(
+          glCtx,
+          [{ internalFormat: glCtx.RGBA32F }],
+          ...dmnsn
+        )
+      ),
+    smdgs = Array(4)
+      .fill()
+      .map((_, k) => ({
+        p: [((k + 1) * dmnsn[0]) / 5, dmnsn[1] / 2],
+        v: [0, 0]
+      })),
+    pgInf = {
+      init: twgl.createProgramInfo(glCtx, ["vs", "fs_init"]),
+      frame: twgl.createProgramInfo(glCtx, ["vs", "fs_frame"]),
+      render: twgl.createProgramInfo(glCtx, ["vs", "fs_render"])
+    };
+  function stNml() {
+    let v = 0,
+      w = 0;
+    while (v === 0) {
+      v = Math.random();
+    }
+    while (w === 0) {
+      w = Math.random();
+    }
+    return Math.sqrt(-2.0 * Math.log(v)) * Math.cos(2.0 * Math.PI * w);
+  }
+  function rendr(fbi, pi, u) {
+    twgl.bindFramebufferInfo(glCtx, fbi);
+    twgl.drawObjectList(glCtx, [
+      {
+        programInfo: pi,
+        bufferInfo: bfInf,
+        uniforms: u
+      }
+    ]);
+  }
+  function prepr() {
+    glCtx.canvas.width = dmnsn[0];
+    glCtx.canvas.height = dmnsn[1];
+    document.body.append(glCtx.canvas);
+    rendr(bffrs[0], pgInf.init, {});
+  }
+  function frame() {
+    for (let s of smdgs) {
+      for (let a of [0, 1]) {
+        s.v[a] *= 1 - frctn;
+        s.v[a] += impls * stNml();
+        s.v[a] += repel / (rmSng + s.p[a] ** 2);
+        s.v[a] -= repel / (rmSng + (dmnsn[a] - s.p[a]) ** 2);
+        for (let t of smdgs) {
+          if (s != t) {
+            s.v[a] +=
+              (repel * Math.sign(s.p[a] - t.p[a])) /
+              (rmSng + (t.p[a] - s.p[a]) ** 2);
+          }
+        }
+      }
+    }
+    for (let s of smdgs) {
+      for (let a of [0, 1]) {
+        s.p[a] = Math.max(0, Math.min(dmnsn[a], s.p[a] + s.v[a]));
+      }
+    }
+    rendr(bffrs[1], pgInf.frame, {
+      u_heatflow: htflw,
+      u_intensity: ntnst,
+      u_resolution: dmnsn,
+      u_scale: scale,
+      u_smudgepos: smdgs.map((s) => s.p).flat(),
+      u_smudgevel: smdgs.map((s) => s.v).flat(),
+      u_texture: bffrs[0].attachments[0],
+      u_whiteout: whout
+    });
+    rendr(null, pgInf.render, {
+      // u_colors: [1,0,0,0,1,0,0,0,1,0,0,0],
+      u_colors: ((s) =>
+        Array(12)
+          .fill()
+          .map((_, k) => parseInt(s.slice(2 * k, 2 * (k + 1)), 16) / 255))(
+        "".concat(...colrs)
+      ),
+      u_texture: bffrs[1].attachments[0]
+    });
+    bffrs = [bffrs[1], bffrs[0]];
+    window.requestAnimationFrame(frame);
+  }
+  function reset() {
+    rendr(bffrs[0], pgInf.c2f, {
+      u_texture: imgTx
+    });
+    count = 0;
+  }
+  prepr();
+  frame();
+
+  </script>
 
 </body>
 </html>
