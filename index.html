@@ -6,54 +6,53 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <style>
-    html{
-      height:100%;
-    }
-    body{
-      margin:0;
-      height:100%;
-      font-size:0;
-    }
-    canvas{
-      width:100%;
-      height:100%;
-      z-index: 1;
-    }
-    .inner{
-        position:absolute;
-        z-index: 2;
-        width:100%;
-    }
-    .navtop{
-      top:0%;
-      height:10%;
-    }
-    .top{
-      top:10%;
-      height:30%;
-    }
-    .middle{
-      top:40%;
-      height:40%;
-      text-align:center;
-    }
-    .bottom{
-      top:80%;
-      height:10%;
-      text-align:center;
-    }
-    .navbottom{
-      top:90%;
-      height:10%;
-      text-align:center;
-    }
-  </style>
+  <link rel="stylesheet" href="./AlegreyaFont/stylesheet.css">
+  <link rel="stylesheet" href="./ABeeZee/stylesheet.css">
+  <link rel="stylesheet" href="style.css">
 
 
 </head>
 <body>
-
+  <div class="container-fluid">
+    <canvas id="canvasholder">
+    </canvas>
+    <div class="row inner navtop">
+      <h1></h1>
+    </div>
+    <div class="row inner top">
+      <h1></h1>
+    </div>
+    <div class="row inner middle">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6">
+        <div class="newspage">
+          Atlas of Smooth Spaces<br>In The Audio-Corporeal Arts
+        </div>
+      </div>
+      <div class="col-sm-3"></div>
+    </div>
+    <div class="row inner bottom">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6">
+        <div class="newspage Menu">
+          <span > Dance and Choreography </span><br>
+          <span > Rhythmics </span><br>
+          <span > Choir Conducting </span><br>
+          <span > Direct Sound </span><br>
+          <span > Complexity Science </span>
+        </div>
+      </div>
+      <div class="col-sm-3"></div>
+    </div>
+    <div class="row inner navbottom">
+      <div class="Menu">
+        <span > <a href="Team.html"> Team </a> </span>|
+        <span > <a href="Team.html"> Events </a> </span>|
+        <span > <a href="Team.html"> Partners </a> </span>|
+        <span > <a href="Team.html"> Contact </a> </span>
+      </div>
+    </div>
+  </div>
   <script id="vs" type="x-shader/x-vertex">
     attribute vec4 a_position;
     attribute vec2 a_texcoord;
@@ -173,27 +172,8 @@
       );
     }
   </script>
-  <div class="container-fluid">
-    <canvas id="canvasholder">
-    </canvas>
-    <div class="row inner navtop">
-      <h1></h1>
-    </div>
-    <div class="row inner top">
-      <h1></h1>
-    </div>
-    <div class="row inner middle">
-      <h1>Atlas of Smooth Spaces <br> In The AudioCorporeal Arts</h1>
-    </div>
-    <div class="row inner bottom">
-      <h1></h1>
-    </div>
-    <div class="row inner navbottom">
-      <h1>Team | Events | Partners | Contact</h1>
-    </div>
-  </div>
   <script type="text/javascript">
-  const colrs = ["ff0000", "00ff00", "0000ff", "000000"],
+  const colrs = ["dd04a0", "a0aa04", "440aaa", "aa000"],
     canvasdoc = document.getElementById("canvasholder"),
     containerdoc = document.getElementsByClassName("container-fluid"),
     dmnsn = [canvasdoc.offsetWidth, canvasdoc.offsetHeight],
@@ -298,7 +278,8 @@
       u_texture: bffrs[1].attachments[0]
     });
     bffrs = [bffrs[1], bffrs[0]];
-    window.requestAnimationFrame(frame);
+    // window.requestAnimationFrame(frame);
+    window.setTimeout(frame, 80);
   }
   function reset() {
     rendr(bffrs[0], pgInf.c2f, {
