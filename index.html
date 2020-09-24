@@ -16,46 +16,39 @@
   <div class="container-fluid">
     <canvas id="canvasholder">
     </canvas>
-    <div class="row inner navtop">
-      <h1></h1>
-    </div>
-    <div class="row inner top">
-      <h1></h1>
-    </div>
-    <div class="row inner middle">
-      <div class="col-sm-3"></div>
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-1"></div>
       <div class="col-sm-6">
-        <div class="newspage">
-          ATLAS OF SMOOTH  SPACES<br>IN THE AUDIOCORPOREAL ARTS
+        <div class="row main">
+          <div class="title">
+            ATLAS OF SMOOTH  SPACES<br>IN THE AUDIOCORPOREAL ARTS
+          </div>
+          <div class="subtitle">
+            AN ARTISTIC RESEARCH PROJECT ON<br> COMMUNICATING, CREATING AND COMPOSING SPACES
+          </div>
+          <div class="logo">
+            <a href="https://www.mdw.ac.at/"><img src="img/mdwLogo.svg" alt="MDW" height="150px" width="120px"/></a>
+            <a href="https://www.bruckneruni.at/"><img src="img/bruckneruni.svg" alt="BrucknerUni" height="150px" width="120px"/></a>
+            <a href="https://www.humboldtforum.org/"><img src="img/HumboldtForum.svg" alt="HumboldtForum" height="250px" width="180px"/></a>
+            <a href="https://www.csh.ac.at/"><img src="img/logo_grafik_200x200.png" alt="Complexity Science Hub" height="80px" width="70px"/></a>
+          </div>
+        </div>
+        <div class="row navbottom">
+          <div class="Menu">
+            <span > <a href="Team.html"> Team </a> </span>|
+            <span > <a href="Team.html"> Events </a> </span>|
+            <span > <a href="Team.html"> Partners </a> </span>|
+            <span > <a href="Team.html"> Contact </a> </span>
+          </div>
         </div>
       </div>
-      <div class="col-sm-3"></div>
+      <div class="col-sm-1"></div>
+      <div class="col-sm-2"></div>
     </div>
-    <div class="row inner bottom">
-      <div class="col-sm-3"></div>
-      <!-- <div class="col-sm-1"></div> -->
-      <div class="col-sm-6">
-        <span class="subtitle">AN ARTISTIC RESEARCH PROJECT ON<br> COMMUNICATING, CREATING AND COMPOSING SPACES<span>
-        <div class="logo">
-          <a href="https://www.mdw.ac.at/"><img src="img/mdwLogo.svg" alt="MDW" height="150px" width="120px"/></a>
-          <a href="https://www.bruckneruni.at/"><img src="img/bruckneruni.svg" alt="BrucknerUni" height="150px" width="120px"/></a>
-          <a href="https://www.humboldtforum.org/"><img src="img/HumboldtForum.svg" alt="HumboldtForum" height="250px" width="180px"/></a>
-          <a href="https://www.csh.ac.at/"><img src="img/logo_grafik_200x200.png" alt="Complexity Science Hub" height="80px" width="70px"/></a>
-        </div>
-      </div>
-      <!-- <div class="col-sm-1"></div> -->
-      <div class="col-sm-3"></div>
-    </div>
-    <div class="row inner navbottom">
-      <div class="Menu">
-        <span > <a href="Team.html"> Team </a> </span>|
-        <span > <a href="Team.html"> Events </a> </span>|
-        <span > <a href="Team.html"> Partners </a> </span>|
-        <span > <a href="Team.html"> Contact </a> </span>
-      </div>
-    </div>
+
   </div>
-  <script id="vs" type="x-shader/x-vertex">
+  <script id="vs" type="x-shader/x-vertex" src="xvtx_vs.js">
     attribute vec4 a_position;
     attribute vec2 a_texcoord;
 
