@@ -27,12 +27,24 @@ a {
   position:absolute;
 }
 
+.fixed {
+  position:fixed;
+}
+
 .mainheight {
   height:90vh;
 }
 
 .navheight {
   height:10vh;
+}
+
+.headingheight {
+  height:10vh;
+}
+
+.displayheight {
+  height:80vh;
 }
 
 .totalwidth {
@@ -45,6 +57,17 @@ a {
 
 .scrollable {
   overflow-y:auto;
+}
+
+.heading {
+  position:fixed;
+  font-size: 18pt;
+  top:0;
+}
+
+.display {
+  position:fixed;
+  top:10vh;
 }
 
 .bottomnav {
@@ -64,7 +87,16 @@ a {
   border-width:0.5px; */
 }
 
+.white {
+  background-color: rgba(255, 255, 255, 0.75)  ;
+}
 
+.borders{
+  border-style:solid;
+  border-color:black;
+  border-width:0.5px; */
+  border-radius:20;
+}
 
 .title {
   /* margin-left:20%;
@@ -92,4 +124,27 @@ a {
 .menu {
   margin-top: 2%;
   font-size: 18pt;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 0px grey;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #000000;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #000000;
 }
