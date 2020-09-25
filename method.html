@@ -5,86 +5,35 @@
   <script type="text/javascript" src="https://twgljs.org/dist/4.x/twgl-full.min.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="./fonts/AlegreyaFont/stylesheet.css">
   <link rel="stylesheet" href="./fonts/ABeeZee/stylesheet.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
-
 
 
 </head>
 <body>
   <div class="container-fluid">
-    <!-- <canvas id="canvasholder" class="canvas_">
-    </canvas> -->
-    <div class="row foreground_ heading_ headingheight totalwidth_ testdiv_">
-      <div class="col-md-1 col-sm-1 col-xs-1 navheight_ testdiv_"></div>
-      <div class="col-md-10 col-sm-10 col-xs-10 navheight_ testdiv_ white_ center_ padded_">
-      </div>
-      <div class="col-md-1 col-sm-1 col-xs-1 navheight_ testdiv_"></div>
-    </div>
-    <div class="row foreground_ display_ displayheight_ totalwidth_">
-      <div class="col-md-1 col-sm-1 col-xs-1 displayheight_ testdiv_"></div>
-      <div class="col-md-10 col-sm-10 col-xs-10 displayheight_ scrollable_ testdiv_ white_">
 
-        <div class="row mt-4">
-          <!-- <div class="card-deck"> -->
-            <div class="col-sm-3 col-md-3">
-              <div class="card rounded_card_borders_ cardborder_ padding_">
-                <img class="card-img-top rounded_img_borders_ img_height_" src="img/mdwLogo.svg" alt="MDW"/>
-                <div class="card-body">
-                  <h5 class="card-title center_ "><a href="https://www.mdw.ac.at/" class="stretched-link">Universität für Musik und Darstellende Kunst Wien</a></h5>
-                  <!-- <img src="img/Portrait Hanne Pilgrim.jpg" alt="Card image" style="width:100%"> -->
-                  <div class="card-text center_">
-                  </div>
-                </div>
-              </div>
+    <div class="row foreground_ absolute_ mainheight_ totalwidth_">
+      <div class="col-md-2 col-sm-1 col-xs-1 mainheight_ testdiv_"></div>
+      <div class="col-md-8 col-sm-10 col-xs-10 mainheight_ scrollable_ testdiv_">
+        <h2 class="center_">Method</h2>
+        <p> copy paste from proposal</p>
+        <div class="row small_margin_">
+            <div class="col ">
+              <!-- <canvas id="canvasholder" class="canvas_inlet_">
+              </canvas> -->
+              <img style="width:100%;z-index:3" src="./img/pipeline3.png" alt="Card image" >
             </div>
-
-            <div class="col-sm-3 col-md-3">
-              <div class="card rounded_card_borders_ cardborder_ padding_">
-                <img class="card-img-top rounded_img_borders_ img_height_" src="img/bruckneruni.svg" alt="ABPU"/>
-                <div class="card-body">
-                  <h5 class="card-title center_"><a href="https://www.bruckneruni.at/" class="stretched-link">Anton Bruckner Privat Universität</a></h5>
-                  <!-- <img src="img/Portrait Hanne Pilgrim.jpg" alt="Card image" style="width:100%"> -->
-                  <div class="card-text center_">
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-sm-3 col-md-3">
-              <div class="card rounded_card_borders_ cardborder_ padding_">
-                <img class="card-img-top rounded_img_borders_ img_height_" src="img/HumboldtForum.svg"  alt="HF"/>
-                <div class="card-body">
-                  <h5 class="card-title center_"><a href="https://www.humboldtforum.org/" class="stretched-link">Humboldt Forum Berlin</a></h5>
-                  <!-- <img src="img/Portrait Hanne Pilgrim.jpg" alt="Card image" style="width:100%"> -->
-                  <div class="card-text center_">
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-sm-3 col-md-3">
-              <div class="card rounded_card_borders_ cardborder_ padding_">
-                <img class="card-img-top rounded_img_borders_ img_height_" src="img/logo_grafik_200x200.png" alt="CSH"/>
-                <div class="card-body">
-                  <h5 class="card-title center_"><a href="https://www.csh.ac.at/" class="stretched-link">Complexity Science Hub Vienna</a></h5>
-                  <!-- <img src="img/Portrait Hanne Pilgrim.jpg" alt="Card image" style="width:100%"> -->
-                  <div class="card-text center_">
-                  </div>
-                </div>
-              </div>
-            </div>
-
         </div>
-        <!-- </div> -->
-
-
-
-
+        <div class="row small_margin_">
+            <div class="col">
+              <img style="width:100%" src="./img/Schema.png" alt="Card image" >
+            </div>
+        </div>
       </div>
-      <div class="col-md-1 col-sm-1 col-xs-1 displayheight_ testdiv_"></div>
+      <div class="col-md-2 col-sm-1 col-xs-1 mainheight_ testdiv_"></div>
     </div>
     <div class="row foreground_ bottomnav_ navheight_ totalwidth_ testdiv_">
       <div class="col-md-2 col-sm-1 col-xs-1 navheight_ testdiv_ menu_">
@@ -136,7 +85,7 @@
     uniform vec2 u_smudgepos[4];
     uniform vec2 u_smudgevel[4];
     uniform sampler2D u_texture;
-    uniform float u_white_out;
+    uniform float u_whiteout;
 
     float softlim(float v) {
       float l = abs(v);
@@ -184,7 +133,7 @@
         tmp[i] += u_intensity *
           exp(-sqlength(length(u_smudgevel[i]) * (v_texcoord * u_resolution - u_smudgepos[i]) / (0.1 + u_scale)));
       }
-        gl_FragColor = safeadd((1.0 - u_white_out) * fetch, tmp);
+        gl_FragColor = safeadd((1.0 - u_whiteout) * fetch, tmp);
     }
   </script>
   <script id="fs_render" type="x-shader/x-fragment">
@@ -226,7 +175,7 @@
     }
   </script>
   <script type="text/javascript">
-  const colrs = ["dd04a0", "a0aa04", "440aaa", "aa000"],
+  const colrs = ["dd04a0", "a0aa04", "440aaa", "aa0000"],
     canvasdoc = document.getElementById("canvasholder"),
     containerdoc = document.getElementsByClassName("container-fluid"),
     dmnsn = [canvasdoc.offsetWidth, canvasdoc.offsetHeight],
@@ -318,7 +267,7 @@
       u_smudgepos: smdgs.map((s) => s.p).flat(),
       u_smudgevel: smdgs.map((s) => s.v).flat(),
       u_texture: bffrs[0].attachments[0],
-      u_white_out: whout
+      u_whiteout: whout
     });
     rendr(null, pgInf.render, {
       // u_colors: [1,0,0,0,1,0,0,0,1,0,0,0],
