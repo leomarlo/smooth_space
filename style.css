@@ -6,10 +6,12 @@ body{
   height:100%;
   width:100%;
   padding:0;
-  overflow: hidden;
+  font-size: 12pt;
+  /* overflow: hidden; */
   font-family: 'abeezee-regular-webfont', 'abeezeeregular', sans-serif;
 }
 canvas{
+  position:absolute;
   width:100vw;
   height:100vh;
   padding:0;
@@ -21,66 +23,73 @@ a {
   color: inherit
 }
 
-.main {
-  position: absolute;
-  /* top:0; */
-  z-index: 2;
-  /* margin-left:auto; */
-  /* margin: 50 auto; */
-  /* border-style:solid;
-  border-color:black;
-  border-width:2px;
-  border-radius: 15px; */
+.absolute {
+  position:absolute;
 }
+
+.mainheight {
+  height:90vh;
+}
+
+.navheight {
+  height:10vh;
+}
+
+.totalwidth {
+  width:100vw;
+}
+
+.foreground {
+  z-index:2;
+}
+
+.scrollable {
+  overflow-y:auto;
+}
+
+.bottomnav {
+  position:fixed;
+  bottom:0;
+}
+
+.center {
+  text-align:center;
+}
+
+
+.testdiv {
+  /* z-index:2;
+  border-style:solid;
+  border-color:black;
+  border-width:0.5px; */
+}
+
+
 
 .title {
   /* margin-left:20%;
   margin-right: 0; */
-  margin-top: 30%;
+  margin-top: 20%;
   text-align: center;
   font-size: 32pt;
-  /* border-style:solid;
-  border-color:black;
-  border-width:2px;
-  border-radius: 15px; */
 }
 
 .subtitle {
+  margin-top: 2%;
   text-align: center;
   font-size: 18pt;
-  /* border-style:solid;
-  border-color:black;
-  border-width:2px;
-  border-radius: 15px; */
 }
 
-.logo{
-  /* position:relative; */
+.logodiv {
+  margin-top: 2%;
+  text-align: center;
+}
+
+.inlineblock {
   display: inline-block;
-  text-align: center;
-  /* border-style:solid;
-  border-color:black;
-  border-width:2px;
-  border-radius: 15px; */
-  margin-left: 10%;
 }
 
-.navbottom{
-  z-index: 2;
-  position:fixed;
-  margin-left: 7%;
-  bottom:0%;
-  height:8%;
-  text-align:center;
-  border-color:black;
-  border-width:2px;
-  border-radius: 15px;
+.menu {
+  margin-top: 2%;
   font-size: 18pt;
-}
-.Menu{
-  font-size: 18pt;
-  text-align:center;
-  border-color:black;
-  border-width:2px;
-  border-radius: 15px;
 }
