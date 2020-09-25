@@ -92,6 +92,10 @@ a {
     padding-bottom: 0.5%;
 }
 
+.padding_ {
+  padding:5px;
+}
+
 .heading_ {
   position:fixed;
   top:0;
@@ -120,12 +124,23 @@ a {
   font-size: 18pt;
 }
 
+.profile_font_size_ {
+  font-size: 18pt;
+}
+
 .rounded_card_borders_ {
   border-radius: 15px;
 }
 
 .rounded_img_borders_ {
   border-radius: 13px 13px 0px 0px;
+}
+
+.contain_img_ {
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  overflow: hidden;
 }
 
 .cardborder_ {
@@ -160,10 +175,19 @@ a {
   font-size: 32pt;
 }
 
+.photo_credentials_ {
+  text-align: right;
+  font-size: 8pt;
+}
+
 .subtitle_ {
   margin-top: 2%;
   text-align: center;
   font-size: 18pt;
+}
+
+.small_margin_ {
+  margin-top: 2%;
 }
 
 .logodiv_ {
