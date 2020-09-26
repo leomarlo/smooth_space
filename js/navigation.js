@@ -5,7 +5,7 @@ function navigation_adjust() {
   this.cardelm = this.sidenav.querySelectorAll("."+this.cardstr);
   this.focus_dom = function(event) {
     var current_node = event.target;
-    for (domel=0; domel<=100; domel++) {
+    for (var domel=0; domel<=100; domel++) {
       var is_some_card_dom = current_node.className.slice(0,self.cardstr.length)==self.cardstr;
       var is_sub_card_dom = current_node.className[self.cardstr.length]=="-";
       if (is_some_card_dom && !is_sub_card_dom) {
@@ -19,7 +19,7 @@ function navigation_adjust() {
     return null
   }
   this.add_event_listeners = () => {
-    for (ix = 0; ix < this.cardelm.length; ix++) {
+    for (var ix = 0; ix < this.cardelm.length; ix++) {
       this.cardelm[ix].addEventListener("click", this.focus_dom);
     };
     return null
