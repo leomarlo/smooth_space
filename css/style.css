@@ -199,6 +199,12 @@ a {
   margin-top: 2%;
 }
 
+.middle_event_ {
+  position: absolute;
+  top: 30vh;
+  width: 100%;
+}
+
 .logodiv_ {
   margin-top: 2%;
   text-align: center;
@@ -211,6 +217,14 @@ a {
 .menu_ {
   margin-top: 2%;
   font-size: 18pt;
+}
+
+.quite_long_ {
+  min-height: 350vh;
+}
+
+.justify_ {
+  text-align: justify;
 }
 
 
