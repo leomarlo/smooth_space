@@ -172,16 +172,14 @@
     </div>
 
   </div>
-  <!-- <script type="module">
-      import { navigation_adjust } from './models/student.js';
+  <script type="module">
+      import { navigation_adjust } from './js/navigation.js';
 
-      window.onload = function () {
-          var x = new Student();
-          x.course.id = 1;
-          document.getElementById('myDiv').innerHTML = x.course.id;
-      }
-  </script> -->
-  <script>
+      var nav = new navigation_adjust();
+      nav.add_event_listeners();
+
+  </script>
+  <!-- <script>
     function navigation_adjust() {
       var self=this;
       this.sidenav = document.getElementById("project_sidenav");
@@ -212,7 +210,7 @@
     var nav = new navigation_adjust();
     nav.add_event_listeners();
 
-  </script>
+  </script> -->
   <script id="vs" type="x-shader/x-vertex" src="xvtx_vs.js">
     attribute vec4 a_position;
     attribute vec2 a_texcoord;
