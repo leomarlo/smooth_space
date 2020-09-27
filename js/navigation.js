@@ -10,7 +10,7 @@ function navigation_adjust() {
       var is_sub_card_dom = current_node.className[self.cardstr.length]=="-";
       if (is_some_card_dom && !is_sub_card_dom) {
         var ref_id = current_node.id.split("lette");
-        document.getElementById(ref_id[0]).scrollIntoView()
+        document.getElementById(ref_id[0]).scrollIntoView({behavior: 'smooth'})
         break;
       } else {
         current_node = current_node.parentNode;
@@ -18,7 +18,7 @@ function navigation_adjust() {
     }
     return null
   }
-  this.add_event_listeners = () => {
+  this.all_cards_scroll_into_view = () => {
     for (var ix = 0; ix < this.cardelm.length; ix++) {
       this.cardelm[ix].addEventListener("click", this.focus_dom);
     };
@@ -26,4 +26,4 @@ function navigation_adjust() {
   }
 }
 
-export {navigation_adjust}; 
+export {navigation_adjust};

@@ -22,7 +22,7 @@
 
         <div class="row mt-4">
           <div class="col-sm-12 col-md-12">
-            <div class="card cardborder_ ">
+            <div class="card cardborder_ " id="workshop_csh_january_card">
               <div class="card-header center_"><h4 class="padding_">Workshop &mdash; A Syntax for Smooth Spaces</h4></div>
               <div class="card-body justify_">
                 <i>How can we construct notational systems of spaces and what do we demand from them?</i> In this workshop, we would like to pursue this question from a performance, as well as a complexity science perspective, and lay emphasis on the experiential dimension rather than the bare physical description. At the same time, we explore various synergies with the work of the CSH. How can we build virtual or artificial spaces? How can virtual spaces help to investigate space experiences? How can notational systems be developed, also beyond a written encoding? In the audio-corporeal arts, space is both shaped by performers as a medium, and shaping the performer as a condition. Despite its important role, notations and means of communicating spaces and their qualities are lacking. The 20th century has seen a range of notational systems for movement and dance, such as the Laban notation. The starting point of this workshop is a brief exposition of the notion of artistic research, followed by theoretical contributions and practical input from performers. The envisioned output is artistic research collaboration between the mdw (University for Music and Performative Art Vienna), the abpu (Anton Brucker Privatuniversität) and the Complexity Science Hub.
@@ -47,7 +47,7 @@
 
           <div class="row mt-4 middle_event_">
             <div class="col-sm-12 col-md-12">
-              <div class="card cardborder_ ">
+              <div class="card cardborder_ " id="workshop_csh_january_cardlette">
                 <div class="card-header center_">10.-11. January 2020</div>
                 <div class="card-body">
                   <h5 class="card-title center_ "> <b>Workshop</b><br>A Syntax for Smooth Spaces</h5>
@@ -80,6 +80,12 @@
     </div>
 
   </div>
+  <script type="module">
+      import { navigation_adjust } from './js/navigation.js';
+
+      var nav = new navigation_adjust();
+      nav.all_cards_scroll_into_view();
+  </script>
   <script id="vs" type="x-shader/x-vertex" src="xvtx_vs.js">
     attribute vec4 a_position;
     attribute vec2 a_texcoord;
