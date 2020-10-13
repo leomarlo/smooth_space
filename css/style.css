@@ -101,6 +101,11 @@ a {
     padding-bottom: 0.5%;
 }
 
+.nopadding_ {
+  padding-right:0;
+  padding-left:0;
+}
+
 .credit_{
   position: absolute;
   bottom: 0px;
