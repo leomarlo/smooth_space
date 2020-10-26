@@ -101,6 +101,21 @@ a {
     padding-bottom: 0.5%;
 }
 
+.nopadding_ {
+  padding-right:0;
+  padding-left:0;
+}
+
+.credit_{
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  margin-right: 5px;
+  text-align: right;
+  font-size: 8pt;
+  color: #777;
+}
+
 .padding_ {
   padding:5px;
 }
