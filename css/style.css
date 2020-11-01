@@ -29,8 +29,8 @@ body{
 }
 
 div.smll_box_ {
-  width: 25px;
-  height: 25px;
+  width: 15px;
+  height: 15px;
   display: inline-block;
   border-radius:5px;
   font-size: 12pt;
@@ -56,12 +56,13 @@ div.doc_ {
   color: #ffffff;
 }
 
-a {
-  color: inherit
+div.per_ {
+  background-color: #0a44aa;
+  color: #ffffff;
 }
 
-.cover_ {
-  object-fit: cover;
+a {
+  color: inherit
 }
 
 .absolute_ {
@@ -161,7 +162,7 @@ a {
 }
 
 .rounded_img_borders_ {
-  border-radius: 15px 0px 0px 15px;
+  border-radius: 13px 13px 0px 0px;
 }
 
 .contain_img_ {
@@ -172,9 +173,9 @@ a {
 }
 
 .cardborder_ {
-  border-style:none;
-  border-color:blue;
-  border-width:0px;
+  border-style:solid;
+  border-color:black;
+  border-width:1px;
 }
 
 .testdiv_ {
