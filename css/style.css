@@ -60,6 +60,10 @@ a {
   color: inherit
 }
 
+.cover_ {
+  object-fit: cover;
+}
+
 .absolute_ {
   position:absolute;
 }
@@ -157,7 +161,7 @@ a {
 }
 
 .rounded_img_borders_ {
-  border-radius: 13px 13px 0px 0px;
+  border-radius: 15px 0px 0px 15px;
 }
 
 .contain_img_ {
@@ -168,9 +172,9 @@ a {
 }
 
 .cardborder_ {
-  border-style:solid;
-  border-color:black;
-  border-width:1px;
+  border-style:none;
+  border-color:blue;
+  border-width:0px;
 }
 
 .testdiv_ {
