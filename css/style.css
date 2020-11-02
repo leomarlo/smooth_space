@@ -46,12 +46,12 @@ div.rep_ {
   color: #ffffff;
 }
 
-div.exp_ {
+div.doc_ {
   background-color: #440aaa;
   color: #ffffff;
 }
 
-div.doc_ {
+div.exp_ {
   background-color: #aa0000;
   color: #ffffff;
 }
@@ -121,8 +121,19 @@ a {
   color: #777;
 }
 
+.padding_left_ {
+  padding-left: 15px;
+}
+.padding_right_ {
+  padding-right: 15px;
+}
+
 .padding_ {
   padding:5px;
+}
+
+.gray_ {
+  background-color: #d7d7d7;
 }
 
 .heading_ {
@@ -161,8 +172,12 @@ a {
   border-radius: 15px;
 }
 
-.rounded_img_borders_ {
-  border-radius: 13px 13px 0px 0px;
+.rounded_img_borders_left_ {
+  border-radius: 15px 15px 15px 15px;
+}
+
+.rounded_img_borders_right_ {
+  border-radius: 0px 15px 15px 0px;
 }
 
 .cover_ {
@@ -177,7 +192,7 @@ a {
 }
 
 .cardborder_ {
-  border-style:solid;
+  border-style:none;
   border-color:black;
   border-width:1px;
 }
@@ -206,6 +221,10 @@ a {
   margin-top: 20%;
   text-align: center;
   font-size: 32pt;
+}
+
+.align_right_ {
+    text-align: right;
 }
 
 .photo_credentials_ {
