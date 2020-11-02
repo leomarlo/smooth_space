@@ -29,8 +29,8 @@ body{
 }
 
 div.smll_box_ {
-  width: 25px;
-  height: 25px;
+  width: 15px;
+  height: 15px;
   display: inline-block;
   border-radius:5px;
   font-size: 12pt;
@@ -46,22 +46,23 @@ div.rep_ {
   color: #ffffff;
 }
 
-div.exp_ {
+div.doc_ {
   background-color: #440aaa;
   color: #ffffff;
 }
 
-div.doc_ {
+div.exp_ {
   background-color: #aa0000;
+  color: #ffffff;
+}
+
+div.per_ {
+  background-color: #0a44aa;
   color: #ffffff;
 }
 
 a {
   color: inherit
-}
-
-.cover_ {
-  object-fit: cover;
 }
 
 .absolute_ {
@@ -120,8 +121,19 @@ a {
   color: #777;
 }
 
+.padding_left_ {
+  padding-left: 15px;
+}
+.padding_right_ {
+  padding-right: 15px;
+}
+
 .padding_ {
   padding:5px;
+}
+
+.gray_ {
+  background-color: #d7d7d7;
 }
 
 .heading_ {
@@ -160,8 +172,16 @@ a {
   border-radius: 15px;
 }
 
-.rounded_img_borders_ {
-  border-radius: 15px 0px 0px 15px;
+.rounded_img_borders_left_ {
+  border-radius: 15px 15px 15px 15px;
+}
+
+.rounded_img_borders_right_ {
+  border-radius: 0px 15px 15px 0px;
+}
+
+.cover_ {
+  object-fit: cover;
 }
 
 .contain_img_ {
@@ -173,8 +193,8 @@ a {
 
 .cardborder_ {
   border-style:none;
-  border-color:blue;
-  border-width:0px;
+  border-color:black;
+  border-width:1px;
 }
 
 .testdiv_ {
@@ -201,6 +221,10 @@ a {
   margin-top: 20%;
   text-align: center;
   font-size: 32pt;
+}
+
+.align_right_ {
+    text-align: right;
 }
 
 .photo_credentials_ {
