@@ -275,6 +275,12 @@ a:active {
   text-align: center;
 }
 
+.acknowlegeFWF {
+  margin-top: 3%;
+  text-align: center;
+  font-size: 10pt;
+}
+
 .inlineblock_ {
   display: inline-block;
 }

@@ -23,7 +23,7 @@
           ATLAS OF SMOOTH  SPACES<br>IN THE AUDIOCORPOREAL ARTS
         </div>
         <div class="subtitle_ testdiv_">
-          AN ARTISTIC RESEARCH PROJECT ON<br>
+          AN ARTISTIC RESEARCH PROJECT<span id="symbol_1" ><sup>&#9824;</sup></span> ON<br>
           COMMUNICATING, CREATING AND COMPOSING SPACES<br>
           IN COLLABORATION WITH
         </div>
@@ -31,6 +31,9 @@
           <span class="inlineblock testdiv_"><a href="https://www.mdw.ac.at/"><img src="img/mdwLogo.svg" alt="MDW" height="80px" width="120px"/></a></span>
           <span class="inlineblock testdiv_"><a href="https://www.bruckneruni.at/"><img src="img/bruckneruni.svg" alt="BrucknerUni" height="80px" width="120px"/></a></span>
           <span class="inlineblock testdiv_"><a href="https://www.csh.ac.at/"><img src="img/logo_grafik_200x200.png" alt="Complexity Science Hub" height="80px" width="70px"/></a></span>
+        </div>
+        <div class="acknowlegeFWF">
+          <span id="symbol_2"><sup>&#9824;</sup></span>This research was funded in whole by the Austrian Science Fund (FWF). Grant number: <a href="https://www.fwf.ac.at/en/news-and-media-relations/news/detail/nid/20210318-2635">AR640</a>
         </div>
       </div>
       <div class="col-md-2 col-sm-1 col-xs-1 mainheight_ testdiv_"></div>
@@ -55,6 +58,7 @@
     </div>
 
   </div>
+
   <script id="vs" type="x-shader/x-vertex">
     attribute vec4 a_position;
     attribute vec2 a_texcoord;
@@ -175,6 +179,7 @@
     }
   </script>
   <script type="text/javascript">
+    
   const colrs = ["dd04a0", "a0aa04", "440aaa", "aa0000"],
     canvasdoc = document.getElementById("canvasholder"),
     containerdoc = document.getElementsByClassName("container-fluid"),
@@ -296,4 +301,18 @@
   </script>
 
 </body>
+<script type="text/javascript">
+  console.log('hallo')
+  let symbol_1 = document.getElementById("symbol_1")
+  let symbol_2 = document.getElementById("symbol_2")
+  const symbols = ['&#9824;','&#9837;', '&#8853;', '&#8629;', '&#9829;', '&#9839;'];
+  const numberOfSymbols = symbols.length;
+  let stateOfSymbol = {state: (numberOfSymbols>1? 1: 0)};
+  setInterval(function() {
+    let inner = '<sup>' + symbols[stateOfSymbol.state % numberOfSymbols] + '</sub>'
+    symbol_1.innerHTML = inner;
+    symbol_2.innerHTML = inner;
+    stateOfSymbol.state += 1;
+  }, 5 * 1000); 
+</script>
 </html>
