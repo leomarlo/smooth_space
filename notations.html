@@ -22,77 +22,52 @@
 
         <div class="row mt-2">
           <div class="col-sm-12 col-md-12">
-            <div class="card cardborder_ " id="overview_synopsis_card">
-              <div class="card-header center_"><h4 class="padding_">Overview &mdash; Theoretical Synopsis</h4></div>
+            <div class="card cardborder_ " id="alphabet_encoding_card">
+              <div class="card-header center_"><h4 class="padding_">Notation &mdash; A Formal Excursion<br>Alphabet Encoding</h4></div>
               <div class="card-body justify_">
+                <h3>Introduction</h3>
                 <p>
-                  We explore how to notate, communicate and compose space phenomena across audio-corporeal artistic practices.
-                  We investigate these in four disciplines: dance, rhythmics, choir conducting and direct sound.
-                  They share an alertness for and a certain tacit knowledge about space.
-                  In stark contrast to musical or movement notations,
-                  one finds that notated spaces are rather scarce in the audio-corporeal practices even though space unites them.
-                  We argue that this lacuna will be bridged by working on an atlas of space qualities.
-                  Rather than communicating merely the metric measures of spaces without the performer,
-                  we are concerned instead with emergent spatial qualities of smooth spaces that complement the performer,
-                  that exist outside of but not without the performer.
+                  What is communication? Although covering the general literature about communication theory is beyond the scope of this short paragraph, we 
+                  will nevertheless make a short excursion to one of the approaches taken around the middle of the 20th century on this topic. 
+                  The seminal paper by Claude Shannon outlines an approach to <it>A formal theory of communication</it> The key ingredients are 
+                  senders, encoders, signals, decoders, receivers and noise. We have used Shannons 1948 paper as a starting point to investigate certain 
+                  aspects of communication, as it has been abstracted in that theory. </p>
+                <h3>The Game</h3>
+                <p>
+                  As part of a communication game we have split up into two groups, 
+                  each of which tries to efficiently communicate some information. In our case we
+                  considered the English alphabet as the source of information that ought to be transmitted.
+                  So each party had to encode the letters of the alphabet as efficiently as possible. Here we
+                  opted for a binary encoding, which is convenient for computer-readible signals. The encoding is 
+                  achieved via a binary decision tree, meaning that each group has to construct a series of yes-or-no questions
+                  that uniquely single out each letter of the alphabet. 
                 </p>
-
+                <br>
+                <!-- <form method="get" id="encoding_form"> -->
+                <label for="tobeencoded">Enter Text:</label>
+                <input type="text" id="tobeencoded_A" name="tobeencoded_A" value="Some example Text">
+                <input type="radio" id="groupa" name="encodingradio" value="GroupA"; style="margin-left:15px;" checked>
+                <label for="groupa" style="margin-left:5px; margin-right:10px">Group A</label>
+                <input type="radio" id="groupb" name="encodingradio" value="GroupB" disabled>
+                <label for="groupb"  style="margin-left:5px; margin-right:15px">Group B</label>
+                <button id="encoding_submit" type="submit" form="encoding_form" class="btn btn-primary" style="margin-left:5px; margin-bottom:10px" value="Encode">Encode</button><br>
+                <!-- </form> -->
+                
+                <p id="EncodingField" style="overflow-wrap: anywhere; padding: 10px; margin: 4px; border-width: 1px; border-style: solid; border-color: coral; border-radius: 5px;">
+                  
+                </p><br>
+                <div style="margin-left:5px;"> Encoding length : <span id="encodingLength"></span></div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="row mt-2">
-          <div class="col-sm-12 col-md-12">
-            <div class="card cardborder_ " id="overview_methodology_card">
-              <div class="card-header center_ "><h4 class="padding_">Overview &mdash; Methodology</h4></div>
-              <div class="card-body justify_">
-                <p>
-                  For each pair of artistic practices we investigate how to intensify spatial phenomena,
-                  how to translate and communicate them, how to appropriate them for ones own practice and how to engage into mutual composition.
-                  We inquire about the kinetic spheres of two performers when a third one enters.
-                  Similar to the three-body problem in physics we seek to describe this emergent phenomena.
-                  How can the complexified spatial interactions of the kinespheres be notated.
-                  How saturated becomes the space, how fragmented, how synchronous?
-                </p>
-                <p>
-                  We conduct experiments during which a smooth space phenomenon is first distilled and
-                  condensed to a clear spatial expression. This we call the null-space. It is the starting point
-                  for our investigations and experiments, which are co-created in an iterative process by the
-                  performers and a complexity scientist. We foresee a recursive pipeline, that divides the work into individual,
-                  collision and co-production modi. We also foresee a role fluidity - performer, experimenter and documenter
-                  are not attached to individuals allowing for a change of perspective.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="row mt-2" id="project_context_card">
+        <!-- <div class="row mt-2" id="project_context_card">
           <div class="col-sm-12 col-md-12">
             <div class="card cardborder_ " id="overview_context_card">
               <div class="card-header center_ "><h4 class="padding_">Overview &mdash; Context</h4></div>
               <div class="card-body justify_">
-                <p>
-                  Acknowledging the importance of spaces in the audio-corporeal arts we consider the development of
-                  transdisciplinary space practices and notations as our major innovation. Secondly we believe that
-                  the particular mode of collaboration between performers and a complexity scientist leads into new artistic methodologies.
-                  Thirdly we create a toolbox that refers to the intense qualities of audio-corporeal space articulations and enlargens the disciplinary range of compositional space factors for artistic productivity.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-<!--
-        <div class="row mt-4" >
-          <div class="col-sm-12 col-md-12">
-            <div class="card cardborder_ " id="labs_organization_card">
-              <div class="card-header center_ doc_"><h4 class="padding_">Smooth Space Labs &mdash; Organization</h4></div>
-              <div class="card-body justify_">
-                <p>
-
-                </p>
-
               </div>
             </div>
           </div>
@@ -109,13 +84,13 @@
               <div class="card cardborder_ " id="overview_synopsis_cardlette">
                 <div class="card-header center_"></div>
                 <div class="card-body">
-                  <h5 class="card-title center_ "><b>Overview</b><br>Theoretical Synopsis</h5>
+                  <h5 class="card-title center_ "><b>Notations</b><br>A Formal Excursion</h5>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="row mt-2">
+          <!-- <div class="row mt-2">
             <div class="col-sm-12 col-md-12">
               <div class="card cardborder_ " id="overview_methodology_cardlette">
                 <div class="card-header center_"></div>
@@ -124,9 +99,9 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="row mt-2">
+          <!-- <div class="row mt-2">
             <div class="col-sm-12 col-md-12">
               <div class="card cardborder_ " id="overview_context_cardlette">
                 <div class="card-header center_ "></div>
@@ -135,7 +110,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <!-- <div class="row mt-2">
             <div class="col-sm-12 col-md-12">
@@ -153,7 +128,7 @@
       </div>
     </div>
     <div class="row foreground_ bottomnav_ navheight_ totalwidth_ testdiv_">
-      <div class="col-md-2 col-sm-2 col-xs-2 navheight_ testdiv_ menu_">h
+      <div class="col-md-2 col-sm-2 col-xs-2 navheight_ testdiv_ menu_">
         <span ><a href="index.html"><img src="img/home.svg" alt="home" height="28pt"/></a></span>
       </div>
       <div class="col-md-8 col-sm-8 col-xs-8 navheight_ testdiv_ white_ center_">
@@ -175,7 +150,81 @@
       var nav = new navigation_adjust();
       nav.all_cards_scroll_into_view();
   </script>
-  <!-- <script>
+  <script>
+    const GroupA = {
+      'a': '111',
+      'b': '0000111',
+      'c': '000010',
+      'd': '0000110',
+      'e': '101',
+      'f': '000111',
+      'g': '000110',
+      'h': '0000011',
+      'i': '100',
+      'j': '00010',
+      'k': '000000',
+      'l': '0000010',
+      'm': '01',
+      'n': '001001',
+      'o': '1101',
+      'p': '001001',
+      'q': '001111',
+      'r': '0010001',
+      's': '0010000',
+      't': '001110',
+      'u': '1100',
+      'v': '001011',
+      'w': '001010',
+      'x': '001101',
+      'y': '001001',
+      'z': '001100'
+    }
+
+    var EnglishAlphabet = Object.keys(GroupA)
+
+    function translate(text) {
+      lowerText = text.toLowerCase()
+      translation = ''
+      newWordCharacters = ' .,!?;:'
+      let len = 0
+      for (let j=0; j<lowerText.length; j++){
+        letter = lowerText[j]
+        letterEncoding = GroupA[letter]
+        if (GroupA[letter]){
+          translation += letterEncoding
+          len += letterEncoding.length;
+        } else {
+          if (newWordCharacters.includes(letter)){
+            translation += letter
+          } else {
+            translation += '?'
+          }
+        }
+        translation += '|'
+      }
+      return {
+        translation: translation,
+        lengthOfEncoding: len}
+    }
+
+    encodingSubmitButton = document.getElementById('encoding_submit')
+    tobeEncodedA = document.getElementById('tobeencoded_A')
+    encodingField = document.getElementById('EncodingField')
+    encodingLengthField = document.getElementById('encodingLength')
+
+    encodingSubmitButton.addEventListener("click", ()=>{
+      if (tobeEncodedA.value) {
+        text = tobeEncodedA.value
+        const encoding = translate(text)
+        encodingField.innerText = encoding.translation
+        encodingLengthField.innerText = encoding.lengthOfEncoding
+      } else {
+        encodingField.innerText = 'Sorry, there is no Text to be encoded.'
+      }
+    });
+   
+  </script>
+  <script>
     function navigation_adjust() {
       var self=this;
       this.sidenav = document.getElementById("project_sidenav");
@@ -206,8 +255,8 @@
     var nav = new navigation_adjust();
     nav.add_event_listeners();
 
-  </script> -->
-  <script id="vs" type="x-shader/x-vertex" src="xvtx_vs.js">
+  </script>
+  <script id="vs" type="x-shader/x-vertex">
     attribute vec4 a_position;
     attribute vec2 a_texcoord;
 
