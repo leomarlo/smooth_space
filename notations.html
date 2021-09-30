@@ -46,10 +46,10 @@
                 <!-- <form method="get" id="encoding_form"> -->
                 <label for="tobeencoded">Enter Text:</label>
                 <input type="text" id="tobeencoded_A" name="tobeencoded_A" value="Some example Text">
-                <input type="radio" id="groupa" name="encodingradio" value="GroupA"; style="margin-left:15px;" checked>
-                <label for="groupa" style="margin-left:5px; margin-right:10px">Group A</label>
-                <input type="radio" id="groupb" name="encodingradio" value="GroupB" disabled>
-                <label for="groupb"  style="margin-left:5px; margin-right:15px">Group B</label>
+                <input type="radio" id="groupa-radio" name="encodingradio" value="GroupA"; style="margin-left:15px;" checked>
+                <label for="groupa-radio" style="margin-left:5px; margin-right:10px">Group A</label>
+                <input type="radio" id="groupb-radio" name="encodingradio" value="GroupB">
+                <label for="groupb-radio"  style="margin-left:5px; margin-right:15px">Group B</label>
                 <button id="encoding_submit" type="submit" form="encoding_form" class="btn btn-primary" style="margin-left:5px; margin-bottom:10px" value="Encode">Encode</button><br>
                 <!-- </form> -->
                 
@@ -180,17 +180,60 @@
       'z': '001100'
     }
 
+    const GroupB = {
+      'a': '111',
+      'b': '010111',
+      'c': '01000',
+      'd': '010110',
+      'e': '1011',
+      'f': '010100',
+      'g': '0110',
+      'h': '010101',
+      'i': '100',
+      'j': '0111',
+      'k': '010010',
+      'l': '010011',
+      'm': '001001',
+      'n': '001000',
+      'o': '110',
+      'p': '00110',
+      'q': '00111',
+      'r': '001011',
+      's': '001010',
+      't': '00010',
+      'u': '1010',
+      'v': '000011',
+      'w': '000010',
+      'x': '00011',
+      'y': '000001',
+      'z': '000000'
+    }
+
     var EnglishAlphabet = Object.keys(GroupA)
+
+    encodingSubmitButton = document.getElementById('encoding_submit')
+    tobeEncodedA = document.getElementById('tobeencoded_A')
+    encodingField = document.getElementById('EncodingField')
+    encodingLengthField = document.getElementById('encodingLength')
+    optionA_radio = document.getElementById('groupa-radio')
+    optionB_radio = document.getElementById('groupb-radio')
 
     function translate(text) {
       lowerText = text.toLowerCase()
       translation = ''
       newWordCharacters = ' .,!?;:'
       let len = 0
+      let letterEncoding = new Object()
       for (let j=0; j<lowerText.length; j++){
         letter = lowerText[j]
-        letterEncoding = GroupA[letter]
-        if (GroupA[letter]){
+
+        if (optionA_radio.checked) {
+          letterEncoding = GroupA[letter]
+        } else if (optionB_radio.checked) {
+          letterEncoding = GroupB[letter]
+        }
+        
+        if (letterEncoding){
           translation += letterEncoding
           len += letterEncoding.length;
         } else {
@@ -200,17 +243,12 @@
             translation += '?'
           }
         }
-        translation += '|'
+        translation += ''
       }
       return {
         translation: translation,
         lengthOfEncoding: len}
     }
-
-    encodingSubmitButton = document.getElementById('encoding_submit')
-    tobeEncodedA = document.getElementById('tobeencoded_A')
-    encodingField = document.getElementById('EncodingField')
-    encodingLengthField = document.getElementById('encodingLength')
 
     encodingSubmitButton.addEventListener("click", ()=>{
       if (tobeEncodedA.value) {
