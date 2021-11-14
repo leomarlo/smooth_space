@@ -1,6 +1,15 @@
+## no wordpress or anything of that sort
 /wordpress/
 info.php
 *.xcf
-.cache
 
+## no cache or anything of that shizzle
+*.cache
+
+## No environment variables
+app/.env
 *.env
+*db.env
+
+## No data dumps
+*.sql
