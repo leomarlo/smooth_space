@@ -1,6 +1,6 @@
-function navigation_adjust() {
+function navigation_adjust(element_name) {
   var self=this;
-  this.sidenav = document.getElementById("project_sidenav");
+  this.sidenav = document.getElementById(element_name);
   this.cardstr = 'card';
   this.cardelm = this.sidenav.querySelectorAll("."+this.cardstr);
   this.focus_dom = function(event) {
