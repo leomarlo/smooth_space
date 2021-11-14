@@ -2,3 +2,5 @@
 info.php
 *.xcf
 .cache
+
+*.env
