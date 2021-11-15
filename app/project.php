@@ -154,15 +154,15 @@
     </div>
     <div class="row foreground_ bottomnav_ navheight_ totalwidth_ testdiv_">
       <div class="col-md-2 col-sm-2 col-xs-2 navheight_ testdiv_ menu_">h
-        <span ><a href="index.html"><img src="img/home.svg" alt="home" height="28pt"/></a></span>
+        <span ><a href="index.php"><img src="img/home.svg" alt="home" height="28pt"/></a></span>
       </div>
       <div class="col-md-8 col-sm-8 col-xs-8 navheight_ testdiv_ white_ center_">
         <div class="menu_">
-          <span > <a href="project.html"> Project </a> </span>|
-          <span > <a href="notations.html"> Notations </a> </span>|
-          <span > <a href="events.html"> Events </a> </span>|
-          <span > <a href="team.html"> Team </a> </span>|
-          <span > <a href="partners.html"> Partners </a> </span>
+          <span > <a href="project.php"> Project </a> </span>|
+          <span > <a href="notations.php"> Notations </a> </span>|
+          <span > <a href="events.php"> Events </a> </span>|
+          <span > <a href="team.php"> Team </a> </span>|
+          <span > <a href="partners.php"> Partners </a> </span>
         </div>
       </div>
       <div class="col-md-2 col-sm-2 col-xs-2 navheight_ testdiv_"></div>
