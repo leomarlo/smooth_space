@@ -25,12 +25,18 @@
             <div class="card cardborder_ " id="workshop_csh_january_card">
               <div class="card-header center_"><h4 class="padding_">Workshop &mdash; A Syntax for Smooth Spaces</h4></div>
               <div class="card-body justify_">
+                <details>
+                  <summary><b>Description</b></summary>
+                
                 <i>How can we construct notational systems of spaces and what do we demand from them?</i> In this workshop, we would like to pursue this question from a performance, as well as a complexity science perspective, and lay emphasis on the experiential dimension rather than the bare physical description. At the same time, we explore various synergies with the work of the CSH. How can we build virtual or artificial spaces? How can virtual spaces help to investigate space experiences? How can notational systems be developed, also beyond a written encoding? In the audio-corporeal arts, space is both shaped by performers as a medium, and shaping the performer as a condition. Despite its important role, notations and means of communicating spaces and their qualities are lacking. The 20th century has seen a range of notational systems for movement and dance, such as the Laban notation. The starting point of this workshop is a brief exposition of the notion of artistic research, followed by theoretical contributions and practical input from performers. The envisioned output is artistic research collaboration between the mdw (University for Music and Performative Art Vienna), the abpu (Anton Brucker Privatuniversität) and the Complexity Science Hub (CSH).
+                </details>
               </div>
               <div class="card-footer">
                 <p><b>Where</b><br><a href="https://www.csh.at">Complexity Science Hub Vienna </a></p>
                 <p><b>When</b><br>17th to 18th of June, 2021</p>
-                <p><b>Participants</b><br>
+                <p>
+                  <details>
+                    <summary><b>Participants</b></summary>
                   Hanne Pilgrim (MDW) <br>
                   Rose Breuss (ABPU) <br>
                   Johannes Hiemetsberger (MDW) <br>
@@ -44,6 +50,8 @@
                   Damian Cortes Alberti (ABPU)<br>
                   Kai Chun Chuang (ABPU)<br>
                   <br>
+                  
+                </details>
                 </p>
               </div>
             </div>
@@ -56,11 +64,16 @@
             <div class="card cardborder_ " id="ignition_lab_september_card">
               <div class="card-header center_"><h4 class="padding_">Ignition Lab &mdash; Kick-off Workshop</h4></div>
               <div class="card-body justify_">
+                <details>
+                  <summary><b>Description</b></summary>
+                </details>
               </div>
               <div class="card-footer">
                 <p><b>Where</b><br><a href="https://www.mdw.ac.at/">MDW &mdash; Rennweg 8</a></p>
                 <p><b>When</b><br>1st to 4th of September, 2021</p>
-                <p><b>Participants</b><br>
+                <p>
+                <details>
+                  <summary><b>Participants</b></summary>
                   Hanne Pilgrim (MDW) <br>
                   Rose Breuss (ABPU) <br>
                   Johannes Hiemetsberger (MDW) <br>
@@ -73,11 +86,97 @@
                   Damian Cortes Alberti (ABPU)<br>
                   Kai Chun Chuang (ABPU)<br>
                   <br>
+                  </details>
                 </p>
               </div>
             </div>
           </div>
         </div>
+
+
+
+        <div class="row mt-4">
+          <div class="col-sm-12 col-md-12">
+            <div class="card cardborder_ " id="guenther_zimmermann_card">
+              <div class="card-header center_"><h4 class="padding_">Choreographia[Inter]Austriaca und Altenberg Trio &mdash; Performance</h4></div>
+              <div class="card-body justify_">
+                <div class="row mt-4">
+                    <div class="col-sm-5 col-md-5">
+                        <img src="img/GuentherZimmermanPerformance_ConstantinGeorgescu_Wels_111121_2.jpeg" alt="TänzerInnen vom Choreographia[Inter]Austriaca Ensemble" width="100%">
+                        <br>
+                        Foto: Constantin Georgescu
+                    </div>
+                    <div class="col-sm-7 col-md-7">
+                        <details>
+                        <summary><b>Description</b></summary>
+                        "Die Abonnementkonzerte Wels sind für Oberösterreich ein Geheimtipp für zeitgenössische Musik, wo neue Klänge mit Etabliertem in Verbindung gesetzt werden. Der experimentelle Gedanke wird durchaus weiter gefasst. So war beim Konzert im Veranstaltungszentrum Minoriten Wels am Donnerstag nicht nur das Altenberg Trio Wien zu Gast, sondern auch "Choreographia[Inter]Austriaca", ein Tanzensemble von Rose Breuss. Man widmete sich einem sehr eigenwilligen Werk von Bernd Alois Zimmermann, das 1961 als Concerto scénique uraufgeführt wurde und fünf Jahre später als konsequente Weiterentwicklung zum Ballet blanc en cinq scènes "Présence" mutierte. Es ist als Schlüsselwerk einer ganzen "Epoche" zu verstehen. Choreografin Rose Breuss setzte die "Eiswüste der Töne" in eloquente Gesten um. Dadurch wurde die Musik kontrapunktiert und doch wurde ganz eng auf sie reagiert."<br>
+                        <br>
+                        schreibt <a href="https://www.nachrichten.at/kultur/musik-im-zeichen-der-tradition;art16,3488871"><i>OÖNachrichten</i></a>
+                        </details>
+                    </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <p><b>Where</b><br><a href="https://www.wels.at/welsmarketing/oesterreich-unterkunft/detail/430000188/minoriten-wels.html#startdate=19.11.2021&enddate=21.11.2021&occupation=2">Minoritenkirche &mdash; Wels</a></p>
+                <p><b>When</b><br>11th of November, 2021</p>
+                <p>
+                <details>
+                  <summary><b>Participants from the Project</b></summary>
+                  Rose Breuss (ABPU) <br>
+                  Maria Shurkhal (ABPU)<br>
+                  Marcela Mariana Lopez (ABPU)<br>
+                  Damian Cortes Alberti (ABPU)<br>
+                  Kai Chun Chuang (ABPU)<br>
+                  <br>
+                  </details>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="row mt-4">
+          <div class="col-sm-12 col-md-12">
+            <div class="card cardborder_ " id="guenther_zimmermann_2_card">
+              <div class="card-header center_"><h4 class="padding_">Choreographia[Inter]Austriaca und Altenberg Trio &mdash; Performance</h4></div>
+              <div class="card-body justify_">
+                <div class="row mt-4">
+                    <div class="col-sm-5 col-md-5">
+                        <img src="img/GuentherZimmermanPerformance_ConstantinGeorgescu_Wels_111121_1.jpeg" alt="TänzerInnen vom Choreographia[Inter]Austriaca Ensemble" width="100%">
+                        <br>
+                        Foto: Constantin Georgescu
+                    </div>
+                    <div class="col-sm-7 col-md-7">
+                        <details>
+                        <summary><b>Description</b></summary>
+                        </details>
+                    </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <p><b>Where</b><br><a href="https://www.dioezese-linz.at/pfarre/4209/unserepfarre/chronik/ausdempfarrleben/erlebnishoerstrasse">Stadtpfarre Urfahr &mdash; Linz</a></p>
+                <p><b>When</b><br>12th of November, 2021</p>
+                <p>
+                <details>
+                  <summary><b>Participants from the Project</b></summary>
+                  Rose Breuss (ABPU) <br>
+                  Maria Shurkhal (ABPU)<br>
+                  Marcela Mariana Lopez (ABPU)<br>
+                  Damian Cortes Alberti (ABPU)<br>
+                  Kai Chun Chuang (ABPU)<br>
+                  <br>
+                  </details>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
 
 
 
@@ -107,6 +206,33 @@
               </div>
             </div>
           </div>
+
+
+          <div class="row mt-4">
+            <div class="col-sm-12 col-md-12">
+              <div class="card cardborder_ " id="guenther_zimmermann_cardlette">
+                <div class="card-header center_">11. November 2021</div>
+                <div class="card-body">
+                  <h5 class="card-title center_ "> <b>Performance</b><br>Günther-Zimmermann in Wels</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row mt-4">
+            <div class="col-sm-12 col-md-12">
+              <div class="card cardborder_ " id="guenther_zimmermann_2_cardlette">
+                <div class="card-header center_">12. November 2021</div>
+                <div class="card-body">
+                  <h5 class="card-title center_ "> <b>Performance</b><br>Günther-Zimmermann in Linz</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
 
         </div>
 
