@@ -100,27 +100,21 @@
             <div class="card cardborder_ " id="guenther_zimmermann_card">
               <div class="card-header center_"><h4 class="padding_">Choreographia[Inter]Austriaca und Altenberg Trio &mdash; Performance</h4></div>
               <div class="card-body justify_">
-                <!-- <div class="row mt-4"> -->
-                    <!-- <div class="col-sm-5 col-md-5"> -->
-                      <div style="width:45%;float: left; padding:15px">
+                <div class="row mt-4">
+                    <div class="col-sm-5 col-md-5">
                         <img src="img/GuentherZimmermanPerformance_ConstantinGeorgescu_Wels_111121_2.jpeg" alt="TänzerInnen vom Choreographia[Inter]Austriaca Ensemble" width="100%">
                         <br>
                         Foto: Constantin Georgescu
-                      </div>
-                    <!-- <div class="col-sm-7 col-md-7"> --> 
-                        <!-- <details>
-                        <summary><b>Description</b></summary> -->
+                    </div>
+                    <div class="col-sm-7 col-md-7">
+                        <details>
+                        <summary><b>Description</b></summary>
                         "Die Abonnementkonzerte Wels sind für Oberösterreich ein Geheimtipp für zeitgenössische Musik, wo neue Klänge mit Etabliertem in Verbindung gesetzt werden. Der experimentelle Gedanke wird durchaus weiter gefasst. So war beim Konzert im Veranstaltungszentrum Minoriten Wels am Donnerstag nicht nur das Altenberg Trio Wien zu Gast, sondern auch "Choreographia[Inter]Austriaca", ein Tanzensemble von Rose Breuss. Man widmete sich einem sehr eigenwilligen Werk von Bernd Alois Zimmermann, das 1961 als Concerto scénique uraufgeführt wurde und fünf Jahre später als konsequente Weiterentwicklung zum Ballet blanc en cinq scènes "Présence" mutierte. Es ist als Schlüsselwerk einer ganzen "Epoche" zu verstehen. Choreografin Rose Breuss setzte die "Eiswüste der Töne" in eloquente Gesten um. Dadurch wurde die Musik kontrapunktiert und doch wurde ganz eng auf sie reagiert."<br>
                         <br>
                         schreibt <a href="https://www.nachrichten.at/kultur/musik-im-zeichen-der-tradition;art16,3488871"><i>OÖNachrichten</i></a>
-                        <!-- </details> -->
-                        <div style="width:45%;float: right; padding:15px">
-                        <img src="img/GuentherZimmermanPerformance_ConstantinGeorgescu_Wels_111121_1.jpeg" alt="TänzerInnen vom Choreographia[Inter]Austriaca Ensemble" width="100%">
-                        <br>
-                        Foto: Constantin Georgescu
-                      </div>
-                    <!-- </div> -->
-                <!-- </div> -->
+                        </details>
+                    </div>
+                </div>
               </div>
               <div class="card-footer">
                 <p><b>Where</b><br><a href="https://www.wels.at/welsmarketing/oesterreich-unterkunft/detail/430000188/minoriten-wels.html#startdate=19.11.2021&enddate=21.11.2021&occupation=2">Minoritenkirche &mdash; Wels</a></p>
@@ -162,30 +156,19 @@
                 </div>
               </div>
               <div class="card-footer">
-                <div class="row">
-                  <div class="col-sm-3 col-md-3">
-                  <p><b>Where</b><br><a href="https://www.dioezese-linz.at/pfarre/4209/unserepfarre/chronik/ausdempfarrleben/erlebnishoerstrasse">Stadtpfarre Urfahr &mdash; Linz</a></p>
-                  </div>
-                  <div class="col-sm-3 col-md-3">
-                  <p><b>When</b><br>12th of November, 2021</p>
-                  </div>
-                  <div class="col-sm-3 col-md-3">
-                    <p>
-                      <details>
-                        <summary><b>Participants from the Project</b></summary>
-                        Rose Breuss (ABPU) <br>
-                        Maria Shurkhal (ABPU)<br>
-                        Marcela Mariana Lopez (ABPU)<br>
-                        Damian Cortes Alberti (ABPU)<br>
-                        Kai Chun Chuang (ABPU)<br>
-                        <br>
-                      </details>
-                    </p>
-                  </div>
-                  <div class="col-sm-3 col-md-3">
-                  <p><b>Contact</b><br>leonhard.horstmeyer@gmail.com</p>
-                  </div>
-                </div>
+                <p><b>Where</b><br><a href="https://www.dioezese-linz.at/pfarre/4209/unserepfarre/chronik/ausdempfarrleben/erlebnishoerstrasse">Stadtpfarre Urfahr &mdash; Linz</a></p>
+                <p><b>When</b><br>12th of November, 2021</p>
+                <p>
+                <details>
+                  <summary><b>Participants from the Project</b></summary>
+                  Rose Breuss (ABPU) <br>
+                  Maria Shurkhal (ABPU)<br>
+                  Marcela Mariana Lopez (ABPU)<br>
+                  Damian Cortes Alberti (ABPU)<br>
+                  Kai Chun Chuang (ABPU)<br>
+                  <br>
+                  </details>
+                </p>
               </div>
             </div>
           </div>
