@@ -31,15 +31,18 @@
           ev.eventId, ev.name, ev.host, ev.email, ev.from_date, ev.until_date, ev.wo, ev.beginn, ev.virtuell, ps.title, ps.subtitle , eS.description as EventStatus, eT.description as EventType
           FROM events ev 
           LEFT JOIN posts ps ON ev.postId=ps.postId
-          LEFT JOIN eventType eT ON ev.eventTypId=eT.eventTypeId
+          LEFT JOIN gatherings gth ON ev.gatheringId=gth.gatheringId
+          LEFT JOIN eventType eT ON gth.eventTypeId=eT.eventTypeId
           LEFT JOIN eventStatus eS ON ev.statusId=eS.statusId
           ORDER BY ev.from_date ASC;";
 
           function getParticipantsOfEventSQL ($eventid) {
               return "SELECT tn.Name, tn.Affiliation
-                  FROM participation pc
-                  INNER JOIN teilnehmer tn ON pc.nameId=tn.id
-                  WHERE pc.eventId=" . $eventid . ";";
+              FROM events ev
+              INNER JOIN gatherings gth ON gth.gatheringId=ev.gatheringId
+              INNER JOIN participation pc on gth.gatheringId=pc.gatheringId
+              INNER JOIN teilnehmer tn on pc.nameId=tn.id
+              WHERE ev.eventId=" . $eventid . ";";
           }
 
           function getParagraphsOfEventSQL ($eventid) {

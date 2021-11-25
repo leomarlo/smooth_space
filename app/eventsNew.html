@@ -17,7 +17,37 @@
     <canvas id="canvasholder" class="canvas_">
     </canvas>
     <div class="row foreground_ absolute_ mainheight_ totalwidth_">
-      <div class="col-md-2 col-sm-2 col-xs-2 mainheight_ testdiv_"></div>
+      <div class="col-md-2 col-sm-2 col-xs-2 mainheight_ testdiv_">
+        <div style="margin-top:10px; margin-left:5px">
+          <h4>Filter Event Status</h4>
+          <hr>
+          <form>
+            <input id="cancelledEvent_box" name="cancelledEvent" type="checkbox" checked> <label for="cancelledEvent">Cancelled</label><br>
+            <input id="upcomingEvent_box" name="upcomingEvent" type="checkbox"> <label for="UpcomingEvent">Upcoming</label><br>
+            <input id="ongoingEvent_box" name="ongoingEvent" type="checkbox"> <label for="OngoingEvent">Ongoing</label><br>
+  
+          </form>
+        </div>
+        <script>
+          const cancelledEvent = document.getElementById("cancelledEvent_box")
+          const upcomingEvent = document.getElementById("upcomingEvent_box");
+          const ongoingEvent = document.getElementById("ongoingEvent_box");
+          const allEventBoxes = [cancelledEvent, upcomingEvent, ongoingEvent];
+          console.log(allEventBoxes.length)
+          function show() {
+            console.log("hallo");
+          }
+          for (ei=0; ei<allEventBoxes.length; ei++) {
+            console.log(allEventBoxes[ei])
+            allEventBoxes[ei].addEventListener('click',show)
+            // console.log(eL)
+          }
+          ongoingEvent.addEventListener('click',show)
+
+
+        </script>
+        
+      </div>
       <div class="col-md-8 col-sm-8 col-xs-8 mainheight_ scrollable_ testdiv_">
 
         <div class="row mt-4">
