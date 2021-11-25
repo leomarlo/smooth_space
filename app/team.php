@@ -265,15 +265,15 @@
     </div>
     <div class="row foreground_ bottomnav_ navheight_ totalwidth_ testdiv_">
       <div class="col-md-2 col-sm-2 col-xs-2 navheight_ testdiv_ menu_">
-        <span ><a href="index.html"><img src="img/home.svg" alt="home" height="28pt"/> </span>
+        <span ><a href="index.php"><img src="img/home.svg" alt="home" height="28pt"/> </span>
       </div>
       <div class="col-md-8 col-sm-8 col-xs-8 navheight_ testdiv_ white_ center_">
         <div class="menu_">
-          <span > <a href="project.html"> Project   </span>|
-          <span > <a href="notations.html"> Notations </a> </span>|
-          <span > <a href="events.html"> Events   </span>|
-          <span > <a href="team.html"> Team   </span>|
-          <span > <a href="partners.html"> Partners   </span>
+          <span > <a href="project.php"> Project   </span>|
+          <span > <a href="notations.php"> Notations </a> </span>|
+          <span > <a href="events.php"> Events   </span>|
+          <span > <a href="team.php"> Team   </span>|
+          <span > <a href="partners.php"> Partners   </span>
         </div>
       </div>
       <div class="col-md-2 col-sm-2 col-xs-2 navheight_ testdiv_"></div>

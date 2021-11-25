@@ -20,64 +20,80 @@
       <div class="col-md-2 col-sm-2 col-xs-2 mainheight_ testdiv_"></div>
       <div class="col-md-8 col-sm-8 col-xs-8 mainheight_ scrollable_ testdiv_">
 
-        <div class="row mt-4">
-          <div class="col-sm-12 col-md-12">
-            <div class="card cardborder_ " id="workshop_csh_january_card">
-              <div class="card-header center_"><h4 class="padding_">Workshop &mdash; A Syntax for Smooth Spaces</h4></div>
-              <div class="card-body justify_">
-                <i>How can we construct notational systems of spaces and what do we demand from them?</i> In this workshop, we would like to pursue this question from a performance, as well as a complexity science perspective, and lay emphasis on the experiential dimension rather than the bare physical description. At the same time, we explore various synergies with the work of the CSH. How can we build virtual or artificial spaces? How can virtual spaces help to investigate space experiences? How can notational systems be developed, also beyond a written encoding? In the audio-corporeal arts, space is both shaped by performers as a medium, and shaping the performer as a condition. Despite its important role, notations and means of communicating spaces and their qualities are lacking. The 20th century has seen a range of notational systems for movement and dance, such as the Laban notation. The starting point of this workshop is a brief exposition of the notion of artistic research, followed by theoretical contributions and practical input from performers. The envisioned output is artistic research collaboration between the mdw (University for Music and Performative Art Vienna), the abpu (Anton Brucker Privatuniversität) and the Complexity Science Hub (CSH).
-              </div>
-              <div class="card-footer">
-                <p><b>Where</b><br><a href="https://www.csh.at">Complexity Science Hub Vienna </a></p>
-                <p><b>When</b><br>17th to 18th of June, 2021</p>
-                <p><b>Participants</b><br>
-                  Hanne Pilgrim (MDW) <br>
-                  Rose Breuss (ABPU) <br>
-                  Johannes Hiemetsberger (MDW) <br>
-                  William Eouard Franck (MDW/Film Academy Vienna) <br>
-                  Leonhard Horstmeyer (CSH) <br>
-                  Johannes Sorger (CSH) <br>
-                  Maria Shurkhal (ABPU)<br>
-                  Mira Blaschek <br>
-                  Magdalena Eidenhammer<br>
-                  Marcela Mariana Lopez (ABPU)<br>
-                  Damian Cortes Alberti (ABPU)<br>
-                  Kai Chun Chuang (ABPU)<br>
-                  <br>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        
 
-      
-        <div class="row mt-4">
-          <div class="col-sm-12 col-md-12">
-            <div class="card cardborder_ " id="ignition_lab_september_card">
-              <div class="card-header center_"><h4 class="padding_">Ignition Lab &mdash; Kick-off Workshop</h4></div>
-              <div class="card-body justify_">
-              </div>
-              <div class="card-footer">
-                <p><b>Where</b><br><a href="https://www.mdw.ac.at/">MDW &mdash; Rennweg 8</a></p>
-                <p><b>When</b><br>1st to 4th of September, 2021</p>
-                <p><b>Participants</b><br>
-                  Hanne Pilgrim (MDW) <br>
-                  Rose Breuss (ABPU) <br>
-                  Johannes Hiemetsberger (MDW) <br>
-                  Stephanie Schroedter (MDW) <br>
-                  William Eouard Franck (MDW/Film Academy Vienna) <br>
-                  Leonhard Horstmeyer (MDW) <br>
-                  Magdalena Eidenhammer<br>
-                  Maria Shurkhal (ABPU)<br>
-                  Marcela Mariana Lopez (ABPU)<br>
-                  Damian Cortes Alberti (ABPU)<br>
-                  Kai Chun Chuang (ABPU)<br>
-                  <br>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <?php
+          // require("dotenv.php")
+          require_once "./php/dbconfig.php";
+          require_once "./php/templates.php";
+
+          $allEventsSQL = "SELECT  
+          ev.eventId, ev.name, ev.host, ev.email, ev.from_date, ev.until_date, ev.wo, ev.beginn, ev.virtuell, ps.title, ps.subtitle , eS.description as EventStatus, eT.description as EventType
+          FROM events ev 
+          LEFT JOIN posts ps ON ev.postId=ps.postId
+          LEFT JOIN gatherings gth ON ev.gatheringId=gth.gatheringId
+          LEFT JOIN eventType eT ON gth.eventTypeId=eT.eventTypeId
+          LEFT JOIN eventStatus eS ON ev.statusId=eS.statusId
+          ORDER BY ev.from_date ASC;";
+
+          function getParticipantsOfEventSQL ($eventid) {
+              return "SELECT tn.Name, tn.Affiliation
+              FROM events ev
+              INNER JOIN gatherings gth ON gth.gatheringId=ev.gatheringId
+              INNER JOIN participation pc on gth.gatheringId=pc.gatheringId
+              INNER JOIN teilnehmer tn on pc.nameId=tn.id
+              WHERE ev.eventId=" . $eventid . ";";
+          }
+
+          function getParagraphsOfEventSQL ($eventid) {
+              return "SELECT 
+              prgph.postId, prgph.text, prgph.ordinal
+              FROM events ev
+              INNER JOIN paragraphs prgph ON ev.postId=prgph.postId
+              WHERE ev.eventId=" . $eventid . " 
+              ORDER BY prgph.ordinal ASC;";
+          }
+
+          function getImagesOfEventSQL ($eventid) {
+              $mediatypeId = 1;
+              return "SELECT md.path, md.author, md.alt
+              FROM posts ps
+              INNER JOIN mediaInPosts mIP ON ps.postId=mIP.postId
+              INNER JOIN media md ON md.mediaId=mIP.mediaId
+              WHERE ps.postId=" . $eventid . " AND md.mediatypeId=" . $mediatypeId . ";";
+          }
+
+
+          // fetch all the events
+          $stmt = $conn->prepare($allEventsSQL);  // THANKS TO https://www.geeksforgeeks.org/how-to-fetch-data-from-database-in-php-pdo-using-loop/
+          $stmt->execute();
+          $events = $stmt->fetchAll();
+
+          for ($i=0; $i<count($events); $i++){
+
+              $thisEventId = $events[$i]["eventId"];
+              // get all participants for this event
+              $stmt = $conn->prepare(getParticipantsOfEventSQL($thisEventId)); 
+              $stmt->execute();
+              $participants = $stmt->fetchAll();
+              // get all paragraphs for this event
+              $stmt = $conn->prepare(getParagraphsOfEventSQL($thisEventId)); 
+              $stmt->execute();
+              $paragraphs = $stmt->fetchAll();
+              // images
+              $stmt = $conn->prepare(getImagesOfEventSQL($thisEventId)); 
+              $stmt->execute();
+              $images = $stmt->fetchAll();
+              // card DOM
+              $cardDOMid = 'event_card_' . $thisEventId;
+              echo getEvent($cardDOMid, $events[$i], $paragraphs, $images, $participants); 
+              echo '<br>';
+          } 
+        ?>
+
+
+
+
 
 
 
@@ -108,21 +124,48 @@
             </div>
           </div>
 
+
+          <div class="row mt-4">
+            <div class="col-sm-12 col-md-12">
+              <div class="card cardborder_ " id="guenther_zimmermann_cardlette">
+                <div class="card-header center_">11. November 2021</div>
+                <div class="card-body">
+                  <h5 class="card-title center_ "> <b>Performance</b><br>Günther-Zimmermann in Wels</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row mt-4">
+            <div class="col-sm-12 col-md-12">
+              <div class="card cardborder_ " id="guenther_zimmermann_2_cardlette">
+                <div class="card-header center_">12. November 2021</div>
+                <div class="card-body">
+                  <h5 class="card-title center_ "> <b>Performance</b><br>Günther-Zimmermann in Linz</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
         </div>
 
       </div>
     </div>
     <div class="row foreground_ bottomnav_ navheight_ totalwidth_ testdiv_">
       <div class="col-md-2 col-sm-2 col-xs-2 navheight_ testdiv_ menu_">
-        <span ><a href="index.html"><img src="img/home.svg" alt="home" height="28pt"/></a></span>
+        <span ><a href="index.php"><img src="img/home.svg" alt="home" height="28pt"/></a></span>
       </div>
       <div class="col-md-8 col-sm-8 col-xs-8 navheight_ testdiv_ white_ center_">
         <div class="menu_">
-          <span > <a href="project.html"> Project </a> </span>|
-          <span > <a href="notations.html"> Notations </a> </span>|
-          <span > <a href="events.html"> Events </a> </span>|
-          <span > <a href="team.html"> Team </a> </span>|
-          <span > <a href="partners.html"> Partners </a> </span>
+          <span > <a href="project.php"> Project </a> </span>|
+          <span > <a href="notations.php"> Notations </a> </span>|
+          <span > <a href="events.php"> Events </a> </span>|
+          <span > <a href="team.php"> Team </a> </span>|
+          <span > <a href="partners.php"> Partners </a> </span>
         </div>
       </div>
       <div class="col-md-2 col-sm-2 col-xs-2 navheight_ testdiv_"></div>

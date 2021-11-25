@@ -12,4 +12,4 @@ app/.env
 *db.env
 
 ## No data dumps
-*.sql
+# *.sql
