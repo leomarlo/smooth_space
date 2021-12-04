@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql:3306
--- Generation Time: Nov 25, 2021 at 06:45 PM
+-- Generation Time: Dec 04, 2021 at 10:16 PM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.20
 
@@ -94,7 +94,8 @@ INSERT INTO `eventType` (`eventTypeId`, `description`) VALUES
 (2, 'lecture'),
 (3, 'performance'),
 (4, 'meeting'),
-(5, 'experiment');
+(5, 'experiment'),
+(6, 'reading group');
 
 -- --------------------------------------------------------
 
@@ -127,7 +128,10 @@ INSERT INTO `gatherings` (`gatheringId`, `eventTypeId`, `description`) VALUES
 (12, 4, 'Discussion and developing ideas. Meeting at the \"kleines Cafe\" with Maria and Leo'),
 (13, 4, 'Meeting with Anna Leon from TQW'),
 (14, 4, 'Lux Aeterna November Lab'),
-(15, 5, 'Lux Aeterna gestural study with video recording session');
+(15, 5, 'Lux Aeterna gestural study with video recording session'),
+(16, 4, 'Hanne and Leo meet to discuss the iteration process for the hand gesture study.'),
+(17, 4, 'Reading Group turned into discussion on the Smooth Spaces Project'),
+(18, 4, 'Discussion of the Choir Lab');
 
 -- --------------------------------------------------------
 
@@ -230,7 +234,10 @@ INSERT INTO `meetings` (`meetingId`, `date`, `location`, `description`, `statusT
 (8, '2021-10-05 09:30:00', 'Cafe Prückel', 'Meeting between Hanne, Rose and Leo to discuss the further direction of the projects.', 3, 10, 10, 0),
 (9, '2021-11-16 11:00:50', 'MDW Singergasse', 'Meeting with Anna Leon from Tanzquartier Wien', 3, 13, 16, 0),
 (10, '2021-10-15 09:30:00', 'MDW (Singergasse and Anton-von-Webern Platz)', 'Lux Aeterna November Lab', 3, 14, 12, 0),
-(11, '2021-11-19 15:00:00', 'Adrians Studio Space', 'Lux Aeterna Experimental Video Recording Sessions for Hand gestural study', 3, 15, 17, 0);
+(11, '2021-11-19 15:00:00', 'Adrians Studio Space', 'Lux Aeterna Experimental Video Recording Sessions for Hand gestural study', 3, 15, 17, 0),
+(12, '2021-11-30 13:32:00', 'MDW, Singergasse 26', 'Hanne and Leo meet to discuss iteration process for the hand gesture study.', 3, 16, 18, 0),
+(13, '2021-12-03 08:00:00', 'Zoom', 'Virtual Discussion on the direction of the reading group', 3, 17, 19, 1),
+(14, '2021-12-03 09:00:00', 'Rennweg 8', 'Initial Choir Lab Meeting', 3, 18, 20, 0);
 
 -- --------------------------------------------------------
 
@@ -338,7 +345,17 @@ INSERT INTO `participation` (`participationId`, `nameId`, `gatheringId`) VALUES
 (42, 9, 10),
 (43, 5, 10),
 (44, 8, 12),
-(45, 8, 12);
+(45, 8, 12),
+(46, 5, 16),
+(47, 2, 16),
+(48, 5, 17),
+(49, 9, 17),
+(50, 2, 17),
+(51, 12, 17),
+(52, 12, 18),
+(53, 3, 18),
+(54, 2, 18),
+(55, 5, 18);
 
 -- --------------------------------------------------------
 
@@ -376,7 +393,10 @@ INSERT INTO `posts` (`postId`, `posttypeId`, `date`, `title`, `subtitle`, `autho
 (14, 5, '2021-11-25', 'Developing Ideas -- Maria and Leo', '', 'Leonhard Horstmeyer'),
 (15, 5, '2021-11-25', 'Discussion with Geraldine Cox about movement, dance and foundational concepts of physics', '', 'Leonhard Horstmeyer'),
 (16, 5, '2021-11-25', 'Meeting with Anna Leon (TQW) to discuss the PEEK project', '', 'Leonhard Horstmeyer'),
-(17, 5, '2021-11-25', 'Lux Aeterna Experimental Lab', 'Hand Gesture Experiments', 'Leonhard Horstmeyer');
+(17, 5, '2021-11-25', 'Lux Aeterna Experimental Lab', 'Hand Gesture Experiments', 'Leonhard Horstmeyer'),
+(18, 7, '2021-09-01', '', '', 'Leonhard Horstmeyer'),
+(19, 5, '2021-12-04', 'Discussion on the modalities of the reading group', '', 'Leonhard Horstmeyer'),
+(20, 5, '2021-12-04', 'Choir Lab Initial Meeting', '', 'Leonhard Horstmeyer');
 
 -- --------------------------------------------------------
 
@@ -399,7 +419,8 @@ INSERT INTO `postType` (`posttypeId`, `description`) VALUES
 (3, 'notation'),
 (4, 'publication'),
 (5, 'meeting'),
-(6, 'reflection');
+(6, 'reflection'),
+(7, 'empty');
 
 -- --------------------------------------------------------
 
