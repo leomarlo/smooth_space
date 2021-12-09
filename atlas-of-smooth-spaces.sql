@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql:3306
--- Generation Time: Dec 04, 2021 at 10:16 PM
+-- Generation Time: Dec 09, 2021 at 11:43 PM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.20
 
@@ -158,7 +158,8 @@ INSERT INTO `media` (`mediaId`, `mediatypeId`, `path`, `author`, `rights`, `uplo
 (1, 1, 'img/GuentherZimmermanPerformance_ConstantinGeorgescu_Wels_111121_1.jpeg', 'Constantin Georgescu', 'Constantin Georgescu', '2021-11-16', 3, 'Photo of the Dance Ensemble Choreographia[Inter]Austriaca'),
 (2, 1, 'img/GuentherZimmermanPerformance_ConstantinGeorgescu_Wels_111121_2.jpeg', 'Constantin Georgescu', 'Constantin Georgescu', '2021-11-16', 3, 'Photo of the Dance Ensemble Choreographia[Inter]Austriaca'),
 (3, 1, 'img/KaiFilmedByHanneBoom_Wien_030921.jpg', 'Leonhard Horstmeyer', 'Leonhard Horstmeyer', '2021-11-18', 2, 'Kai is filmed by Hanne during the Boom experimentation Lab in Vienna on Third of September 21'),
-(4, 1, 'img/HanneLuxAeterna_Linz_110921.jpg', 'Leonhard Horstmeyer', 'Leonhard Horstmeyer', '2021-11-18', 2, 'Lux Aeterna performance ... collection before the performance.');
+(4, 1, 'img/HanneLuxAeterna_Linz_110921.jpg', 'Leonhard Horstmeyer', 'Leonhard Horstmeyer', '2021-11-18', 2, 'Lux Aeterna performance ... collection before the performance.'),
+(5, 1, '/img/damian-cortes-alberti-peter-philipp_orig.jpg', 'Peter Philipp', 'Peter Philipp', '2021-12-09', 18, 'Photo of Damian Cortes Alberti by Peter Philipp');
 
 -- --------------------------------------------------------
 
@@ -242,6 +243,27 @@ INSERT INTO `meetings` (`meetingId`, `date`, `location`, `description`, `statusT
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `minutes`
+--
+
+CREATE TABLE `minutes` (
+  `minutesId` int NOT NULL,
+  `nameId` int NOT NULL,
+  `gatheringId` int NOT NULL,
+  `minutes` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `minutes`
+--
+
+INSERT INTO `minutes` (`minutesId`, `nameId`, `gatheringId`, `minutes`) VALUES
+(1, 5, 18, 'Conducting Spaces\r\nJohannes und Sarah - Nullspaces und Lab\r\nVerbindung Chorleiten mit Parameter im Antrag.\r\n\r\nNullspaces vom Dirigieren oder vom Chor\r\n\r\nHans-Christian Anfrage. Könntet ihr nicht da was machen mit den Handschuhen\r\nDann kam die Idee mit Lux Aeterna. --> Output: Soundprojekt und Bilder\r\n-> Notizen vom Lux Aeterna Lab --> Time Quantities und Space Qualities.\r\n-> Kinetisches Hören. --> Übersetzung der 16 Stimmen in 16 Gesten. \r\n-> Zeitliche Quantitäten in Räumliche Qualitäten.\r\n\r\nJohannes erzählt von einem Stück (Purcel Inszenierung) in dem sie mit dem Chor spontan in den Raum gekommen sind durch Bewegung. Purcel - Hear My Prayer. Erste Stimme betritt als erster die Kirche\r\n\r\n\r\nBei polyphoner Musik gibt es eine Stimme, zwei Stimmen und dann wirds \'viel\'.\r\nÜbertragung von Notenbild in Bewegung\r\n\r\n\r\nDas verdeutlicht auch den Diskurs, die Reibungen und die Kommuniktion der Stimmen. Hierarchien bilen sich. Thema und Kontrapunkt. Was macht das wenn es sichtbar ist. \r\nZum Beispiel bei 8 Stimmiger Fuge gibt es eine Gleichberechtigung. Im Akkord (vertikal) da gibt es auch einen Accord (Die Stimmen einigen sich). \r\n\r\nHanne: Was zwischen dem Ein- und Aussatz passiert. \r\n\r\nJohannes: Es gibt einen Deutschen (Huber).\r\n\r\nSarah schaltet zu. Hanne fasst zusammen.\r\n\r\nJohannes erzählt. Es gab den Handschuh. Auf der einen Seite gibt es die Bewegung.\r\nJohannes berichtet über die Raumwahrnehmung \r\nRuppert Huber (Salzburger gebürtig) begleitet in Deutschland den Rundfunk (Rundfunkchöre). Gilt als schräger Vogel. Wirkungssingen. Gibt nichts schlimmeres als diese Attitüde der westlich ausgebildete Stimme.\r\nDas Wort entfaltet durch die gesungene Form erst seine Wirkung. Man versteht das Wort nicht mehr.\r\n\r\nFrage: Ist eine polyphone Struktur in seiner historischen Form etwas das jemals räumlich gedacht war. Polyphonie eher etwas horizontales... aber warum eigentlich. Johannes: Wenn man sich denkt wo \r\nkommt das her. Vielleicht kommt es aus der Gregorianik. Es ergibt sich eine Linie. Eigenständigkeit. Man empfindet etwas als Linie\r\n\r\nIn der Partitur ist man auf die zwei Dimensionen beschränkt. Aber in der Aufführung kann der Klang eine tiefe bekommen. \r\nAusbreitung von einem \r\n\r\nDiese Vorbereitung. Adrian.. ruhig auch experimentell aussuchen. \r\n\r\nJohannes: Wo ist Raum auch mitkomponiert. Bruckner zum Beispiel. Generalpausentakt.\r\n\r\nHanne: Wir sind wieder beim AUdiokorporeal.\r\n\r\nJohannes: In der REnnaissance gibt es Raumklang-Kompositionen. Bläser hier, Streicher dort etc. AUf Raumklang komponiert. Ist ein eigenes Kapitel.\r\n\r\nAdrian: Es gibt immer den Dirigenten in der Mitte. ABer bei Bewegung nicht. Warum nicht ein Stück komponieren, wo das polyphonische Räumlich gedacht ist. Ein Stück wo kein Ort im Raum privilegiert ist.\r\n\r\nJohannes: Vertikale Musik. Homophone. Braucht immer einen Zeitpunkt.\r\nWenn der Ligeti ganz frei wäre. Wenn es keine Einpflanzungen gäbe, keine horizontale Einpflanzung. \r\n\r\nHannes: Einsatz der Männerstimmen ist auch ein Einsatz. Dann plötzlich bildet sich wieder so eine Vertikale. \r\nJohannes: Wo\'s aufreißt. Im Notenbild wird das.\r\nDie Umsetzung der Partitur ändert das Raumgefühlt.\r\nWie macht es auf? Breit oder hoch?\r\n\r\nHanne: Man kann eben nicht sagen (Naive). Die Stimme geht auf und der Körper auch. \r\nWie fühlt sich das räumlich an. \r\n\r\nAber diese Übersetzung bezieht das Wirken nicht ein. \r\n\r\nHanne: Bei einem explosionsartigen Akkord, manche fallen zu Boden, manche springen hoch. \r\n\r\nJohannes: In welche Richtung öffne ich den Raum. Das öffnet beim Interpreten ganz unterschiedliche Parameter. Bewegung, Cressendo, Höhe.\r\n\r\nHanne: Arnie Cox. Music and Embodied Cognition: Listening, Moving, ...\r\n\r\nHanne: Es gibt vier verschiedene Aktionen ausser Stille. Nutzen Laban Notation. \r\n\r\nHanne erklärt den Chart. Welche Notationen.\r\n\r\nAdrian: Wer hat das Produziert. Für wen ist das interessant? Emitter und Receiver, wer sind die. Ein Floatchart. (Adrians Idee).\r\n\r\nAdrians Vorschlag: Polyphone Struktur mit Räumlichkeit. Bewegung oder Räumlichkeit in andrer Form. Adrian erwähnt: Share, care, dare. Alle ForscherInnen tragen etwas vor. Eine polyphone Partitur\r\nfür Zoom\r\n\r\nAdrian: Bei Soundpainting. Die Leute wissen nicht wann es weiter geht. \r\nAdrian: Der Chor ist in Bewegung, aber es gibt keine zentristische Position. \r\n\r\nJohannes: Was war die Idee hinter dem gemeinsamen Einsatz bei share, care und dare. \r\nHanne erklärt: Mal wieder doch ein Thema.\r\nJohannes: Was ist der Unterschied zwischen Miteinander, Gegeneinander.\r\noder ist es Verordnet, weil der Balken kommt. \r\n\r\nHanne: Was ist jetzt der spezifische Gewinn für uns. Chor dezentralisieren.\r\n\r\nJohannes: Tun wir das, tun wir das nicht. Grob gesagt es gibt das Stück und dann gibts das Fenster in dem das passiert.\r\nWenn ich an einen Bach-Choral denke. Königsdisziplin. Im Bach-Choral gibt es soo viel Freiheit. Als Fenster sehen, dass man das mal überlagert. \r\n\r\nAdrian: Andres Erlebnis wenn man dirigiert wird. Was ist wenn man die Freiheit die man hat. \r\n\r\nHanne: Die Gruppe geht selbstständig als Gruppe in Freitheit. Das sie Zusammen wirken. Am Ende ist das Ensemble allein. Wie war das Ergebnis. \r\nAdrian: Hat man gemerkt das musikalisch etwas passiert, als sie sich selber verwaltetet haben. \r\n\r\nJohannes: Diese Dezentrale Selbstorganisation öffnet Räume. Warum betrachten Wir einen Block als Eines. Beim Chor möchte man aber einen homogenen Block. Der Mehrwert ist, dass diese Gemeinsamkeit\r\nvon einem Zwang oder einer Gemeinsamkeit herauskommen kann.\r\nJohn Cage --> 600 Jahre-Stück. In 15 Jahren gibts einen Wechsel in Halbertstadt. \r\nSich zu freuen auf dieses Ereignes des zusammenkommens. \r\nIst der Treffpunkt eine Pflicht, ist er gewollt, ist es Ritual\r\n\r\nAdrian: Vielleicht ein Vorschlag zum nächsten Treffpunkt.\r\n\r\nJohannes: Kirchenraum gegliedert in drei Teile. Erste Seite vorbereitet mit fragmentarischen Sounds. zweite Region gabs ein Zusammenspiel von Tempis.\r\nEs hatte eine große Wirkung. Plötzlich war es wie ein Stück. Darf viel selber entscheiden. \"Wie kommen wir rein in den Raum\" <- Das \r\n\r\n\r\nHanne: Wir sind über Conducting Spaces in dieses Projekt reingeschlittert. Aber eigentlich haben wir ja gesagt, dass wir eigentlich ja unsere Null-Spaces suchen. Was ist die Basis meiner Disziplin.\r\nNähern wir uns unseren Null-Spaces an. Den performten Null-space.\r\n\r\nWir sind bei Stufe drei eingestiegen, aber wollen eigentlich beim Null-space einsteigen. \r\n\r\nGekoppeltes Pendel. Das Pendel als Null-Space der Physik. Das gekoppelte Pendel als Wasserstoffatom.\r\n\r\nHanne: Spricht noch Honaranote vs Vertrag an.\r\n\r\nJohannes: Zeitraum spübar machen. \r\nHanne: Notationen sichtbar zu machen. Ausprobieren. Das wir das lernen können. \r\n\r\nJohannes: Wünsche von dem Team an \r\n\r\nChor Stimme des Volkes. Der Chor als Stimme des Volkes. \r\n\r\nHanne: Dinge in die Community reingeben, mit der andere arbeiten können. \r\n\r\nJohannes: Das Leben als Alt ist so schwer. Es findet in einer Quinte statt. Gesellschaftsparallelitäten aufzeigen. Das Ensemble oder der Chor als Mikro-Gesellschaft. \r\n\r\nDieter Schnebel - Kontrapunktus eins. Er nimmt aus dem Wohltempereierten Klavier und verteilt das auf zwanzig verschiedene Sänger die räumlich verteilt sind. \r\n\r\nDie beste aller Welten: Voltair. \r\n\r\nAdrian ... Komponist kommt mit fertigem Text. \r\n\r\nAdrian: Ein Produktiver Arbeitszirkel. \r\n\r\nJohannes: Die Idee war mal ein Labor zu entwickeln. \r\nWie kann gemeinsames komponieren funktionieren ohne Frust-Risiko.\r\nDa gibts dann die Geschmacksebene. Die wird komplexer mit der Anzahl der Leute. \r\n\r\nResonanz kriegt der Interpret und nicht der Komponist. \r\nDer leere Raum - Peter Brook.\r\n\r\nLab ins Auge fassen. \r\n\r\n'),
+(2, 5, 17, 'Rose: Rollenverteilung, neuen Modus finden für interdisziplinäres Arbeiten. \r\nRose+Hanne: Fokus auf die PEEK Forschung, aber jeder kann in den Diskurs eintreten.\r\nHanne: Ordner mit Vorschlägen. und verabreden uns. \r\nRose: Audio-Corporeal Art. Was ist das? Das zum Thema wird? Ändert sich ein Raum mit Musik. \r\nRose: Zwischenräume zu erforschen. Vielleicht gemeinsam den Dalcroze-Text oder Paullioude-Texte (Musik + Tanz, Musik + Bewegung).\r\nHanne: Ausgangspunkte sind die Null-Spaces und Text danach ausrichten und auswählen.\r\nAdrian: Wichtig der Austausch. Entwicklung eines gemeinsamen Vokabular. Was ist smooth, z.B. Wichtig bei einem komplexen Projekt mit vielen Standorten.\r\nProjekt-kultur entwickeln und Konzepte entwickeln.\r\n\r\nRose: Zeitliche Quantitäten zu einem Raum.\r\nHanne: Skizze über Conducting Spaces dargestellt\r\n\r\nTreffen: Für den 22. Dezember --- UNESCO Tanzsektion, uni linz\r\nRose: Transfer. Laban, Texte? Maria \"Was ist Labour in Tanz\". Elizabeth Grosz kritisiert Deleuze, darüber arbeitet Maria. Andresa --> Dekolonialität. Auch interessant für die Geographie und für Berlin\r\n\r\nRose: spannendes Symposium.. Dekolonialisierung des Wissens. Es geht auch um Praxiologie\r\n\r\nHanne: Future Art Lab ist frei, da Steffis Antrittsvorlesung verschoben wird. Der Raum ist frei (Neuer Konzertsaal). 31ter Januar.\r\n\r\nHanne: Wann sind die Colliding Phases?\r\nRose: Revision des Zeitplans/Phase. Vielleicht Konkretisierung. Weniger Allgemein, sondern Konkretisierungen mit den spezifischen Forschungsfragen.\r\n\r\nHanne: Termine? Vorschlag. 20ter oder 21ter Dezember. z.b. in Wien. \r\nRose: 21ter Dezember in Wien? \r\nUhrzeit? 9 oder 10. Gerne 10 Uhr.\r\n\r\nRose fragt Maria\r\nHanne fragt William und Johannes und Steffi und Magdalena.\r\nAdrian? Ja würde passen.\r\n\r\nDeleuze --> Projektzusammentreffen.\r\nz.b offenes Forum... aber es geht um Texte.\r\n');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `paragraphs`
 --
 
@@ -282,7 +304,27 @@ INSERT INTO `paragraphs` (`paragraphId`, `postId`, `ordinal`, `text`, `updated`)
 (22, 11, 5, 'Berhard Riemmann was a mathematician who is credited with quite a few contributions to mathematics. He was active in the 19th century. The contribution\r\nthat DeGu refer to in this text is that of a metrization of curved spaces. The\r\ncorresponding mathematical object nowadays goes by the name ”Riemannian\r\nmetric”. The Riemannian metric determines a relation between distances in\r\nvarious spatial directions, which is what DeGu seem to address in their example\r\nof the vertical and the horizontal lines. A priori there is no way in an abstract\r\nor even geometric space to compare the distances between points. To achieve\r\nthis Berhard Riemann introduced a metric (tensor) that is capable of disambiguously comparing the distances of two line segments that may even go in different\r\ndirections. The problem of comparing two sounds with equal pitch and different\r\nintensity to sounds with equal intensity and different pitch can then be phrased\r\nas the problem of finding a Riemannian metric on for the ”space” of these two\r\n”dimensions” (Each dimension would then correspond to the set of outcomes of\r\nan inquiry or in the words of DeGu to one set of determinations).', '2021-11-25'),
 (23, 11, 6, 'In mathematics there is an important distinction with respect to natural numbers, namely that of ordinal and cardinal numbers. Ordinal numbers are a\r\ngeneralization of natural numbers. Whereas natural numbers are ”only” an infinite set of elements, ordinal numbers are that same infinite set of elements\r\ntogether with an absolute ordering relation, namely that three comes after two,\r\nwhich in turn comes after 1 etc. Cardinal numbers on the other hand are yet\r\n2\r\nanother, but different, generalization of natural numbers, but with the property\r\nthat they can indicate the size of a set of elements. It is thus a subtle conceptual\r\ndistinction, but a very important one to get the head around. The wikipedia\r\narticle on Ordinal numbers is a good introductory read on this topic.', '2021-11-25'),
 (24, 11, 7, 'DeGu seem to refer to this distinction when describing the difference between\r\nthe numbering number and the numbered number: ”The number distributes itself in smooth space; it does not divide without changing nature each time,\r\nwithout changing units, each of which represents a distance and not a magnitude. The ordinal, directional, no- madic, articulated number, the numbering\r\nnumber, pertains to smooth space, just as the numbered number pertains to\r\nstriated space.”', '2021-11-25'),
-(25, 11, 8, 'Finally we also spoke a little bit about this sentence: ”Minor science is continually enriching major science, communicating its intuitions to it, its way of\r\nproceeding, its itinerancy, its sense of and taste for matter, singularity, variation, intuitionist geometry and the numbering number.” We didnt speak about\r\nthe distinction of minor and major science (I wonder what DeGu mean by that),\r\nbut we reseted a for a few minutes on the term on an Intuitionist geometry. It\r\nsounds a little contradictory and to me it does not raise any associations with a\r\nmathematical concept that is called the same. Nevertheless intuition of course\r\nplays a very big role in mathematics. Apart from that there are also quite a few\r\nconcepts in mathematics that even bare the name ”intuitionist(ic)” in reference\r\nto the attribute often associated to intuition, that not bad is not necessary good.\r\nSo this idea for instance manifests itself in the field of intuitionistic logic. Read\r\nhere for an introduction.', '2021-11-25');
+(25, 11, 8, 'Finally we also spoke a little bit about this sentence: ”Minor science is continually enriching major science, communicating its intuitions to it, its way of\r\nproceeding, its itinerancy, its sense of and taste for matter, singularity, variation, intuitionist geometry and the numbering number.” We didnt speak about\r\nthe distinction of minor and major science (I wonder what DeGu mean by that),\r\nbut we reseted a for a few minutes on the term on an Intuitionist geometry. It\r\nsounds a little contradictory and to me it does not raise any associations with a\r\nmathematical concept that is called the same. Nevertheless intuition of course\r\nplays a very big role in mathematics. Apart from that there are also quite a few\r\nconcepts in mathematics that even bare the name ”intuitionist(ic)” in reference\r\nto the attribute often associated to intuition, that not bad is not necessary good.\r\nSo this idea for instance manifests itself in the field of intuitionistic logic. Read\r\nhere for an introduction.', '2021-11-25'),
+(26, 20, 1, 'On Friday, the third of December, we held a meeting at the MDW Rennweg campus to discuss\r\nvarious directions of research into the smooth spaces of choir conducting. We also updated each\r\nother on the current work in progress. Due to illness, the general Corona-madness and different\r\nlocations, we held a hybrid meeting: Johannes Hiemetsberger (representative for choir conducting),\r\nHanne Pilgrim (representative for eurhythmics), Adrian Artacho (composer) and Leonhard\r\nHorstmeyer (complexity scientist) were present in person and Sarah (via zoom).', '2021-12-09'),
+(27, 20, 2, 'The discussion was ignited by an overview of the various strands of the “conducting spaces”\r\nproject, given by Hanne, and then revolved around the following topics roughly in that order:\r\n1) Staging and embodiment of the voices in the choir. 2) Where does the spatial analogy come from\r\nin polyphonic music? Was it intended as a spatial figure? 3) polyphonic idea translated into space 4)\r\nMany ways to open up space in choir conducting, e.g: movement, crescendo, pitch. 5) Difference\r\nbetween togetherness and coincidence 6) The choir as a micro-society. Here’s a more detailed\r\nsummary.', '2021-12-09'),
+(28, 20, 3, 'Hanne presented the evolution of the “conducting spaces” project and recounted that the initial seed\r\nof the project was Hans-Christian’s suggestion to Johannes and Hanne that the freshly started\r\nproject on smooth spaces could be a good context for a performance with the choir and a virtual\r\nglove at the Ars Technica in Linz. Then came the idea with “Lux Aeterna” by Ligeti as the choir\r\npiece. The performance was well received and pictures, sound and video material was amongst the\r\noutputs. Subsequently we discussed the project in the light of “smooth spaces” during our “Lux\r\nAeterna Lab” in mid October. We talked about time quantities and space qualities (zeitliche\r\nQuantitäten und räumliche Qualitäten) with reference to Julian Caskel. The translation of the 16-\r\nvoices choir piece into a midi format sparked the idea of the embodiment and visualization of one\r\nof the most demanding tasks for a Lux-Aeterna recital: The cue or “when do I start singing”? One\r\ncould view the following as a first proposition in the iterative process of studying the spatial content\r\nof the piece, namely: “The cues are the clues to the spatial listening experience”. Approaching this\r\nproposition, we used the midi scores and the virtual gloves to embody cues.', '2021-12-09'),
+(29, 20, 4, 'Johannes then talked about the staging of a piece by Henry Purcell in a cathedral where the question\r\nof the cue was dealt with by having the singers enter when their voices start.', '2021-12-09'),
+(30, 20, 5, 'We talked about polyphonic music and the difficulty to use it effectively. Put into one phrase: One\r\nstarts from the first voice, adds another and thereafter it just becomes loud. This again rings bells of\r\nthe number three being special for interactions. We mentioned the translation of a score image\r\n(Notenbild) into movement.', '2021-12-09'),
+(31, 20, 6, 'Johannes reflects on the theme of visualizing polyphonic music by touching on a theme that seems\r\nimportant to him, namely the communication and frictions of the choir voices. Is there equality in a\r\nchoir piece, say in a fuge? In homophonic music is there also agreement amongst the voices? Does\r\na vertical “accord” yield an “accord” (agreement) between the singers, too? Keyword: Hierarchies,\r\nfriction, counterpoint.', '2021-12-09'),
+(32, 20, 7, 'Johannes talks about a Salzburgian choir conductor called Rupert Huber, who accompanies the\r\n“Rundfunkchöre” (radio choirs) in Germany. According to Johannes Huber coined or propagated\r\nthe term “Wirkungssingen” in response to the dilution of the effect in singing. The content and\r\neffect of a word was enhanced by singing, whereas oftentimes now the word itself is not\r\nreconcilable anymore and thus lost its meaning.', '2021-12-09'),
+(33, 20, 8, 'Was there ever any intention of spatiality in the concept of polyphonic music? People often speak of\r\na vertical spatial experience with homophonic music “building on top of each other” and a\r\nhorizontal spatial experience with polyphonic music. But why is that? Where does that come from?\r\nIs it culturally entrenched? Maybe it comes from the Gregorian heritage of lines that makes\r\npolyphonic music horizontal? Each line has a certain independence. Johannes mentioned a few\r\nexamples where the space itself has been co-composed (mitkomponiert) and includes Bruckner into\r\nthat list. He mentions the “Generalpausentakt”.', '2021-12-09'),
+(34, 20, 9, 'Adrian adds thoughts about the conductor-centricity. The choir is directed at the conductor. But the\r\nmovement is not. Why not compose a piece where the polyphonic aspect is spatially implemented.\r\nA piece where no space is privileged over any other?', '2021-12-09'),
+(35, 20, 10, 'Johannes talks about vertical music (i.e. homophonic music) requiring a point in time, always. In\r\nLigetis micropolyphonic music there is very little vertical rooting, where things come together in a\r\nsingle point in time. What if the music were completely liberated of the vertical rooting? Hanne\r\npoints out that the onset of the tenors is such a point in time where things come together and align\r\nvertically. Johannes agrees that there is this point, where it rips open (aufreißen).', '2021-12-09'),
+(36, 20, 11, 'Hanne also raises the point that oftentimes people would think that a rise in pitch would trigger a\r\nrising movement, too. However, Hanne also observes her students collapsing on a rising pitch. So\r\nthe original translation does not include the effect (german: “Wirken”).', '2021-12-09'),
+(37, 20, 12, 'Johannes mentions that there are a lot of ways to open things up. One may use an opening gesture to\r\nsignal larger movement, or one may indicate a crescendo or a higher pitch. Hanne mentions Arnie\r\nCox with the title “Music and Embodied Cognition – Listening, Feeling and Thinkin”. Hanne\r\nexplains the performance at the workshop, given by Adrian and Hanne, where participants were\r\nembodying the Lux Aeterna scores with Laban efforts.', '2021-12-09'),
+(38, 20, 13, 'Adrian has the idea to include a flow chart with senders and receivers indicating who has produced\r\nwhat and for whom it was interesting. Adrian suggests the polyphonic structure of spaciness.\r\n(“Räumlichkeit”). In this context he then explains the “share, care, dare” performance: During a\r\nzoom meeting all participants were given the freedom to produce any sort of spoken output with the\r\nonly constraint being that at a pre-defined moment participants would use one of the words “share”,\r\n“care” or “dare” (the theme of the workshop). These moments were the only ones notated and\r\ncomposed beforehand. From the documenter’s understanding they were composed in such as way\r\nas to overlap in time for most or all participants. The result was a quasi-polyphonic structure for\r\nmost of the time except at certain times there was some form of “accord” or agreement. Adrian\r\nmentions the ssimilarity but also distinction with respect to “sound painting”. Following this idea\r\nAdrian suggests that the choir is in movement but without a centristic position. Johannes asks what\r\nthe idea had been behind the simultaneous cues of the “share”,”care” and “dare” words. Hanne and\r\nAdrian mentioned the consensus on one theme as far as the documenters writings can tell. This led\r\nJohannes to make a remark about the tantalizing distinction between consensus, coincidence and\r\ncoercion (translated freely by the documenter). Do the performers agree because they want to, they\r\nfeel like it, they are overwhelmed to do so or maybe because they are urged by following a dictated\r\ncue?', '2021-12-09'),
+(39, 20, 14, 'Hanne asks what the gain would be for us? She also notes that in saying so she intentionally plays\r\nthe advocatus diaboli. Should the choir be decentralized? Johannes: Decentralized Self-organisation\r\nopens spaces. Why do we consider a block in the choir as one. Somehow in the choir one is accustomed to a homogeneous block, one seeks it. The surplus value can either originate in co-\r\nmmonality (deutsch: “Gemeinsamkeit”) or co-ercion (deutsch: “Zwang”). Johannes mentions the\r\npiece ASLSP (“As slow as possible”) by John Cage in which years pass by until the next chord is\r\nplayed. This nourishes the anticipatory joy of an impending get-together. But is this meeting point a\r\nduty, is it wanted, is it desired, is it a ritual? Adrian remarks that it may be a suggestion for a get-\r\ntogether rather than a coercion. Johannes recounts another recital in the body of a cathedral in\r\nwhich each segment/room had a different form of agreement. The first was infused with fragmented\r\nsounds, the second one exhibited an interplay of tempi. The third one was not captured by the\r\ndocumenter. It had a great effect and participants of the performance could make a lot of choices\r\nwith regard to how and when they would enter into the respective spaces.', '2021-12-09'),
+(40, 20, 15, 'Hanne rebases the discussion. Our focus thus far has been to study spatial aspects of choir\r\nconducting and possible experiments. However, also due to Rose’s input we could refocus on our\r\nnullspaces and use that focus as the entrypoint to our research. The concept of nullspaces are an\r\nimportant part of the proposed research and according to its agenda the first part. Finding nullspaces\r\nof the respective disciplines would correspond to the quest for a zero-point, an intersection set of\r\npossible practices in that discipline. Hanne remarks that we have slid into the project sideways and\r\nthereby midway via the “conducting spaces” project. However, we should not loose focus on the\r\nnullspaces and in fact this project has the great benefit of allowing us the sink more properly into\r\nthe entrypoint, namely that of the nullspaces.', '2021-12-09'),
+(41, 20, 16, 'For instance, one may argue that the nullspace of physics is the harmonic oscillator. It is not the\r\nnullspace of practicing physics and due to the breadth of research in physics the intersection set of\r\npractices might be quite little. Nevertheless the harmonic oscillator is very basal to most of physics.\r\nIn its purest form the harmonic oscillator represents the phenomenon that occurs when any\r\ndeviation from the status quo yields a force opposing that deviation proportional to the elongation.\r\nThe resulting dynamics shows an oscillating behaviour, where deviations are always penalized by\r\nopposing forces but equilibrium is ideally never reached. The pendulum is a real world example that\r\nis fairly close to a harmonic oscillator. Most things in physics do behave in a similar manner, from\r\nlight to water and sound waves to particles themselves. It also lends itself to a very clean analytical\r\ndescription and indeed entire mathematical frameworks have been build to conform to this\r\ncanonical phenomenon. Much of what is called modern physics stems from coupling together these\r\nharmonic oscillators. Already the simplest of such couplings, namely the double pendulum, gives\r\nrise to a vast phenomenology with chaotic regimes and arguably aesthetically pleasing trajectories.', '2021-12-09'),
+(42, 20, 17, 'We then went on to discuss some modalities of the next choir lab. Sarah was interested in joining\r\nthe project and we had some talks about what would work best for her. Some people prefer a\r\ncontract others a payment slip. Regarding the lab Johannes was saying that he would wish from the\r\nteam some questions directed at the discipline of choir.conducting. What does the team wish from\r\nthe lab. We reiterated some of the points mentioned earlier.', '2021-12-09'),
+(43, 20, 18, 'Hanne mentioned that the choir as a voice of the people, i.e. the peoples’ voice, was very appealing.\r\nThis again triggered some discussion of the parallels between the choir and a micro-society.\r\nJohannes remarks that the life of an Alt-singer is so difficult. She lives inside a quint and always\r\nneed to demarcate herself from the adjacent singers, whereas the sopran has all that freedom to\r\nspread along multiple octaves. Johannes also mentions Dieter Schnebel in this context. The\r\ndocumenter has noted the name “Kontrapunktus 1” for the mentioned piece, which he was not able\r\nto find. Instead he found the piece “Zwischenstück Nr. 1”. Johannes says that Dieter Schnebel takes\r\nexcerpts from the well-tempered Clavier (deutsch: “Wohltemperiertes Klavier”) and distributes the individual lines to multiple performers. The name “The best of all worlds” comes up. Leo mentions\r\nVoltair’s Candide.', '2021-12-09'),
+(44, 20, 19, 'During our discussions the idea of a composition of polyphonic spatialness for the choir came up\r\naround Adrians inputs. He also said that it would be a nice challenge to make such a composition.\r\nOne that he’d be keen to take on. Talking about composition and interpretation we also discussed\r\nfeedback culture and especially Adrian’s draft on the cycle of creation and feedback in composing.\r\nWe also remarked the discrepancy between the feedback given to the interpret and that given to the\r\ncomposer. Hanne recommended the book “Der leere Raum” by Peter Brook.', '2021-12-09'),
+(45, 20, 20, 'We concluded this part of the meeting with a search for a good date to have the choir lab. The\r\nconstraining factors were the Corona-measures and availability questions. A preliminary date was\r\nsuggested for the first of February form 9am till 4pm.', '2021-12-09');
 
 -- --------------------------------------------------------
 
@@ -355,7 +397,8 @@ INSERT INTO `participation` (`participationId`, `nameId`, `gatheringId`) VALUES
 (52, 12, 18),
 (53, 3, 18),
 (54, 2, 18),
-(55, 5, 18);
+(55, 5, 18),
+(56, 14, 18);
 
 -- --------------------------------------------------------
 
@@ -396,7 +439,16 @@ INSERT INTO `posts` (`postId`, `posttypeId`, `date`, `title`, `subtitle`, `autho
 (17, 5, '2021-11-25', 'Lux Aeterna Experimental Lab', 'Hand Gesture Experiments', 'Leonhard Horstmeyer'),
 (18, 7, '2021-09-01', '', '', 'Leonhard Horstmeyer'),
 (19, 5, '2021-12-04', 'Discussion on the modalities of the reading group', '', 'Leonhard Horstmeyer'),
-(20, 5, '2021-12-04', 'Choir Lab Initial Meeting', '', 'Leonhard Horstmeyer');
+(20, 5, '2021-12-04', 'Choir Lab Initial Meeting', '', 'Leonhard Horstmeyer'),
+(21, 1, '2021-12-09', 'Hanne Pilgrim', 'Professor for Music and Movement Education/ Rhythmics & Head of the MDW’s Department of Music and Movement Education/Rhythmics', 'Leonhard Horstmeyer'),
+(22, 1, '2021-12-09', 'Rose Breuss', 'Professor for movement research & Head of the Institute of Dance Arts at Anton Bruckner Private University Upper Austria', 'Leonhard Horstmeyer'),
+(23, 1, '2021-12-09', 'Johannes Hiemetsberger', 'Professor for Choral Conducting & head of the MDW’s Department of Choral and Ensemble Directing and Music Theory in Music Education', 'Leonhard Horstmeyer'),
+(24, 1, '2021-12-09', 'Leonhard Horstmeyer', 'Complexity Scientist and Mathematician & Associate Faculty at the Complexity Science Hub Vienna', 'Leonhard Horstmeyer'),
+(25, 1, '2021-12-09', 'William Edouard Franck', 'Cinematic direct sound producer & Senior Lecturer for Sound at the Film Academy Vienna', 'Leonhard Horstmeyer'),
+(26, 1, '2021-12-09', 'Stephanie Schroedter', 'Professor for Theories of Music and Movement/Rhythmics at the Institute for Music and Movement Education/ Rhythmics (MDW)', 'Leonhard Horstmeyer'),
+(27, 1, '2021-12-09', 'Magdalena Eidenhammer', 'Voice Artist (Stimmbildnerin) and Pedagogue', 'Leonhard Horstmeyer'),
+(28, 1, '2021-12-09', 'Maria Shurkhal', 'Freelance dancer, choreographer and pedagogue', 'Leonhard Horstmeyer'),
+(29, 1, '2021-12-09', 'Damian Cortes Alberti', 'Choreographer, dancer, researcher transmediality and dance notation.', 'Leonhard Horstmeyer');
 
 -- --------------------------------------------------------
 
@@ -421,6 +473,98 @@ INSERT INTO `postType` (`posttypeId`, `description`) VALUES
 (5, 'meeting'),
 (6, 'reflection'),
 (7, 'empty');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `projectRoles`
+--
+
+CREATE TABLE `projectRoles` (
+  `roleId` int NOT NULL,
+  `role` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `projectRoles`
+--
+
+INSERT INTO `projectRoles` (`roleId`, `role`, `description`) VALUES
+(1, 'Experimentalist', 'Preparing, conducting, participating in experiments'),
+(2, 'Documenter', 'Documenting processes, outputs, discussion, insights during the labs and in between.'),
+(3, 'Representative for Eurhythmics', 'representing the discipline of Eurythmics. Organizing the labs which have a focus on Eurythmics. Communicating with the people from their discipline.'),
+(4, 'Representative for Dance', 'representing the discipline of Dance. Organizing the labs which have a focus on Dance. Communicating with the people from their discipline.'),
+(5, 'Representative for Choir Conducting', 'representing the discipline of Choir Conducting. Organizing the labs which have a focus on Choir Conducting. Communicating with the people from their discipline.'),
+(6, 'Representative for Direct Cinematic Sound', 'representing the discipline of Direct Cinematic Sound. Organizing the labs which have a focus on Direct Cinematic Sound. Communicating with the people from their discipline.'),
+(7, 'Complexity Scientist', 'representing the discipline of Complexity Science. Providing input from a complexity science stand point. Communicating with the people from their discipline.'),
+(8, 'Performer', 'Preparation and participation in performances'),
+(9, 'Theoretician', 'Literature Review, Analysis, Written digest');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `roleAssignment`
+--
+
+CREATE TABLE `roleAssignment` (
+  `assignmentId` int NOT NULL,
+  `nameId` int NOT NULL,
+  `roleId` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `roleAssignment`
+--
+
+INSERT INTO `roleAssignment` (`assignmentId`, `nameId`, `roleId`) VALUES
+(1, 2, 3),
+(2, 2, 1),
+(3, 2, 2),
+(4, 2, 1),
+(5, 3, 5),
+(6, 1, 1),
+(7, 1, 2),
+(8, 1, 8),
+(9, 4, 8),
+(10, 4, 2),
+(11, 4, 1),
+(12, 5, 2),
+(13, 5, 7),
+(14, 5, 8),
+(15, 5, 1),
+(16, 6, 2),
+(17, 6, 8),
+(18, 6, 1),
+(19, 6, 3),
+(20, 7, 2),
+(21, 7, 8),
+(22, 7, 1),
+(23, 8, 2),
+(24, 8, 1),
+(25, 8, 8),
+(26, 9, 4),
+(27, 9, 2),
+(28, 9, 8),
+(29, 9, 1),
+(30, 10, 2),
+(31, 10, 1),
+(32, 5, 9),
+(33, 10, 9),
+(34, 9, 9),
+(35, 11, 1),
+(36, 11, 2),
+(37, 11, 6),
+(38, 11, 8),
+(39, 12, 1),
+(40, 12, 2),
+(41, 12, 9),
+(42, 12, 8),
+(43, 8, 4),
+(44, 14, 2),
+(45, 14, 5),
+(46, 14, 8),
+(47, 14, 1);
 
 -- --------------------------------------------------------
 
@@ -456,7 +600,8 @@ INSERT INTO `teilnehmer` (`id`, `type`, `Name`, `Email`, `Telephone`, `Affiliati
 (10, 1, 'Stephanie Schroedter', 'schroedter@mdw.ac.at', '+43613827727', 'MDW', '2021-09-01 00:00:00', NULL),
 (11, 1, 'William Edouard Franck', 'williamedouardfranck@yahoo.com', '+4369919208997', 'MDW', '2021-09-01 00:00:00', NULL),
 (12, 1, 'Adrian Artacho-Bueno', 'adrian.artacho@gmail.com', '+4369917084525', 'MDW', '2021-09-01 09:36:37', NULL),
-(13, 3, 'Geraldine Cox', NULL, NULL, NULL, NULL, NULL);
+(13, 3, 'Geraldine Cox', NULL, NULL, NULL, NULL, NULL),
+(14, 1, 'Sarah', NULL, NULL, NULL, '2021-12-01 23:29:40', NULL);
 
 -- --------------------------------------------------------
 
@@ -478,7 +623,8 @@ INSERT INTO `userTypes` (`typeId`, `description`) VALUES
 (2, 'project associated'),
 (3, 'artist'),
 (4, 'academic'),
-(5, 'other');
+(5, 'other'),
+(6, 'website user');
 
 --
 -- Indexes for dumped tables
@@ -544,6 +690,14 @@ ALTER TABLE `meetings`
   ADD KEY `statusTypeId` (`statusTypeId`);
 
 --
+-- Indexes for table `minutes`
+--
+ALTER TABLE `minutes`
+  ADD PRIMARY KEY (`minutesId`),
+  ADD KEY `nameId` (`nameId`),
+  ADD KEY `postId` (`gatheringId`);
+
+--
 -- Indexes for table `paragraphs`
 --
 ALTER TABLE `paragraphs`
@@ -572,6 +726,20 @@ ALTER TABLE `postType`
   ADD PRIMARY KEY (`posttypeId`);
 
 --
+-- Indexes for table `projectRoles`
+--
+ALTER TABLE `projectRoles`
+  ADD PRIMARY KEY (`roleId`);
+
+--
+-- Indexes for table `roleAssignment`
+--
+ALTER TABLE `roleAssignment`
+  ADD PRIMARY KEY (`assignmentId`),
+  ADD KEY `nameId` (`nameId`),
+  ADD KEY `roleId` (`roleId`);
+
+--
 -- Indexes for table `teilnehmer`
 --
 ALTER TABLE `teilnehmer`
@@ -583,6 +751,34 @@ ALTER TABLE `teilnehmer`
 --
 ALTER TABLE `userTypes`
   ADD PRIMARY KEY (`typeId`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `minutes`
+--
+ALTER TABLE `minutes`
+  MODIFY `minutesId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `paragraphs`
+--
+ALTER TABLE `paragraphs`
+  MODIFY `paragraphId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+
+--
+-- AUTO_INCREMENT for table `projectRoles`
+--
+ALTER TABLE `projectRoles`
+  MODIFY `roleId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `roleAssignment`
+--
+ALTER TABLE `roleAssignment`
+  MODIFY `assignmentId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- Constraints for dumped tables
@@ -624,6 +820,13 @@ ALTER TABLE `meetings`
   ADD CONSTRAINT `meetings_ibfk_3` FOREIGN KEY (`postId`) REFERENCES `posts` (`postId`);
 
 --
+-- Constraints for table `minutes`
+--
+ALTER TABLE `minutes`
+  ADD CONSTRAINT `minutes_ibfk_1` FOREIGN KEY (`nameId`) REFERENCES `teilnehmer` (`id`),
+  ADD CONSTRAINT `minutes_ibfk_2` FOREIGN KEY (`gatheringId`) REFERENCES `gatherings` (`gatheringId`);
+
+--
 -- Constraints for table `paragraphs`
 --
 ALTER TABLE `paragraphs`
@@ -641,6 +844,13 @@ ALTER TABLE `participation`
 --
 ALTER TABLE `posts`
   ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`posttypeId`) REFERENCES `postType` (`posttypeId`);
+
+--
+-- Constraints for table `roleAssignment`
+--
+ALTER TABLE `roleAssignment`
+  ADD CONSTRAINT `roleAssignment_ibfk_1` FOREIGN KEY (`roleId`) REFERENCES `projectRoles` (`roleId`),
+  ADD CONSTRAINT `roleAssignment_ibfk_2` FOREIGN KEY (`nameId`) REFERENCES `teilnehmer` (`id`);
 
 --
 -- Constraints for table `teilnehmer`
