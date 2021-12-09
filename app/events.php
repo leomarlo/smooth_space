@@ -51,7 +51,7 @@
               $stmt->execute();
               $paragraphs = $stmt->fetchAll();
               // images
-              $stmt = $conn->prepare(getImagesOfEventSQL($thisEventId)); 
+              $stmt = $conn->prepare(getImagesOfPostSQL($events[$i]["postId"])); 
               $stmt->execute();
               $images = $stmt->fetchAll();
               // card DOM
@@ -127,6 +127,7 @@
         <div class="menu_">
           <span > <a href="project.php"> Project </a> </span>|
           <span > <a href="notations.php"> Notations </a> </span>|
+          <span > <a href="meetings.php"> Meetings </a> </span>|
           <span > <a href="events.php"> Events </a> </span>|
           <span > <a href="team.php"> Team </a> </span>|
           <span > <a href="partners.php"> Partners </a> </span>
