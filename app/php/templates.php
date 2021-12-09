@@ -36,7 +36,11 @@ function getTextAndImages($paragraphs, $images) {
 function getParticipants($participants) {
   $participantslist = '<ul>';
   for ($i=0; $i<count($participants); $i++){
-      $participantslist = $participantslist . '<li>' . $participants[$i]["Name"] . '(' . $participants[$i]["Affiliation"] . ')</li>';
+      $participantslist = $participantslist . '<li>' . $participants[$i]["Name"];
+      if ($participants[$i]["Affiliation"]!=''){
+        $participantslist = $participantslist . ' (' . $participants[$i]["Affiliation"] . ')';
+      }
+      $participantslist = $participantslist . '</li>';
   }
   $participantslist = $participantslist . '</ul>';
   return $participantslist;
