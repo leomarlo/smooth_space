@@ -166,8 +166,10 @@ function getMeeting($cardDOMid, $meeting, $paragraphs, $images, $participants) {
           <div class="fade_out_text_">' .
             getTextAndImages($paragraphs, $images) .
             '<p class="read_more_"><span class="read_more_button_">Read More</span></p>
-          </div> ' .
-          getMinutesOfMeeting($meeting["minutes"], $meeting["minutesTaker"]) .
+          </div>
+          <hr> 
+          <p style="text-align:right">Posted by: ' . $meeting["author"] .  
+          // getMinutesOfMeeting($meeting["minutes"], $meeting["minutesTaker"]) .
         '</div>
         <div class="card-footer">
         

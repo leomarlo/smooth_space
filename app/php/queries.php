@@ -10,7 +10,7 @@
         ORDER BY ev.from_date DESC;";
 
 
-    $allMeetingsSQL = "SELECT mt.meetingId, mt.date, mt.location, mt.virtuell, mt.description, eS.description AS statusDescription, eS.statusId, ps.postId, ps.posttypeId, ps.title, ps.subtitle, eT.eventTypeId, eT.description AS eventTypeDescription, mnts.minutes, tn.Name AS minutesTaker
+    $allMeetingsSQL = "SELECT mt.meetingId, mt.date, mt.location, mt.virtuell, mt.description, eS.description AS statusDescription, eS.statusId, ps.postId, ps.posttypeId, ps.title, ps.subtitle, ps.author, eT.eventTypeId, eT.description AS eventTypeDescription, mnts.minutes, tn.Name AS minutesTaker
         FROM meetings mt 
         LEFT JOIN eventStatus eS ON mt.statusTypeId=eS.statusId
         LEFT JOIN gatherings gth ON mt.gatheringId=gth.gatheringId
