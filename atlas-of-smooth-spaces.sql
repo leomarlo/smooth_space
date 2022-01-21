@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql:3306
--- Generation Time: Dec 09, 2021 at 11:43 PM
+-- Generation Time: Jan 21, 2022 at 05:23 PM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.20
 
@@ -131,7 +131,17 @@ INSERT INTO `gatherings` (`gatheringId`, `eventTypeId`, `description`) VALUES
 (15, 5, 'Lux Aeterna gestural study with video recording session'),
 (16, 4, 'Hanne and Leo meet to discuss the iteration process for the hand gesture study.'),
 (17, 4, 'Reading Group turned into discussion on the Smooth Spaces Project'),
-(18, 4, 'Discussion of the Choir Lab');
+(18, 4, 'Discussion of the Choir Lab'),
+(19, 4, 'Discussion with Jan Schacher, Steffi, Magdalena, Hanne und Leo'),
+(20, 2, 'Jan Schacher held a lecture at the MDW'),
+(21, 4, 'End of the Year Smooth Spaces Project Meeting'),
+(22, 4, 'Workshop with Rose Breuss at Kunstuni Linz about updates on everyone\'s projects.'),
+(23, 4, 'Meeting with Professor Dirmoser in his office and a tour through the library. Gerhard, Hanne and Leo'),
+(24, 4, 'Maria and Leo catch up after the New Year to discuss new directions.'),
+(25, 4, 'Adrian and Leo catch up after the New Year to discuss research direction'),
+(26, 6, 'Reading Group discussion on Adrians Research proposal'),
+(27, 4, 'Hanne and Leo discuss the Boom lab and joined talk with the doctoral research students.'),
+(28, 4, 'Hanne, Magdalena and Hanne meet to update each other on the current projects and read Steffis text.');
 
 -- --------------------------------------------------------
 
@@ -146,7 +156,6 @@ CREATE TABLE `media` (
   `author` varchar(1000) NOT NULL,
   `rights` varchar(5000) NOT NULL,
   `uploaded` date NOT NULL,
-  `postId` int NOT NULL,
   `alt` varchar(527) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -154,12 +163,21 @@ CREATE TABLE `media` (
 -- Dumping data for table `media`
 --
 
-INSERT INTO `media` (`mediaId`, `mediatypeId`, `path`, `author`, `rights`, `uploaded`, `postId`, `alt`) VALUES
-(1, 1, 'img/GuentherZimmermanPerformance_ConstantinGeorgescu_Wels_111121_1.jpeg', 'Constantin Georgescu', 'Constantin Georgescu', '2021-11-16', 3, 'Photo of the Dance Ensemble Choreographia[Inter]Austriaca'),
-(2, 1, 'img/GuentherZimmermanPerformance_ConstantinGeorgescu_Wels_111121_2.jpeg', 'Constantin Georgescu', 'Constantin Georgescu', '2021-11-16', 3, 'Photo of the Dance Ensemble Choreographia[Inter]Austriaca'),
-(3, 1, 'img/KaiFilmedByHanneBoom_Wien_030921.jpg', 'Leonhard Horstmeyer', 'Leonhard Horstmeyer', '2021-11-18', 2, 'Kai is filmed by Hanne during the Boom experimentation Lab in Vienna on Third of September 21'),
-(4, 1, 'img/HanneLuxAeterna_Linz_110921.jpg', 'Leonhard Horstmeyer', 'Leonhard Horstmeyer', '2021-11-18', 2, 'Lux Aeterna performance ... collection before the performance.'),
-(5, 1, '/img/damian-cortes-alberti-peter-philipp_orig.jpg', 'Peter Philipp', 'Peter Philipp', '2021-12-09', 18, 'Photo of Damian Cortes Alberti by Peter Philipp');
+INSERT INTO `media` (`mediaId`, `mediatypeId`, `path`, `author`, `rights`, `uploaded`, `alt`) VALUES
+(1, 1, 'img/GuentherZimmermanPerformance_ConstantinGeorgescu_Wels_111121_1.jpeg', 'Constantin Georgescu', 'Constantin Georgescu', '2021-11-16', 'Photo of the Dance Ensemble Choreographia[Inter]Austriaca'),
+(2, 1, 'img/GuentherZimmermanPerformance_ConstantinGeorgescu_Wels_111121_2.jpeg', 'Constantin Georgescu', 'Constantin Georgescu', '2021-11-16', 'Photo of the Dance Ensemble Choreographia[Inter]Austriaca'),
+(3, 1, 'img/KaiFilmedByHanneBoom_Wien_030921.jpg', 'Leonhard Horstmeyer', 'Leonhard Horstmeyer', '2021-11-18', 'Kai is filmed by Hanne during the Boom experimentation Lab in Vienna on Third of September 21'),
+(4, 1, 'img/HanneLuxAeterna_Linz_110921.jpg', 'Leonhard Horstmeyer', 'Leonhard Horstmeyer', '2021-11-18', 'Lux Aeterna performance ... collection before the performance.'),
+(5, 1, 'img/damian-cortes-alberti-peter-philipp_orig.jpg', 'Peter Philipp', 'Peter Philipp', '2021-12-09', 'Photo of Damian Cortes Alberti by Peter Philipp'),
+(6, 1, 'img/headshot_Adrian.png', 'Adrian Artacho', 'Adrian Artacho', '2021-12-13', 'Profile Picture of Adrian Artacho'),
+(7, 1, 'img/Maria.jpg', 'Leonhard Horstmeyer', '', '2022-01-20', 'Maria Shurkhal'),
+(8, 1, 'img/Hanne.jpg', 'Hanne Pilgrim', '', '2022-01-20', 'Photo of Hanne Pilgrim'),
+(9, 1, 'img/RoseBreuss_closeup.png', 'Rose Breuss', '', '2022-01-20', 'Photo of Rose Breuss'),
+(10, 1, 'img/JohannesHiemetsberger_closeup.jpg', 'Johannes Hiemetsberger', '', '2022-01-20', 'Photo of Johannes Hiemetsberger'),
+(11, 1, 'img/Leo_closeup.png', 'Leonhard Horstmeyer', '', '2022-01-20', 'Photo of Leonhard Horstmeyer'),
+(12, 1, 'img/William_closeup.png', 'William Edouard Franck', '', '2022-01-20', 'Photo of William Edouard Franck'),
+(13, 1, 'img/stephanieschroedter21.png', 'Stephanie Schroedter', '', '2022-01-20', 'Photo of Stephanie Schroedter'),
+(14, 1, 'img/eidenhammer_c_Well_Ferreira.jpg', 'Well Ferreira', 'Well Ferreira', '2022-01-20', 'Photo of Magdalena Eidenhammer');
 
 -- --------------------------------------------------------
 
@@ -181,7 +199,17 @@ INSERT INTO `mediaInPosts` (`id`, `mediaId`, `postId`) VALUES
 (1, 1, 3),
 (2, 2, 3),
 (3, 3, 2),
-(4, 4, 4);
+(4, 4, 4),
+(5, 5, 29),
+(7, 6, 30),
+(8, 8, 21),
+(9, 7, 28),
+(10, 9, 22),
+(11, 10, 23),
+(12, 11, 24),
+(13, 12, 25),
+(14, 13, 26),
+(15, 14, 27);
 
 -- --------------------------------------------------------
 
@@ -238,7 +266,16 @@ INSERT INTO `meetings` (`meetingId`, `date`, `location`, `description`, `statusT
 (11, '2021-11-19 15:00:00', 'Adrians Studio Space', 'Lux Aeterna Experimental Video Recording Sessions for Hand gestural study', 3, 15, 17, 0),
 (12, '2021-11-30 13:32:00', 'MDW, Singergasse 26', 'Hanne and Leo meet to discuss iteration process for the hand gesture study.', 3, 16, 18, 0),
 (13, '2021-12-03 08:00:00', 'Zoom', 'Virtual Discussion on the direction of the reading group', 3, 17, 19, 1),
-(14, '2021-12-03 09:00:00', 'Rennweg 8', 'Initial Choir Lab Meeting', 3, 18, 20, 0);
+(14, '2021-12-03 09:00:00', 'Rennweg 8', 'Initial Choir Lab Meeting', 3, 18, 20, 0),
+(15, '2021-12-07 16:28:41', 'MDW Singerstrasse', 'Discussion with Jan Schacher about his research and work. ', 3, 19, 37, 0),
+(16, '2021-12-21 10:30:37', 'Discussion Room (Lehrerzimmer) at the MDW Singerstrasse', 'Agenda for the Null spaces of Eurythmics, Dance and Choir.', 3, 21, 32, 0),
+(17, '2021-12-22 12:00:37', 'Kunstuni Linz', 'Workshop about the ongoing projects in the group of Rose Breuss', 3, 22, 34, 0),
+(18, '2021-12-22 10:00:37', 'Bibliothek der Kunstuni Linz', 'Meeting and discussion with Gerhard Dirmoser at the library of the \"Kunstuni Linz\"', 3, 23, 33, 0),
+(19, '2022-01-13 16:30:37', 'Schauspielhaus Wien', 'Update and Discussion about the possible research directions for 2022.', 3, 24, 35, 0),
+(20, '2022-01-11 15:30:37', 'Adrians Music Studio', 'Discussion on the Research Proposal by Adrian.', 3, 25, 41, 0),
+(21, '2022-01-14 09:00:37', 'Zoom', 'Weekly Virtual meeting. Updating each other.', 3, 26, 38, 1),
+(22, '2022-01-18 11:39:41', 'MDW Singerstrasse', 'Meeting with Hanne and Leo.', 3, 27, 39, 0),
+(23, '2022-01-11 16:39:41', 'MDW Singerstrasse', 'Discussion with Hanne, Magdalena and Leo', 3, 28, 40, 0);
 
 -- --------------------------------------------------------
 
@@ -324,7 +361,13 @@ INSERT INTO `paragraphs` (`paragraphId`, `postId`, `ordinal`, `text`, `updated`)
 (42, 20, 17, 'We then went on to discuss some modalities of the next choir lab. Sarah was interested in joining\r\nthe project and we had some talks about what would work best for her. Some people prefer a\r\ncontract others a payment slip. Regarding the lab Johannes was saying that he would wish from the\r\nteam some questions directed at the discipline of choir.conducting. What does the team wish from\r\nthe lab. We reiterated some of the points mentioned earlier.', '2021-12-09'),
 (43, 20, 18, 'Hanne mentioned that the choir as a voice of the people, i.e. the peoples’ voice, was very appealing.\r\nThis again triggered some discussion of the parallels between the choir and a micro-society.\r\nJohannes remarks that the life of an Alt-singer is so difficult. She lives inside a quint and always\r\nneed to demarcate herself from the adjacent singers, whereas the sopran has all that freedom to\r\nspread along multiple octaves. Johannes also mentions Dieter Schnebel in this context. The\r\ndocumenter has noted the name “Kontrapunktus 1” for the mentioned piece, which he was not able\r\nto find. Instead he found the piece “Zwischenstück Nr. 1”. Johannes says that Dieter Schnebel takes\r\nexcerpts from the well-tempered Clavier (deutsch: “Wohltemperiertes Klavier”) and distributes the individual lines to multiple performers. The name “The best of all worlds” comes up. Leo mentions\r\nVoltair’s Candide.', '2021-12-09'),
 (44, 20, 19, 'During our discussions the idea of a composition of polyphonic spatialness for the choir came up\r\naround Adrians inputs. He also said that it would be a nice challenge to make such a composition.\r\nOne that he’d be keen to take on. Talking about composition and interpretation we also discussed\r\nfeedback culture and especially Adrian’s draft on the cycle of creation and feedback in composing.\r\nWe also remarked the discrepancy between the feedback given to the interpret and that given to the\r\ncomposer. Hanne recommended the book “Der leere Raum” by Peter Brook.', '2021-12-09'),
-(45, 20, 20, 'We concluded this part of the meeting with a search for a good date to have the choir lab. The\r\nconstraining factors were the Corona-measures and availability questions. A preliminary date was\r\nsuggested for the first of February form 9am till 4pm.', '2021-12-09');
+(45, 20, 20, 'We concluded this part of the meeting with a search for a good date to have the choir lab. The\r\nconstraining factors were the Corona-measures and availability questions. A preliminary date was\r\nsuggested for the first of February form 9am till 4pm.', '2021-12-09'),
+(46, 32, 1, 'Our discussion revolved around the definition of the null spaces in the various disciplines. Also Sara Ganzer joined for the first time via zoom and discussed with us certain directions of the choir project.', '2022-01-20'),
+(47, 34, 1, 'The workshop in Linz was very insightful. We have discussed postcolonialism in dance and theatre. We discussed the desire machine briefly and Constantinos dance pieces.', '2022-01-20'),
+(48, 33, 1, 'Professor Dirmoser welcomed Hanne and Leo at his office inside the library of the art university of Linz. We discussed diagrammatic aspects of densities and their relation to motion and verbs. Gerhard Dirmoser also showed us his extensive library on diagrammatics.', '2022-01-20'),
+(49, 35, 1, 'The work of Adrian in the exhbition at the Schauspielhaus Wien was the starting point for discussions on universal basic income, the \"Freie Szene\" for dance and performing arts, competition, juries, crypto-spaces, Foucault and also a little bit on the \"desire machine\". We also talked about the project as a whole.', '2022-01-20'),
+(50, 41, 1, 'We were talking about various problems in the every-day work of performing artists who are not directly aware or savy of tech. Adrian poses three problems: the capture problem, the feature problem and the complexity problem. In a draft for a research proposal he argues for a method to integrate them into the routine of a working artist. We discussed this draft. ', '2022-01-20'),
+(51, 41, 2, 'We also discussed the potential of topological methods in capture and feature analysis for performing arts and for gestures. This immediately feeds back into the work on gestures that we have started.', '2022-01-20');
 
 -- --------------------------------------------------------
 
@@ -398,7 +441,39 @@ INSERT INTO `participation` (`participationId`, `nameId`, `gatheringId`) VALUES
 (53, 3, 18),
 (54, 2, 18),
 (55, 5, 18),
-(56, 14, 18);
+(56, 14, 18),
+(57, 15, 19),
+(58, 2, 19),
+(59, 5, 19),
+(60, 6, 19),
+(61, 10, 19),
+(62, 2, 21),
+(63, 5, 21),
+(64, 6, 21),
+(65, 14, 21),
+(66, 9, 21),
+(67, 10, 21),
+(68, 2, 22),
+(69, 8, 22),
+(70, 5, 22),
+(71, 9, 22),
+(72, 1, 22),
+(73, 2, 23),
+(74, 16, 23),
+(75, 5, 23),
+(76, 8, 24),
+(77, 5, 24),
+(78, 5, 25),
+(79, 12, 25),
+(80, 9, 26),
+(81, 5, 26),
+(82, 12, 26),
+(83, 8, 26),
+(84, 2, 27),
+(85, 5, 27),
+(86, 6, 28),
+(87, 5, 28),
+(88, 2, 28);
 
 -- --------------------------------------------------------
 
@@ -448,7 +523,19 @@ INSERT INTO `posts` (`postId`, `posttypeId`, `date`, `title`, `subtitle`, `autho
 (26, 1, '2021-12-09', 'Stephanie Schroedter', 'Professor for Theories of Music and Movement/Rhythmics at the Institute for Music and Movement Education/ Rhythmics (MDW)', 'Leonhard Horstmeyer'),
 (27, 1, '2021-12-09', 'Magdalena Eidenhammer', 'Voice Artist (Stimmbildnerin) and Pedagogue', 'Leonhard Horstmeyer'),
 (28, 1, '2021-12-09', 'Maria Shurkhal', 'Freelance dancer, choreographer and pedagogue', 'Leonhard Horstmeyer'),
-(29, 1, '2021-12-09', 'Damian Cortes Alberti', 'Choreographer, dancer, researcher transmediality and dance notation.', 'Leonhard Horstmeyer');
+(29, 1, '2021-12-09', 'Damian Cortes Alberti', 'Choreographer, dancer, researcher transmediality and dance notation.', 'Leonhard Horstmeyer'),
+(30, 1, '2021-12-13', 'Adrian Artacho Bueno', 'Composer', 'Leonhard Horstmeyer'),
+(31, 1, '2022-01-20', 'Sara Ganzer', 'Singer', 'Leonhard Horstmeyer'),
+(32, 5, '2022-01-21', 'Smooth Space End of Year Meeting', 'Quo Vadis', 'Leonhard Horstmeyer'),
+(33, 5, '2021-12-22', 'Meeting with Professor Dirmoser', 'An excursion to the diagrammatic library', 'Leonhard Horstmeyer'),
+(34, 5, '2021-12-22', 'Workshop about ongoing projects in Rose\'s group', '', 'Leonhard Horstmeyer'),
+(35, 5, '2022-01-13', 'Beginning of the Year Discussion between Maria and Leo', 'Meeting, Discussion and Exhibition', 'Leonhard Horstmeyer'),
+(36, 2, '2021-12-07', 'Lecture by Jan Schacher', '', 'Leonhard Horstmeyer'),
+(37, 5, '2021-12-07', 'Discussions with Jan Schacher before and after his talk', '', 'Leonhard Horstmeyer'),
+(38, 5, '2022-01-14', 'Discussing Adrian\'s Research Proposal', 'An excursion during the weekly reading group', 'Leonhard Horstmeyer'),
+(39, 5, '2022-01-18', 'Weekly MDW Meeting', 'Doctoral Artistic Research Projects', 'Leonhard Horstmeyer'),
+(40, 5, '2022-01-11', 'Weekly Smooth Space Meeting - Hanne, Magdalena and Leo', 'Discussion on Stephanie\'s Text and lectures on Nothing by John Cage', 'Leonhard Horstmeyer'),
+(41, 5, '2022-01-11', 'Meeting and Discussion with Adrian in his Studio', '', 'Leonhard Horstmeyer');
 
 -- --------------------------------------------------------
 
@@ -477,29 +564,68 @@ INSERT INTO `postType` (`posttypeId`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `profile`
+--
+
+CREATE TABLE `profile` (
+  `profileId` int NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  `nameId` int NOT NULL,
+  `postId` int NOT NULL,
+  `website` varchar(1000) DEFAULT NULL,
+  `date` datetime NOT NULL,
+  `website_text` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'website'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `profile`
+--
+
+INSERT INTO `profile` (`profileId`, `description`, `nameId`, `postId`, `website`, `date`, `website_text`) VALUES
+(1, 'Profile of Hanne Pilgrim', 2, 21, 'https://hannepilgrim.de/', '2021-12-13 12:05:02', 'hannepilgrim.de'),
+(2, 'Profile of Rose Breuss', 9, 22, 'http://www.rosebreuss.com/', '2021-12-13 12:05:02', 'www.rosebreuss.com'),
+(3, 'Profile of Johannes Hiemetsberger', 3, 23, 'https://www.mdw.ac.at/abi/lehrende/chor--dirigieren--ensemble/johannes-hiemetsberger/', '2021-12-13 12:11:36', 'website of Johannes Hiemetsberger'),
+(4, 'Profile of Leonhard Horstmeyer', 5, 24, 'https://www.csh.ac.at/researcher/leonhard-horstmeyer/', '2021-12-13 12:11:36', 'website of Leonhard Horstmeyer'),
+(5, 'Profile of William Edouard Franck', 11, 25, 'https://online.mdw.ac.at/mdw_online/visitenkarte.show_vcard?pPersonenId=7E0DCBC93B623725&pPersonenGruppe=3', '2021-12-13 12:11:36', 'website of Wiliam Edouard Franck'),
+(6, 'Profile of Stephanie Schroedter', 10, 26, 'https://www.mdw.ac.at/mrm/mbe/?PageId=3586', '2021-12-13 12:11:36', 'website of Stephanie Schroedter'),
+(7, 'Profile of Magdalena Eidenhammer', 6, 27, 'https://mdw.ac.at/internationalblog/author/magdalena-eidenhammer/', '2021-12-13 12:11:36', 'website of Magdalena Eidenhammer'),
+(8, 'Profile of Maria Shurkhal', 8, 28, 'https://www.mshurkhal.com/', '2021-12-13 12:11:36', 'mshurkhal.com'),
+(9, 'Profile of Damian Cortes Alberti', 1, 29, 'https://redsapata.com/portfolio_page/damian-federico-cortes-alberti/', '2021-12-13 12:11:36', 'redsapata profile of Damian Cortes Alberti'),
+(10, 'Profile of Adrian Artacho Bueno', 12, 30, 'https://www.youtube.com/c/AdrianArtachoBueno', '2021-12-13 12:45:24', 'youtube site of Adrian Artacho Bueno'),
+(11, 'Profile of Sara Ganzer', 14, 31, NULL, '2022-01-20 12:09:18', 'website');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `projectRoles`
 --
 
 CREATE TABLE `projectRoles` (
   `roleId` int NOT NULL,
   `role` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL
+  `description` varchar(255) NOT NULL,
+  `roleTypeId` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `projectRoles`
 --
 
-INSERT INTO `projectRoles` (`roleId`, `role`, `description`) VALUES
-(1, 'Experimentalist', 'Preparing, conducting, participating in experiments'),
-(2, 'Documenter', 'Documenting processes, outputs, discussion, insights during the labs and in between.'),
-(3, 'Representative for Eurhythmics', 'representing the discipline of Eurythmics. Organizing the labs which have a focus on Eurythmics. Communicating with the people from their discipline.'),
-(4, 'Representative for Dance', 'representing the discipline of Dance. Organizing the labs which have a focus on Dance. Communicating with the people from their discipline.'),
-(5, 'Representative for Choir Conducting', 'representing the discipline of Choir Conducting. Organizing the labs which have a focus on Choir Conducting. Communicating with the people from their discipline.'),
-(6, 'Representative for Direct Cinematic Sound', 'representing the discipline of Direct Cinematic Sound. Organizing the labs which have a focus on Direct Cinematic Sound. Communicating with the people from their discipline.'),
-(7, 'Complexity Scientist', 'representing the discipline of Complexity Science. Providing input from a complexity science stand point. Communicating with the people from their discipline.'),
-(8, 'Performer', 'Preparation and participation in performances'),
-(9, 'Theoretician', 'Literature Review, Analysis, Written digest');
+INSERT INTO `projectRoles` (`roleId`, `role`, `description`, `roleTypeId`) VALUES
+(1, 'Experimentalist', 'Preparing, conducting, participating in experiments', 1),
+(2, 'Documenter', 'Documenting processes, outputs, discussion, insights during the labs and in between.', 1),
+(3, 'Representative for Eurhythmics', 'representing the discipline of Eurythmics. Organizing the labs which have a focus on Eurythmics. Communicating with the people from their discipline.', 2),
+(4, 'Representative for Dance', 'representing the discipline of Dance. Organizing the labs which have a focus on Dance. Communicating with the people from their discipline.', 2),
+(5, 'Representative for Choir Conducting', 'representing the discipline of Choir Conducting. Organizing the labs which have a focus on Choir Conducting. Communicating with the people from their discipline.', 2),
+(6, 'Representative for Direct Cinematic Sound', 'representing the discipline of Direct Cinematic Sound. Organizing the labs which have a focus on Direct Cinematic Sound. Communicating with the people from their discipline.', 2),
+(7, 'Complexity Scientist', 'representing the discipline of Complexity Science. Providing input from a complexity science stand point. Communicating with the people from their discipline.', 2),
+(8, 'Performer', 'Preparation and participation in performances', 1),
+(9, 'Theoretician', 'Literature Review, Analysis, Written digest', 1),
+(10, 'Dance Researcher', 'Assisting in the organization of the Smooth Spaces Labs, the preparations of scores, research materials, participating in the research with her specific dance knowledge and working on dissemination of the research in associated projects.', 2),
+(11, 'Eurhythmics Researcher', 'Assisting in the organization of the Smooth Spaces Labs, the preparations of scores, research materials, participating in the research with her specific music and movement knowledge and working on dissemination of the research in associated projects.', 2),
+(12, 'Principal Investigator (PI)', 'Responsible for the overall research project', 2),
+(13, 'Artistic Investigator (AI)', 'Responsible for a particular discipline within the research project.', 2),
+(14, 'Theoretical Investigator', 'Researching theoretical foundation and material.', 2);
 
 -- --------------------------------------------------------
 
@@ -564,7 +690,32 @@ INSERT INTO `roleAssignment` (`assignmentId`, `nameId`, `roleId`) VALUES
 (44, 14, 2),
 (45, 14, 5),
 (46, 14, 8),
-(47, 14, 1);
+(47, 14, 1),
+(48, 2, 12),
+(49, 2, 13),
+(50, 3, 13),
+(51, 9, 13),
+(52, 11, 13),
+(53, 10, 14);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `roleTypes`
+--
+
+CREATE TABLE `roleTypes` (
+  `roleTypeId` int NOT NULL,
+  `roleType` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `roleTypes`
+--
+
+INSERT INTO `roleTypes` (`roleTypeId`, `roleType`) VALUES
+(1, 'Fluid Role'),
+(2, 'Project Role');
 
 -- --------------------------------------------------------
 
@@ -601,7 +752,9 @@ INSERT INTO `teilnehmer` (`id`, `type`, `Name`, `Email`, `Telephone`, `Affiliati
 (11, 1, 'William Edouard Franck', 'williamedouardfranck@yahoo.com', '+4369919208997', 'MDW', '2021-09-01 00:00:00', NULL),
 (12, 1, 'Adrian Artacho-Bueno', 'adrian.artacho@gmail.com', '+4369917084525', 'MDW', '2021-09-01 09:36:37', NULL),
 (13, 3, 'Geraldine Cox', NULL, NULL, NULL, NULL, NULL),
-(14, 1, 'Sarah', NULL, NULL, NULL, '2021-12-01 23:29:40', NULL);
+(14, 1, 'Sara Ganzer', 'ganzer.sara@gmail.com', NULL, NULL, '2021-12-01 23:29:40', NULL),
+(15, 4, 'Jan Schacher', NULL, NULL, 'Helsinki', NULL, NULL),
+(16, 4, 'Gerhard Dirmoser', 'gerhard.dirmoser@gmail.com', '+436766039078', 'Kunstuniverstität Linz', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -663,7 +816,6 @@ ALTER TABLE `gatherings`
 --
 ALTER TABLE `media`
   ADD PRIMARY KEY (`mediaId`),
-  ADD KEY `postId` (`postId`),
   ADD KEY `mediatypeId` (`mediatypeId`);
 
 --
@@ -726,10 +878,19 @@ ALTER TABLE `postType`
   ADD PRIMARY KEY (`posttypeId`);
 
 --
+-- Indexes for table `profile`
+--
+ALTER TABLE `profile`
+  ADD PRIMARY KEY (`profileId`),
+  ADD KEY `nameId` (`nameId`),
+  ADD KEY `postId` (`postId`);
+
+--
 -- Indexes for table `projectRoles`
 --
 ALTER TABLE `projectRoles`
-  ADD PRIMARY KEY (`roleId`);
+  ADD PRIMARY KEY (`roleId`),
+  ADD KEY `roleTypeId` (`roleTypeId`);
 
 --
 -- Indexes for table `roleAssignment`
@@ -738,6 +899,12 @@ ALTER TABLE `roleAssignment`
   ADD PRIMARY KEY (`assignmentId`),
   ADD KEY `nameId` (`nameId`),
   ADD KEY `roleId` (`roleId`);
+
+--
+-- Indexes for table `roleTypes`
+--
+ALTER TABLE `roleTypes`
+  ADD PRIMARY KEY (`roleTypeId`);
 
 --
 -- Indexes for table `teilnehmer`
@@ -766,19 +933,31 @@ ALTER TABLE `minutes`
 -- AUTO_INCREMENT for table `paragraphs`
 --
 ALTER TABLE `paragraphs`
-  MODIFY `paragraphId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `paragraphId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+
+--
+-- AUTO_INCREMENT for table `profile`
+--
+ALTER TABLE `profile`
+  MODIFY `profileId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `projectRoles`
 --
 ALTER TABLE `projectRoles`
-  MODIFY `roleId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `roleId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `roleAssignment`
 --
 ALTER TABLE `roleAssignment`
-  MODIFY `assignmentId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `assignmentId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+
+--
+-- AUTO_INCREMENT for table `roleTypes`
+--
+ALTER TABLE `roleTypes`
+  MODIFY `roleTypeId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -801,8 +980,7 @@ ALTER TABLE `gatherings`
 -- Constraints for table `media`
 --
 ALTER TABLE `media`
-  ADD CONSTRAINT `media_ibfk_1` FOREIGN KEY (`mediatypeId`) REFERENCES `mediaType` (`mediatypeId`),
-  ADD CONSTRAINT `media_ibfk_2` FOREIGN KEY (`postId`) REFERENCES `posts` (`postId`);
+  ADD CONSTRAINT `media_ibfk_1` FOREIGN KEY (`mediatypeId`) REFERENCES `mediaType` (`mediatypeId`);
 
 --
 -- Constraints for table `mediaInPosts`
@@ -844,6 +1022,19 @@ ALTER TABLE `participation`
 --
 ALTER TABLE `posts`
   ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`posttypeId`) REFERENCES `postType` (`posttypeId`);
+
+--
+-- Constraints for table `profile`
+--
+ALTER TABLE `profile`
+  ADD CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`nameId`) REFERENCES `teilnehmer` (`id`),
+  ADD CONSTRAINT `profile_ibfk_2` FOREIGN KEY (`postId`) REFERENCES `posts` (`postId`);
+
+--
+-- Constraints for table `projectRoles`
+--
+ALTER TABLE `projectRoles`
+  ADD CONSTRAINT `projectRoles_ibfk_1` FOREIGN KEY (`roleTypeId`) REFERENCES `roleTypes` (`roleTypeId`);
 
 --
 -- Constraints for table `roleAssignment`
