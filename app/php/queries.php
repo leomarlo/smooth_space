@@ -21,6 +21,21 @@
         ORDER BY mt.date DESC;";
 
 
+    $allProfilesSQL = "SELECT pf.nameId, tn.Name, ps.title, ps.subtitle, media.path AS src, media.alt, media.author AS takenBy, pf.website AS href, pf.website_text, tn.Affiliation
+        FROM profile pf
+        LEFT JOIN mediaInPosts mip ON pf.postId=mip.postId
+        LEFT JOIN media ON media.mediaId=mip.mediaId
+        LEFT JOIN posts ps ON ps.postId=pf.postId
+        LEFT JOIN teilnehmer tn ON tn.id=pf.nameId;";
+
+    function getProjectRolesSQL($nameId, $roleTypeId){
+        return "SELECT pR.roleId, pR.role, pR.description
+        FROM roleAssignment rA
+        LEFT JOIN projectRoles pR ON pR.roleId=rA.roleId
+        WHERE rA.nameId=" . $nameId . " AND pR.roleTypeId=" . $roleTypeId . ";";
+    }
+
+
     function getParticipantsOfEventSQL ($eventid) {
         return "SELECT tn.Name, tn.Affiliation
             FROM events ev

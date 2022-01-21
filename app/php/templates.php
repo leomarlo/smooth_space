@@ -119,6 +119,30 @@ function virtualMeetingDiv($virtualFlag){
 }
 
 
+$bgcolors = array( "#dd04a0", "#440aaa", "#0a44aa", "#a0aa04", "#aa0000",
+                   "#04dda0", "#dd0a04", "#0a04dd", "#dd0add", "#0000aa",
+                   "#dddddd", "#440a44", "#0aaaaa", "#a04404", "#aa04aa");
+$textcolors = array("#000", "#fff");
+
+
+function roleDivs($roles){
+  $textcolor = "#000";
+  $divs = '';
+  // $test = $roles[$i]["role"];
+  for ($i=0; $i<count($roles); $i++){
+    $divs = $divs . '<div class="smll_box_" style="background-color:' . 
+             $bgcolors[$roles[$i]["roleId"]] . '; color:' . $textcolor . 
+             '; cursor:pointer;" ' .
+             'title="' . $roles[$i]["description"] . '">A</div>' . 
+             '<span>' . $roles[$i]["role"] . '</span><br>';          
+  }
+  // for ($j=0; $j<count($roles); $j++) {
+  //   $divs = $divs 
+  // }
+  // $divs = $roles[0]["role"];
+  return $divs;
+}
+
 function getMinutesOfMeeting($minutes, $author) {
 
   $div = '';
@@ -198,5 +222,29 @@ function getMeeting($cardDOMid, $meeting, $paragraphs, $images, $participants) {
 
   return $card;
 }
+
+
+function getProfile($profile, $cardDOMid, $fluidroles, $projectroles) {
+
+  $div = '
+  <div class="row mt-4 padding_left_ padding_right_ " id="' . $cardDOMid. '">
+    <div class="col-4 col-md-4 rounded_img_borders_left_ nopadding_ align_right_">
+        <img class="cover_ cardborder_ rounded_img_borders_left_" src="' . $profile["src"] . '" alt="' . $profile["alt"] . '" width="420" height="378">
+      </div>
+      <div class="col-8 col-md-8 gray_ cardborder_ rounded_img_borders_right_">
+          <span class="title4_">' . $profile["title"] . '</span><br>
+          <span class="title6_">' . $profile["subtitle"] . '</span><br><br>
+          <b>Project Role</b><br>' .
+          roleDivs($projectroles) . '<br>
+          <b>Fluid Roles</b><br>' . 
+          roleDivs($fluidroles) . '<br>
+          <span style="text-align:right"><b>Website:</b>
+            <a href="' . $profile["href"] . '">' . $profile["website_text"] . '</a>
+          </span>
+      </div>
+    </div>';
+  return $div;
+}
+
 
 ?>

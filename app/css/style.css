@@ -201,6 +201,13 @@ a:active {
   color: #777;
 }
 
+.margin_left_ {
+  margin-left: 15px;
+}
+.margin_right_ {
+  margin-right: 15px;
+}
+
 .padding_left_ {
   padding-left: 15px;
 }
@@ -253,7 +260,7 @@ a:active {
 }
 
 .rounded_img_borders_left_ {
-  border-radius: 15px 15px 15px 15px;
+  border-radius: 15px 0px 0px 15px;
 }
 
 .rounded_img_borders_right_ {

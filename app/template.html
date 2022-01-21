@@ -1,0 +1,535 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <script type="text/javascript" src="https://twgljs.org/dist/4.x/twgl-full.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./fonts/AlegreyaFont/stylesheet.css">
+  <link rel="stylesheet" href="./fonts/ABeeZee/stylesheet.css">
+  <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+<body>
+  <div class="container-fluid">
+    <canvas id="canvasholder" class="canvas_">
+    </canvas>
+    <div class="row foreground_ absolute_ mainheight_ totalwidth_">
+      <div class="col-md-2 col-sm-2 col-xs-2 mainheight_ testdiv_">
+        <div style="margin-top:10px; margin-left:5px">
+          <h4>Filter Event Status</h4>
+          <hr>
+          <form>
+            <input id="cancelledEvent_box" name="cancelledEvent" type="checkbox" checked> <label for="cancelledEvent">Cancelled</label><br>
+            <input id="upcomingEvent_box" name="upcomingEvent" type="checkbox"> <label for="UpcomingEvent">Upcoming</label><br>
+            <input id="ongoingEvent_box" name="ongoingEvent" type="checkbox"> <label for="OngoingEvent">Ongoing</label><br>
+  
+          </form>
+        </div>
+        <script>
+          const cancelledEvent = document.getElementById("cancelledEvent_box")
+          const upcomingEvent = document.getElementById("upcomingEvent_box");
+          const ongoingEvent = document.getElementById("ongoingEvent_box");
+          const allEventBoxes = [cancelledEvent, upcomingEvent, ongoingEvent];
+          console.log(allEventBoxes.length)
+          function show() {
+            console.log("hallo");
+          }
+          for (ei=0; ei<allEventBoxes.length; ei++) {
+            console.log(allEventBoxes[ei])
+            allEventBoxes[ei].addEventListener('click',show)
+            // console.log(eL)
+          }
+          ongoingEvent.addEventListener('click',show)
+
+
+        </script>
+        
+      </div>
+      <div class="col-md-8 col-sm-8 col-xs-8 mainheight_ scrollable_ testdiv_">
+
+        <div class="row mt-4">
+          <div class="col-sm-12 col-md-12">
+            <div class="card cardborder_ " id="workshop_csh_january_card">
+              <div class="card-header center_"><h4 class="padding_">Workshop &mdash; A Syntax for Smooth Spaces</h4></div>
+              <div class="card-body justify_">
+                <details>
+                  <summary><b>Description</b></summary>
+                
+                <i>How can we construct notational systems of spaces and what do we demand from them?</i> In this workshop, we would like to pursue this question from a performance, as well as a complexity science perspective, and lay emphasis on the experiential dimension rather than the bare physical description. At the same time, we explore various synergies with the work of the CSH. How can we build virtual or artificial spaces? How can virtual spaces help to investigate space experiences? How can notational systems be developed, also beyond a written encoding? In the audio-corporeal arts, space is both shaped by performers as a medium, and shaping the performer as a condition. Despite its important role, notations and means of communicating spaces and their qualities are lacking. The 20th century has seen a range of notational systems for movement and dance, such as the Laban notation. The starting point of this workshop is a brief exposition of the notion of artistic research, followed by theoretical contributions and practical input from performers. The envisioned output is artistic research collaboration between the mdw (University for Music and Performative Art Vienna), the abpu (Anton Brucker Privatuniversität) and the Complexity Science Hub (CSH).
+                </details>
+              </div>
+              <div class="card-footer">
+                <p><b>Where</b><br><a href="https://www.csh.at">Complexity Science Hub Vienna </a></p>
+                <p><b>When</b><br>17th to 18th of June, 2021</p>
+                <p>
+                  <details>
+                    <summary><b>Participants</b></summary>
+                  Hanne Pilgrim (MDW) <br>
+                  Rose Breuss (ABPU) <br>
+                  Johannes Hiemetsberger (MDW) <br>
+                  William Eouard Franck (MDW/Film Academy Vienna) <br>
+                  Leonhard Horstmeyer (CSH) <br>
+                  Johannes Sorger (CSH) <br>
+                  Maria Shurkhal (ABPU)<br>
+                  Mira Blaschek <br>
+                  Magdalena Eidenhammer<br>
+                  Marcela Mariana Lopez (ABPU)<br>
+                  Damian Cortes Alberti (ABPU)<br>
+                  Kai Chun Chuang (ABPU)<br>
+                  <br>
+                  
+                </details>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      
+        <div class="row mt-4">
+          <div class="col-sm-12 col-md-12">
+            <div class="card cardborder_ " id="ignition_lab_september_card">
+              <div class="card-header center_"><h4 class="padding_">Ignition Lab &mdash; Kick-off Workshop</h4></div>
+              <div class="card-body justify_">
+                <details>
+                  <summary><b>Description</b></summary>
+                </details>
+              </div>
+              <div class="card-footer">
+                <p><b>Where</b><br><a href="https://www.mdw.ac.at/">MDW &mdash; Rennweg 8</a></p>
+                <p><b>When</b><br>1st to 4th of September, 2021</p>
+                <p>
+                <details>
+                  <summary><b>Participants</b></summary>
+                  Hanne Pilgrim (MDW) <br>
+                  Rose Breuss (ABPU) <br>
+                  Johannes Hiemetsberger (MDW) <br>
+                  Stephanie Schroedter (MDW) <br>
+                  William Eouard Franck (MDW/Film Academy Vienna) <br>
+                  Leonhard Horstmeyer (MDW) <br>
+                  Magdalena Eidenhammer<br>
+                  Maria Shurkhal (ABPU)<br>
+                  Marcela Mariana Lopez (ABPU)<br>
+                  Damian Cortes Alberti (ABPU)<br>
+                  Kai Chun Chuang (ABPU)<br>
+                  <br>
+                  </details>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="row mt-4">
+          <div class="col-sm-12 col-md-12">
+            <div class="card cardborder_ " id="guenther_zimmermann_card">
+              <div class="card-header center_"><h4 class="padding_">Choreographia[Inter]Austriaca und Altenberg Trio &mdash; Performance</h4></div>
+              <div class="card-body justify_">
+                <div class="row mt-4">
+                    <div class="col-sm-5 col-md-5">
+                        <img src="img/GuentherZimmermanPerformance_ConstantinGeorgescu_Wels_111121_2.jpeg" alt="TänzerInnen vom Choreographia[Inter]Austriaca Ensemble" width="100%">
+                        <br>
+                        Foto: Constantin Georgescu
+                    </div>
+                    <div class="col-sm-7 col-md-7">
+                        <details>
+                        <summary><b>Description</b></summary>
+                        "Die Abonnementkonzerte Wels sind für Oberösterreich ein Geheimtipp für zeitgenössische Musik, wo neue Klänge mit Etabliertem in Verbindung gesetzt werden. Der experimentelle Gedanke wird durchaus weiter gefasst. So war beim Konzert im Veranstaltungszentrum Minoriten Wels am Donnerstag nicht nur das Altenberg Trio Wien zu Gast, sondern auch "Choreographia[Inter]Austriaca", ein Tanzensemble von Rose Breuss. Man widmete sich einem sehr eigenwilligen Werk von Bernd Alois Zimmermann, das 1961 als Concerto scénique uraufgeführt wurde und fünf Jahre später als konsequente Weiterentwicklung zum Ballet blanc en cinq scènes "Présence" mutierte. Es ist als Schlüsselwerk einer ganzen "Epoche" zu verstehen. Choreografin Rose Breuss setzte die "Eiswüste der Töne" in eloquente Gesten um. Dadurch wurde die Musik kontrapunktiert und doch wurde ganz eng auf sie reagiert."<br>
+                        <br>
+                        schreibt <a href="https://www.nachrichten.at/kultur/musik-im-zeichen-der-tradition;art16,3488871"><i>OÖNachrichten</i></a>
+                        </details>
+                    </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <p><b>Where</b><br><a href="https://www.wels.at/welsmarketing/oesterreich-unterkunft/detail/430000188/minoriten-wels.html#startdate=19.11.2021&enddate=21.11.2021&occupation=2">Minoritenkirche &mdash; Wels</a></p>
+                <p><b>When</b><br>11th of November, 2021</p>
+                <p>
+                <details>
+                  <summary><b>Participants from the Project</b></summary>
+                  Rose Breuss (ABPU) <br>
+                  Maria Shurkhal (ABPU)<br>
+                  Marcela Mariana Lopez (ABPU)<br>
+                  Damian Cortes Alberti (ABPU)<br>
+                  Kai Chun Chuang (ABPU)<br>
+                  <br>
+                  </details>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="row mt-4">
+          <div class="col-sm-12 col-md-12">
+            <div class="card cardborder_ " id="guenther_zimmermann_2_card">
+              <div class="card-header center_"><h4 class="padding_">Choreographia[Inter]Austriaca und Altenberg Trio &mdash; Performance</h4></div>
+              <div class="card-body justify_">
+                <div class="row mt-4">
+                    <div class="col-sm-5 col-md-5">
+                        <img src="img/GuentherZimmermanPerformance_ConstantinGeorgescu_Wels_111121_1.jpeg" alt="TänzerInnen vom Choreographia[Inter]Austriaca Ensemble" width="100%">
+                        <br>
+                        Foto: Constantin Georgescu
+                    </div>
+                    <div class="col-sm-7 col-md-7">
+                        <details>
+                        <summary><b>Description</b></summary>
+                        </details>
+                    </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <p><b>Where</b><br><a href="https://www.dioezese-linz.at/pfarre/4209/unserepfarre/chronik/ausdempfarrleben/erlebnishoerstrasse">Stadtpfarre Urfahr &mdash; Linz</a></p>
+                <p><b>When</b><br>12th of November, 2021</p>
+                <p>
+                <details>
+                  <summary><b>Participants from the Project</b></summary>
+                  Rose Breuss (ABPU) <br>
+                  Maria Shurkhal (ABPU)<br>
+                  Marcela Mariana Lopez (ABPU)<br>
+                  Damian Cortes Alberti (ABPU)<br>
+                  Kai Chun Chuang (ABPU)<br>
+                  <br>
+                  </details>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+      </div>
+      <div class="col-md-2 col-sm-2 col-xs-2 mainheight_ testdiv_ scrollable_">
+
+        <div class="quite_long_ testdiv_">
+
+          <div class="row mt-4">
+            <div class="col-sm-12 col-md-12">
+              <div class="card cardborder_ " id="workshop_csh_january_cardlette">
+                <div class="card-header center_">17.-18. June 2021</div>
+                <div class="card-body">
+                  <h5 class="card-title center_ "> <b>Workshop</b><br>A Syntax for Smooth Spaces</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-4">
+            <div class="col-sm-12 col-md-12">
+              <div class="card cardborder_ " id="ignition_lab_september_cardlette">
+                <div class="card-header center_">1.-4. September 2021</div>
+                <div class="card-body">
+                  <h5 class="card-title center_ "> <b>Workshop</b><br>Ignition Lab</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row mt-4">
+            <div class="col-sm-12 col-md-12">
+              <div class="card cardborder_ " id="guenther_zimmermann_cardlette">
+                <div class="card-header center_">11. November 2021</div>
+                <div class="card-body">
+                  <h5 class="card-title center_ "> <b>Performance</b><br>Günther-Zimmermann in Wels</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row mt-4">
+            <div class="col-sm-12 col-md-12">
+              <div class="card cardborder_ " id="guenther_zimmermann_2_cardlette">
+                <div class="card-header center_">12. November 2021</div>
+                <div class="card-body">
+                  <h5 class="card-title center_ "> <b>Performance</b><br>Günther-Zimmermann in Linz</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+        </div>
+
+      </div>
+    </div>
+    <div class="row foreground_ bottomnav_ navheight_ totalwidth_ testdiv_">
+      <div class="col-md-2 col-sm-2 col-xs-2 navheight_ testdiv_ menu_">
+        <span ><a href="index.php"><img src="img/home.svg" alt="home" height="28pt"/></a></span>
+      </div>
+      <div class="col-md-8 col-sm-8 col-xs-8 navheight_ testdiv_ white_ center_">
+        <div class="menu_">
+          <span > <a href="project.php"> Project </a> </span>|
+          <span > <a href="notations.php"> Notations </a> </span>|
+          <span > <a href="events.php"> Events </a> </span>|
+          <span > <a href="team.php"> Team </a> </span>|
+          <span > <a href="partners.php"> Partners </a> </span>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-2 col-xs-2 navheight_ testdiv_"></div>
+    </div>
+
+  </div>
+  <script type="module">
+      import { navigation_adjust } from './js/navigation.js';
+
+      var nav = new navigation_adjust();
+      nav.all_cards_scroll_into_view();
+  </script>
+  <script id="vs" type="x-shader/x-vertex" src="xvtx_vs.js">
+    attribute vec4 a_position;
+    attribute vec2 a_texcoord;
+
+    varying vec2 v_texcoord;
+
+    void main() {
+      v_texcoord = a_texcoord;
+      gl_Position = a_position;
+    }
+  </script>
+  <script id="fs_init" type="x-shader/x-fragment">
+    precision highp float;
+
+    void main() {
+      gl_FragColor= vec4(0.0);
+    }
+  </script>
+  <script id="fs_frame" type="x-shader/x-fragment">
+    precision highp float;
+
+    varying vec2 v_texcoord;
+
+    uniform float u_heatflow;
+    uniform float u_intensity;
+    uniform vec2 u_resolution;
+    uniform float u_scale;
+    uniform vec2 u_smudgepos[4];
+    uniform vec2 u_smudgevel[4];
+    uniform sampler2D u_texture;
+    uniform float u_whiteout;
+
+    float softlim(float v) {
+      float l = abs(v);
+      // if (v < 1e-4) {
+      //   return 0.0;
+      // }
+      return v * (sqrt(4.0 * l * l + 1.0) - 1.0) / (2.0 * l * l);
+    }
+
+    vec4 safeadd(vec4 v, vec4 w) {
+      float dfp = (1.0 - v.r - v.g - v.b - v.a);
+      if (dfp < 1e-4) {
+        return v;
+      }
+      float os = (w.r + w.g + w.b + w.a) / dfp;
+      if (os < 1e-4) {
+        return v + w;
+      }
+      // return  v + w;
+      // for(int i = 0; i < 4; i++) {
+      //   float tmp = 0.0 < w[i] ? 1.0 - v[i] : 0.0;
+      //   if (tmp < 1e-4) {
+      //     return v;
+      //   }
+      //   os = max(os, abs(w[i]) / tmp);
+      // }
+      w *= softlim(os) / os;
+      return v + w;
+      return max(vec4(0.0), min(vec4(1.0), v + w));
+    }
+
+    float sqlength(vec2 v) {
+      return v.x * v.x + v.y * v.y;
+    }
+
+    void main() {
+      vec4 fetch, tmp;
+      // nbs[0] = texture2D(u_texture, v_texcoord + vec2(-1.0, 0.0) / u_resolution);
+      // nbs[1] = texture2D(u_texture, v_texcoord + vec2(0.0, -1.0) / u_resolution);
+      fetch = texture2D(u_texture, v_texcoord);
+      // nbs[3] = texture2D(u_texture, v_texcoord + vec2(0.0, 1.0) / u_resolution);
+      // nbs[4] = texture2D(u_texture, v_texcoord + vec2(1.0, 0.0) / u_resolution);
+      // tmp = u_heatflow * (nbs[0] + nbs[1] + nbs[3] + nbs[4] - 4.0 * nbs[2]);
+      for (int i = 0; i < 4; i++) {
+        tmp[i] += u_intensity *
+          exp(-sqlength(length(u_smudgevel[i]) * (v_texcoord * u_resolution - u_smudgepos[i]) / (0.1 + u_scale)));
+      }
+        gl_FragColor = safeadd((1.0 - u_whiteout) * fetch, tmp);
+    }
+  </script>
+  <script id="fs_render" type="x-shader/x-fragment">
+    precision highp float;
+
+    varying vec2 v_texcoord;
+
+    uniform vec3 u_colors[4];
+    uniform sampler2D u_texture;
+
+    float sq(float v) {
+      return v * v;
+    }
+
+    void main() {
+      vec4 fetch = texture2D(u_texture, v_texcoord);
+      // float maxval = max(fetch[0], max(fetch[1], max(fetch[2], fetch[3])));
+      // float secmaxval = 0.0;
+      // bool flag = false;
+      // for(int i = 0; i < 4; i++) {
+      //   if(fetch[i] < maxval) {
+      //     secmaxval = max(secmaxval, fetch[i]);
+      //   } else if (flag) {
+      //     secmaxval = maxval;
+      //     break;
+      //   } else {
+      //     flag = true;
+      //   }
+      // }
+      // fetch = max(vec4(0.0), min(vec4(1.0), fetch - secmaxval));
+      gl_FragColor = vec4(
+        1.0 -
+        sq(fetch[0]) * (1.0 - u_colors[0]) -
+        sq(fetch[1]) * (1.0 - u_colors[1]) -
+        sq(fetch[2]) * (1.0 - u_colors[2]) -
+        sq(fetch[3]) * (1.0 - u_colors[3]),
+        1.0
+      );
+    }
+  </script>
+  <script type="text/javascript">
+  const colrs = ["dd04a0", "a0aa04", "440aaa", "aa0000"],
+    canvasdoc = document.getElementById("canvasholder"),
+    containerdoc = document.getElementsByClassName("container-fluid"),
+    dmnsn = [canvasdoc.offsetWidth, canvasdoc.offsetHeight],
+    glCtx = (() => twgl.getContext(canvasdoc))(
+      twgl.setDefaults({ attribPrefix: "a_" })
+    ),
+    frctn = 0.0001,
+    htflw = 0.01,
+    impls = 0.5, //0.5
+    ntnst = 0.05,
+    repel = 100,  //100
+    rmSng = 50,  // 50
+    scale = 500,
+    whout = 0.01;
+  var bfInf = twgl.primitives.createXYQuadBufferInfo(glCtx),
+    bffrs = Array(2)
+      .fill()
+      .map(() =>
+        twgl.createFramebufferInfo(
+          glCtx,
+          [{ internalFormat: glCtx.RGBA32F }],
+          ...dmnsn
+        )
+      ),
+    smdgs = Array(4)
+      .fill()
+      .map((_, k) => ({
+        p: [((k + 1) * dmnsn[0]) / 5, dmnsn[1] / 2],
+        v: [0, 0]
+      })),
+    pgInf = {
+      init: twgl.createProgramInfo(glCtx, ["vs", "fs_init"]),
+      frame: twgl.createProgramInfo(glCtx, ["vs", "fs_frame"]),
+      render: twgl.createProgramInfo(glCtx, ["vs", "fs_render"])
+    };
+  function stNml() {
+    let v = 0,
+      w = 0;
+    while (v === 0) {
+      v = Math.random();
+    }
+    while (w === 0) {
+      w = Math.random();
+    }
+    return Math.sqrt(-2.0 * Math.log(v)) * Math.cos(2.0 * Math.PI * w);
+  }
+  function rendr(fbi, pi, u) {
+    twgl.bindFramebufferInfo(glCtx, fbi);
+    twgl.drawObjectList(glCtx, [
+      {
+        programInfo: pi,
+        bufferInfo: bfInf,
+        uniforms: u
+      }
+    ]);
+  }
+  function prepr() {
+    glCtx.canvas.width = dmnsn[0];
+    glCtx.canvas.height = dmnsn[1];
+    document.body.append(glCtx.canvas);
+    rendr(bffrs[0], pgInf.init, {});
+  }
+  function frame() {
+    for (let s of smdgs) {
+      for (let a of [0, 1]) {
+        s.v[a] *= 1 - frctn;
+        s.v[a] += impls * stNml();
+        s.v[a] += repel / (rmSng + s.p[a] ** 2);
+        s.v[a] -= repel / (rmSng + (dmnsn[a] - s.p[a]) ** 2);
+        for (let t of smdgs) {
+          if (s != t) {
+            s.v[a] +=
+              (repel * Math.sign(s.p[a] - t.p[a])) /
+              (rmSng + (t.p[a] - s.p[a]) ** 2);
+          }
+        }
+      }
+    }
+    for (let s of smdgs) {
+      for (let a of [0, 1]) {
+        s.p[a] = Math.max(0, Math.min(dmnsn[a], s.p[a] + s.v[a]));
+      }
+    }
+    rendr(bffrs[1], pgInf.frame, {
+      u_heatflow: htflw,
+      u_intensity: ntnst,
+      u_resolution: dmnsn,
+      u_scale: scale,
+      u_smudgepos: smdgs.map((s) => s.p).flat(),
+      u_smudgevel: smdgs.map((s) => s.v).flat(),
+      u_texture: bffrs[0].attachments[0],
+      u_whiteout: whout
+    });
+    rendr(null, pgInf.render, {
+      // u_colors: [1,0,0,0,1,0,0,0,1,0,0,0],
+      u_colors: ((s) =>
+        Array(12)
+          .fill()
+          .map((_, k) => parseInt(s.slice(2 * k, 2 * (k + 1)), 16) / 255))(
+        "".concat(...colrs)
+      ),
+      u_texture: bffrs[1].attachments[0]
+    });
+    bffrs = [bffrs[1], bffrs[0]];
+    // window.requestAnimationFrame(frame);
+    window.setTimeout(frame, 80);
+  }
+  function reset() {
+    rendr(bffrs[0], pgInf.c2f, {
+      u_texture: imgTx
+    });
+    count = 0;
+  }
+  prepr();
+  frame();
+  // window.setTimeout(frame, 800);
+
+  </script>
+
+</body>
+</html>
