@@ -10,23 +10,34 @@ services:
       - "./app/:/var/www/html/"
     ports:
       - "8080:80"
-  mysql:
+  localhost:
     image: mysql/mysql-server:8.0
-    container_name: mysql
+    container_name: dbapp
     restart: always
     env_file:
       - .db.env
     volumes: 
-      - dbdata:/var/lib/mysql
+      - ./db/init:/docker-entrypoint-initdb.d
+      # - dbdata:/var/lib/mysql
     ports:
       - "3308:3306"
+  # wikisql:
+  #   image: mysql/mysql-server:8.0
+  #   container_name: wikisql
+  #   restart: always
+  #   env_file:
+  #     - .mediawiki.env
+  #   volumes: 
+  #     - wikidata:/var/lib/mysql
+  #   ports:
+  #     - "3309:3306"
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: pma
     links:
-      - mysql
+      - localhost
     environment:
-      PMA_HOST: mysql
+      PMA_HOST: localhost
       PMA_PORT: 3306
       PMA_ARBITRARY: 1
     restart: always
@@ -35,3 +46,4 @@ services:
 
 volumes:
   dbdata:
+  wikidata:
