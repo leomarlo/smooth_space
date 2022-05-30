@@ -1,6 +1,6 @@
 # Smooth Spaces Website
 
-This reposity contains files and scripts for the artistic research project website. The host is set up on a ubuntu machine with an apache webserver installed and php installed as well. Furthermore the stack includes a mysql database, which is accessed through a PDO object. 
+This repository contains files and scripts for the artistic research project website. The host is set up on a ubuntu machine with an apache webserver installed and php installed as well. Furthermore the stack includes a mysql database, which is accessed through a PDO object. 
 
 # Testing
 
@@ -26,15 +26,48 @@ MYSQL_PW=<<password>>
 MYSQL_DB=<<database name>>
 ```
 
+## MediaWiki 
+### Skins and Gitmodules
+
+The currently used skins are inside a subdirectory `app/w/skins/Tweeki`, which is also a git submodule. To load it, run 
+`git submodule update --init --recursive` and then `git submodule update --recursive --merge`.
+
+### LocalSettings
+
+when uploading the files to the MDW-server comment out the name `"dbapp"` and instead write `"localhost"` in the `app/w/LocalSettings.php` script:
+
+```
+// $wgDBserver = "dbapp";
+$wgDBserver = "localhost";
+```
+
+likewise also comment out `$wgServer = "http://localhost:8080"` which is exclusively for local testing.
+
+```
+## The protocol and server name to use in fully-qualified URLs
+// $wgServer = "http://localhost:8080";
+$wgServer = "http://the-smooth.space";
+```
+
+Then you push the changes to the remote server using the `sftp` protocol. 
+
+```
+$ sftp mdw:/PUBLIC/webserver/www/atlas-of-smooth-spaces
+```
+
+or use a client software to do it.
+
+Then change the things back in the LocalSettings.php script, so you can develop locally.
 
 ## Database dump
 
-You have to copy the database dump into the main directory and import it from the *phpmyadmin* service. 
+There are some of the recent database dumps in the `db/backup` folder.
+You can run the `./initialize-sql.sh` script in the root folder. It will create an initialization sql script when running docker. To make more recent backups, just export the current state of the database into the backup folder. I typically use the `phpmyadmin`, which is incidentally also started with the docker-compose statement. You can find it on `localhost:8081`. If that port is used somehow, you could change the ports in the `docker-compose.yml` file.  
 
 
 ## Docker
 
-Then docker-compose up the services:
+We show now how to start the docker containers. Before starting them you need to run the `./initialize-sql.sh` script so that the database is using the most recent version of the databse dumps. Alternatively you could run the `./docker-up.sh` script, which combines the two steps. If you do not have the rights to run `docker compose` you need to `sudo` any of these commands including the following:
 
 ```bash
 docker-compose up --build -d
@@ -56,3 +89,7 @@ To see the website go to
 ```
 localhost:8080
 ```
+
+## Contact
+
+leonhard.horstmeyer@gmail.com

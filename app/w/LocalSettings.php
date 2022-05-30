@@ -31,6 +31,7 @@ $wgScriptPath = "/w";
 
 ## The protocol and server name to use in fully-qualified URLs
 $wgServer = "http://localhost:8080";
+// $wgServer = "http://the-smooth.space";
 
 ## The URL path to static resources (images, scripts, etc.)
 $wgResourceBasePath = $wgScriptPath;
@@ -54,6 +55,7 @@ $wgEmailAuthentication = true;
 ## Database settings
 $wgDBtype = "mysql";
 $wgDBserver = "dbapp";
+// $wgDBserver = "localhost";
 $wgDBname = "atlas-of-smooth-spaces-wiki";
 $wgDBuser = "atlas-of-smooth-spaces";
 $wgDBpassword = "i3f]3CZcdh*5M15c";
