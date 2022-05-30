@@ -11,6 +11,7 @@ app/.env
 app/w/cache
 app/w/docs
 app/w/extensions
+app/w/*.git
 *.env
 *db.env
 
