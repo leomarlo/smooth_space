@@ -93,6 +93,7 @@
       <div class="col-md-8 col-sm-10 col-xs-10 navheight_ testdiv_ white_ center_">
         <div class="menu_">
           <span > <a href="project.php"> Project </a> </span>|
+          <span > <a href="w/index.php"> Wiki </a> </span>|
           <span > <a href="notations.php"> Notations </a> </span>|
           <span > <a href="meetings.php"> Meetings </a> </span>|
           <span > <a href="events.php"> Events </a> </span>|
