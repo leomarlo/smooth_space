@@ -59,6 +59,19 @@ or use a client software to do it.
 
 Then change the things back in the LocalSettings.php script, so you can develop locally.
 
+### Changing the accounts
+
+The current hack to add accounts is to set those entries to `true`: 
+```
+$wgGroupPermissions['*']['createaccount'] = true;
+$wgGroupPermissions['*']['edit'] = true;
+```
+and then change them locally (see further below how to start the app and interact with the frontend). Then after adding the accounts, make a database dump by exporting and then import that new database into the remote server on mdw.
+
+### Starting the whole thing
+
+Locally you run docker and then find the website on `localhost:8080`. You can then navigate to wiki which will open `localhost:8080/w/index.php`. You could also directly navigate there.
+
 ## Database dump
 
 There are some of the recent database dumps in the `db/backup` folder.
@@ -93,3 +106,5 @@ localhost:8080
 ## Contact
 
 leonhard.horstmeyer@gmail.com
+
+
