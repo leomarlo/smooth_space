@@ -10,7 +10,7 @@ services:
       - "./app/:/var/www/html/"
     ports:
       - "8080:80"
-  localhost:
+  dbapp:
     image: mysql/mysql-server:8.0
     container_name: dbapp
     restart: always
@@ -35,9 +35,9 @@ services:
     image: phpmyadmin/phpmyadmin
     container_name: pma
     links:
-      - localhost
+      - dbapp
     environment:
-      PMA_HOST: localhost
+      PMA_HOST: dbapp
       PMA_PORT: 3306
       PMA_ARBITRARY: 1
     restart: always
