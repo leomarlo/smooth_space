@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: dbapp:3306
--- Generation Time: Jul 15, 2022 at 11:22 AM
--- Server version: 8.0.27
--- PHP Version: 7.4.20
+-- Host: localhost
+-- Generation Time: Jul 15, 2022 at 12:29 PM
+-- Server version: 8.0.21
+-- PHP Version: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -521,13 +521,13 @@ INSERT INTO `posts` (`postId`, `posttypeId`, `date`, `title`, `subtitle`, `autho
 (22, 1, '2021-12-09', 'Rose Breuss', 'Professor for movement research & Head of the Institute of Dance Arts at Anton Bruckner Private University Upper Austria', 'Leonhard Horstmeyer'),
 (23, 1, '2021-12-09', 'Johannes Hiemetsberger', 'Professor for Choral Conducting & head of the MDW’s Department of Choral and Ensemble Directing and Music Theory in Music Education', 'Leonhard Horstmeyer'),
 (24, 1, '2021-12-09', 'Leonhard Horstmeyer', 'Complexity Scientist and Mathematician & Associate Faculty at the Complexity Science Hub Vienna', 'Leonhard Horstmeyer'),
-(25, 1, '2021-12-09', 'William Edouard Franck', 'Production Sound Mixer (cinéma)<br>\r\nWild Tracks, Wild Frames SàrL (Frankreich)', 'Leonhard Horstmeyer'),
+(25, 1, '2021-12-09', 'William Edouard Franck', 'Cinematic direct sound producer & Senior Lecturer for Sound at the Film Academy Vienna', 'Leonhard Horstmeyer'),
 (26, 1, '2021-12-09', 'Stephanie Schroedter', 'Professor for Theories of Music and Movement/Rhythmics at the Institute for Music and Movement Education/ Rhythmics (MDW)', 'Leonhard Horstmeyer'),
 (27, 1, '2021-12-09', 'Magdalena Eidenhammer', 'Voice Artist (Stimmbildnerin) and Pedagogue', 'Leonhard Horstmeyer'),
 (28, 1, '2021-12-09', 'Maria Shurkhal', 'Freelance dancer, choreographer and pedagogue', 'Leonhard Horstmeyer'),
 (29, 1, '2021-12-09', 'Damian Cortes Alberti', 'Choreographer, dancer, researcher transmediality and dance notation.', 'Leonhard Horstmeyer'),
 (30, 1, '2021-12-13', 'Adrian Artacho Bueno', 'Composer', 'Leonhard Horstmeyer'),
-(31, 1, '2022-01-20', 'Sara Ganzer', 'Choir Conductor', 'Leonhard Horstmeyer'),
+(31, 1, '2022-01-20', 'Sara Ganzer', 'Singer', 'Leonhard Horstmeyer'),
 (32, 5, '2022-01-21', 'Smooth Space End of Year Meeting', 'Quo Vadis', 'Leonhard Horstmeyer'),
 (33, 5, '2021-12-22', 'Meeting with Professor Dirmoser', 'An excursion to the diagrammatic library', 'Leonhard Horstmeyer'),
 (34, 5, '2021-12-22', 'Workshop about ongoing projects in Rose\'s group', '', 'Leonhard Horstmeyer'),
@@ -588,7 +588,7 @@ INSERT INTO `profile` (`profileId`, `description`, `nameId`, `postId`, `website`
 (2, 'Profile of Rose Breuss', 9, 22, 'http://www.rosebreuss.com/', '2021-12-13 12:05:02', 'www.rosebreuss.com'),
 (3, 'Profile of Johannes Hiemetsberger', 3, 23, 'https://www.mdw.ac.at/abi/lehrende/chor--dirigieren--ensemble/johannes-hiemetsberger/', '2021-12-13 12:11:36', 'website of Johannes Hiemetsberger'),
 (4, 'Profile of Leonhard Horstmeyer', 5, 24, 'https://www.csh.ac.at/researcher/leonhard-horstmeyer/', '2021-12-13 12:11:36', 'website of Leonhard Horstmeyer'),
-(5, 'Profile of William Edouard Franck', 11, 25, 'https://www.verif.com/societe/WILD-TRACKS-WILD-FRAMES-434030219/', '2021-12-13 12:11:36', 'website of Wiliam Edouard Franck'),
+(5, 'Profile of William Edouard Franck', 11, 25, 'https://online.mdw.ac.at/mdw_online/visitenkarte.show_vcard?pPersonenId=7E0DCBC93B623725&pPersonenGruppe=3', '2021-12-13 12:11:36', 'website of Wiliam Edouard Franck'),
 (6, 'Profile of Stephanie Schroedter', 10, 26, 'https://www.mdw.ac.at/mrm/mbe/?PageId=3586', '2021-12-13 12:11:36', 'website of Stephanie Schroedter'),
 (7, 'Profile of Magdalena Eidenhammer', 6, 27, 'https://mdw.ac.at/internationalblog/author/magdalena-eidenhammer/', '2021-12-13 12:11:36', 'website of Magdalena Eidenhammer'),
 (8, 'Profile of Maria Shurkhal', 8, 28, 'https://www.mshurkhal.com/', '2021-12-13 12:11:36', 'mshurkhal.com'),
@@ -627,8 +627,7 @@ INSERT INTO `projectroles` (`roleId`, `role`, `description`, `roleTypeId`) VALUE
 (11, 'Eurhythmics Researcher', 'Assisting in the organization of the Smooth Spaces Labs, the preparations of scores, research materials, participating in the research with her specific music and movement knowledge and working on dissemination of the research in associated projects.', 2),
 (12, 'Principal Investigator (PI)', 'Responsible for the overall research project', 2),
 (13, 'Artistic Investigator (AI)', 'Responsible for a particular discipline within the research project.', 2),
-(14, 'Theoretical Investigator', 'Researching theoretical foundation and material.', 2),
-(15, 'Representative for Production Sound Mixing (cinema)', 'Representing the discipline of Production Sound Mixing in cinema.', 2);
+(14, 'Theoretical Investigator', 'Researching theoretical foundation and material.', 2);
 
 -- --------------------------------------------------------
 
@@ -699,8 +698,7 @@ INSERT INTO `roleassignment` (`assignmentId`, `nameId`, `roleId`) VALUES
 (50, 3, 13),
 (51, 9, 13),
 (52, 11, 13),
-(53, 10, 14),
-(54, 11, 15);
+(53, 10, 14);
 
 -- --------------------------------------------------------
 
@@ -949,13 +947,13 @@ ALTER TABLE `profile`
 -- AUTO_INCREMENT for table `projectroles`
 --
 ALTER TABLE `projectroles`
-  MODIFY `roleId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `roleId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `roleassignment`
 --
 ALTER TABLE `roleassignment`
-  MODIFY `assignmentId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `assignmentId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `roletypes`

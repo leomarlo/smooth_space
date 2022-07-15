@@ -18,8 +18,8 @@
     <canvas id="canvasholder" class="canvas_">
     </canvas>
     <div class="row foreground_ absolute_ mainheight_ totalwidth_">
-      <div class="col-md-2 col-sm-2 col-xs-2 mainheight_ testdiv_"></div>
-      <div class="col-md-8 col-sm-8 col-xs-8 mainheight_ scrollable_ testdiv_">
+      <!-- <div class="col-md-2 col-sm-2 col-xs-2 mainheight_ testdiv_"></div>
+      <div class="col-md-8 col-sm-8 col-xs-8 mainheight_ scrollable_ testdiv_"> -->
 
 
     <?php
@@ -67,8 +67,8 @@
         for ($i=0; $i<count($profiles); $i++){
           echo '<div class="row mt-4">
                   <div class="col-sm-12 col-md-12">
-                    <div class="card cardborder_ rounded_card_borders_ gray_ " id="' . $profile["title"] . '_cardlette">
-                      <div class="card-body center_">' . $profile["title"] . '</div>
+                    <div class="card cardborder_ rounded_card_borders_ gray_ " id="' . $profiles[$i]["nameId"] . '_cardlette">
+                      <div class="card-body center_">' . $profiles[$i]["title"] . '</div>
                     </div>
                   </div>
                 </div>';
