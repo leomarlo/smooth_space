@@ -1,11 +1,12 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jul 15, 2022 at 12:29 PM
--- Server version: 8.0.21
--- PHP Version: 7.4.28
+-- Host: mysql:3306
+-- Generation Time: Mar 22, 2022 at 11:05 PM
+-- Server version: 8.0.27
+-- PHP Version: 7.4.20
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -56,19 +57,19 @@ INSERT INTO `events` (`eventId`, `name`, `host`, `email`, `from_date`, `until_da
 -- --------------------------------------------------------
 
 --
--- Table structure for table `eventstatus`
+-- Table structure for table `eventStatus`
 --
 
-CREATE TABLE `eventstatus` (
+CREATE TABLE `eventStatus` (
   `statusId` int NOT NULL,
   `description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `eventstatus`
+-- Dumping data for table `eventStatus`
 --
 
-INSERT INTO `eventstatus` (`statusId`, `description`) VALUES
+INSERT INTO `eventStatus` (`statusId`, `description`) VALUES
 (0, 'cancelled'),
 (1, 'upcoming'),
 (2, 'ongoing'),
@@ -77,19 +78,19 @@ INSERT INTO `eventstatus` (`statusId`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `eventtype`
+-- Table structure for table `eventType`
 --
 
-CREATE TABLE `eventtype` (
+CREATE TABLE `eventType` (
   `eventTypeId` int NOT NULL,
   `description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `eventtype`
+-- Dumping data for table `eventType`
 --
 
-INSERT INTO `eventtype` (`eventTypeId`, `description`) VALUES
+INSERT INTO `eventType` (`eventTypeId`, `description`) VALUES
 (1, 'workshop'),
 (2, 'lecture'),
 (3, 'performance'),
@@ -183,20 +184,20 @@ INSERT INTO `media` (`mediaId`, `mediatypeId`, `path`, `author`, `rights`, `uplo
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mediainposts`
+-- Table structure for table `mediaInPosts`
 --
 
-CREATE TABLE `mediainposts` (
+CREATE TABLE `mediaInPosts` (
   `id` int NOT NULL,
   `mediaId` int NOT NULL,
   `postId` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `mediainposts`
+-- Dumping data for table `mediaInPosts`
 --
 
-INSERT INTO `mediainposts` (`id`, `mediaId`, `postId`) VALUES
+INSERT INTO `mediaInPosts` (`id`, `mediaId`, `postId`) VALUES
 (1, 1, 3),
 (2, 2, 3),
 (3, 3, 2),
@@ -216,19 +217,19 @@ INSERT INTO `mediainposts` (`id`, `mediaId`, `postId`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mediatype`
+-- Table structure for table `mediaType`
 --
 
-CREATE TABLE `mediatype` (
+CREATE TABLE `mediaType` (
   `mediatypeId` int NOT NULL,
   `description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `mediatype`
+-- Dumping data for table `mediaType`
 --
 
-INSERT INTO `mediatype` (`mediatypeId`, `description`) VALUES
+INSERT INTO `mediaType` (`mediatypeId`, `description`) VALUES
 (1, 'image'),
 (2, 'video'),
 (3, 'audio');
@@ -542,19 +543,19 @@ INSERT INTO `posts` (`postId`, `posttypeId`, `date`, `title`, `subtitle`, `autho
 -- --------------------------------------------------------
 
 --
--- Table structure for table `posttype`
+-- Table structure for table `postType`
 --
 
-CREATE TABLE `posttype` (
+CREATE TABLE `postType` (
   `posttypeId` int NOT NULL,
   `description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `posttype`
+-- Dumping data for table `postType`
 --
 
-INSERT INTO `posttype` (`posttypeId`, `description`) VALUES
+INSERT INTO `postType` (`posttypeId`, `description`) VALUES
 (1, 'profile'),
 (2, 'event'),
 (3, 'notation'),
@@ -599,10 +600,10 @@ INSERT INTO `profile` (`profileId`, `description`, `nameId`, `postId`, `website`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `projectroles`
+-- Table structure for table `projectRoles`
 --
 
-CREATE TABLE `projectroles` (
+CREATE TABLE `projectRoles` (
   `roleId` int NOT NULL,
   `role` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
@@ -610,10 +611,10 @@ CREATE TABLE `projectroles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `projectroles`
+-- Dumping data for table `projectRoles`
 --
 
-INSERT INTO `projectroles` (`roleId`, `role`, `description`, `roleTypeId`) VALUES
+INSERT INTO `projectRoles` (`roleId`, `role`, `description`, `roleTypeId`) VALUES
 (1, 'Experimentalist', 'Preparing, conducting, participating in experiments', 1),
 (2, 'Documenter', 'Documenting processes, outputs, discussion, insights during the labs and in between.', 1),
 (3, 'Representative for Eurhythmics', 'representing the discipline of Eurythmics. Organizing the labs which have a focus on Eurythmics. Communicating with the people from their discipline.', 2),
@@ -632,20 +633,20 @@ INSERT INTO `projectroles` (`roleId`, `role`, `description`, `roleTypeId`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `roleassignment`
+-- Table structure for table `roleAssignment`
 --
 
-CREATE TABLE `roleassignment` (
+CREATE TABLE `roleAssignment` (
   `assignmentId` int NOT NULL,
   `nameId` int NOT NULL,
   `roleId` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `roleassignment`
+-- Dumping data for table `roleAssignment`
 --
 
-INSERT INTO `roleassignment` (`assignmentId`, `nameId`, `roleId`) VALUES
+INSERT INTO `roleAssignment` (`assignmentId`, `nameId`, `roleId`) VALUES
 (1, 2, 3),
 (2, 2, 1),
 (3, 2, 2),
@@ -703,19 +704,19 @@ INSERT INTO `roleassignment` (`assignmentId`, `nameId`, `roleId`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `roletypes`
+-- Table structure for table `roleTypes`
 --
 
-CREATE TABLE `roletypes` (
+CREATE TABLE `roleTypes` (
   `roleTypeId` int NOT NULL,
   `roleType` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `roletypes`
+-- Dumping data for table `roleTypes`
 --
 
-INSERT INTO `roletypes` (`roleTypeId`, `roleType`) VALUES
+INSERT INTO `roleTypes` (`roleTypeId`, `roleType`) VALUES
 (1, 'Fluid Role'),
 (2, 'Project Role');
 
@@ -761,19 +762,19 @@ INSERT INTO `teilnehmer` (`id`, `type`, `Name`, `Email`, `Telephone`, `Affiliati
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usertypes`
+-- Table structure for table `userTypes`
 --
 
-CREATE TABLE `usertypes` (
+CREATE TABLE `userTypes` (
   `typeId` int NOT NULL,
   `description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `usertypes`
+-- Dumping data for table `userTypes`
 --
 
-INSERT INTO `usertypes` (`typeId`, `description`) VALUES
+INSERT INTO `userTypes` (`typeId`, `description`) VALUES
 (1, 'project participant'),
 (2, 'project associated'),
 (3, 'artist'),
@@ -795,15 +796,15 @@ ALTER TABLE `events`
   ADD KEY `gatheringId` (`gatheringId`);
 
 --
--- Indexes for table `eventstatus`
+-- Indexes for table `eventStatus`
 --
-ALTER TABLE `eventstatus`
+ALTER TABLE `eventStatus`
   ADD PRIMARY KEY (`statusId`);
 
 --
--- Indexes for table `eventtype`
+-- Indexes for table `eventType`
 --
-ALTER TABLE `eventtype`
+ALTER TABLE `eventType`
   ADD PRIMARY KEY (`eventTypeId`);
 
 --
@@ -821,17 +822,17 @@ ALTER TABLE `media`
   ADD KEY `mediatypeId` (`mediatypeId`);
 
 --
--- Indexes for table `mediainposts`
+-- Indexes for table `mediaInPosts`
 --
-ALTER TABLE `mediainposts`
+ALTER TABLE `mediaInPosts`
   ADD PRIMARY KEY (`id`),
   ADD KEY `mediaId` (`mediaId`),
   ADD KEY `postId` (`postId`);
 
 --
--- Indexes for table `mediatype`
+-- Indexes for table `mediaType`
 --
-ALTER TABLE `mediatype`
+ALTER TABLE `mediaType`
   ADD PRIMARY KEY (`mediatypeId`);
 
 --
@@ -874,9 +875,9 @@ ALTER TABLE `posts`
   ADD KEY `posttypeId` (`posttypeId`);
 
 --
--- Indexes for table `posttype`
+-- Indexes for table `postType`
 --
-ALTER TABLE `posttype`
+ALTER TABLE `postType`
   ADD PRIMARY KEY (`posttypeId`);
 
 --
@@ -888,24 +889,24 @@ ALTER TABLE `profile`
   ADD KEY `postId` (`postId`);
 
 --
--- Indexes for table `projectroles`
+-- Indexes for table `projectRoles`
 --
-ALTER TABLE `projectroles`
+ALTER TABLE `projectRoles`
   ADD PRIMARY KEY (`roleId`),
   ADD KEY `roleTypeId` (`roleTypeId`);
 
 --
--- Indexes for table `roleassignment`
+-- Indexes for table `roleAssignment`
 --
-ALTER TABLE `roleassignment`
+ALTER TABLE `roleAssignment`
   ADD PRIMARY KEY (`assignmentId`),
   ADD KEY `nameId` (`nameId`),
   ADD KEY `roleId` (`roleId`);
 
 --
--- Indexes for table `roletypes`
+-- Indexes for table `roleTypes`
 --
-ALTER TABLE `roletypes`
+ALTER TABLE `roleTypes`
   ADD PRIMARY KEY (`roleTypeId`);
 
 --
@@ -916,9 +917,9 @@ ALTER TABLE `teilnehmer`
   ADD KEY `type` (`type`);
 
 --
--- Indexes for table `usertypes`
+-- Indexes for table `userTypes`
 --
-ALTER TABLE `usertypes`
+ALTER TABLE `userTypes`
   ADD PRIMARY KEY (`typeId`);
 
 --
@@ -944,21 +945,21 @@ ALTER TABLE `profile`
   MODIFY `profileId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `projectroles`
+-- AUTO_INCREMENT for table `projectRoles`
 --
-ALTER TABLE `projectroles`
+ALTER TABLE `projectRoles`
   MODIFY `roleId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `roleassignment`
+-- AUTO_INCREMENT for table `roleAssignment`
 --
-ALTER TABLE `roleassignment`
+ALTER TABLE `roleAssignment`
   MODIFY `assignmentId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
--- AUTO_INCREMENT for table `roletypes`
+-- AUTO_INCREMENT for table `roleTypes`
 --
-ALTER TABLE `roletypes`
+ALTER TABLE `roleTypes`
   MODIFY `roleTypeId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
@@ -969,25 +970,25 @@ ALTER TABLE `roletypes`
 -- Constraints for table `events`
 --
 ALTER TABLE `events`
-  ADD CONSTRAINT `events_ibfk_1` FOREIGN KEY (`statusId`) REFERENCES `eventstatus` (`statusId`),
+  ADD CONSTRAINT `events_ibfk_1` FOREIGN KEY (`statusId`) REFERENCES `eventStatus` (`statusId`),
   ADD CONSTRAINT `events_ibfk_2` FOREIGN KEY (`gatheringId`) REFERENCES `gatherings` (`gatheringId`);
 
 --
 -- Constraints for table `gatherings`
 --
 ALTER TABLE `gatherings`
-  ADD CONSTRAINT `gatherings_ibfk_2` FOREIGN KEY (`eventTypeId`) REFERENCES `eventtype` (`eventTypeId`);
+  ADD CONSTRAINT `gatherings_ibfk_2` FOREIGN KEY (`eventTypeId`) REFERENCES `eventType` (`eventTypeId`);
 
 --
 -- Constraints for table `media`
 --
 ALTER TABLE `media`
-  ADD CONSTRAINT `media_ibfk_1` FOREIGN KEY (`mediatypeId`) REFERENCES `mediatype` (`mediatypeId`);
+  ADD CONSTRAINT `media_ibfk_1` FOREIGN KEY (`mediatypeId`) REFERENCES `mediaType` (`mediatypeId`);
 
 --
--- Constraints for table `mediainposts`
+-- Constraints for table `mediaInPosts`
 --
-ALTER TABLE `mediainposts`
+ALTER TABLE `mediaInPosts`
   ADD CONSTRAINT `mediaInPosts_ibfk_1` FOREIGN KEY (`mediaId`) REFERENCES `media` (`mediaId`),
   ADD CONSTRAINT `mediaInPosts_ibfk_2` FOREIGN KEY (`postId`) REFERENCES `posts` (`postId`);
 
@@ -995,7 +996,7 @@ ALTER TABLE `mediainposts`
 -- Constraints for table `meetings`
 --
 ALTER TABLE `meetings`
-  ADD CONSTRAINT `meetings_ibfk_1` FOREIGN KEY (`statusTypeId`) REFERENCES `eventstatus` (`statusId`),
+  ADD CONSTRAINT `meetings_ibfk_1` FOREIGN KEY (`statusTypeId`) REFERENCES `eventStatus` (`statusId`),
   ADD CONSTRAINT `meetings_ibfk_2` FOREIGN KEY (`gatheringId`) REFERENCES `gatherings` (`gatheringId`),
   ADD CONSTRAINT `meetings_ibfk_3` FOREIGN KEY (`postId`) REFERENCES `posts` (`postId`);
 
@@ -1023,7 +1024,7 @@ ALTER TABLE `participation`
 -- Constraints for table `posts`
 --
 ALTER TABLE `posts`
-  ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`posttypeId`) REFERENCES `posttype` (`posttypeId`);
+  ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`posttypeId`) REFERENCES `postType` (`posttypeId`);
 
 --
 -- Constraints for table `profile`
@@ -1033,23 +1034,23 @@ ALTER TABLE `profile`
   ADD CONSTRAINT `profile_ibfk_2` FOREIGN KEY (`postId`) REFERENCES `posts` (`postId`);
 
 --
--- Constraints for table `projectroles`
+-- Constraints for table `projectRoles`
 --
-ALTER TABLE `projectroles`
-  ADD CONSTRAINT `projectRoles_ibfk_1` FOREIGN KEY (`roleTypeId`) REFERENCES `roletypes` (`roleTypeId`);
+ALTER TABLE `projectRoles`
+  ADD CONSTRAINT `projectRoles_ibfk_1` FOREIGN KEY (`roleTypeId`) REFERENCES `roleTypes` (`roleTypeId`);
 
 --
--- Constraints for table `roleassignment`
+-- Constraints for table `roleAssignment`
 --
-ALTER TABLE `roleassignment`
-  ADD CONSTRAINT `roleAssignment_ibfk_1` FOREIGN KEY (`roleId`) REFERENCES `projectroles` (`roleId`),
+ALTER TABLE `roleAssignment`
+  ADD CONSTRAINT `roleAssignment_ibfk_1` FOREIGN KEY (`roleId`) REFERENCES `projectRoles` (`roleId`),
   ADD CONSTRAINT `roleAssignment_ibfk_2` FOREIGN KEY (`nameId`) REFERENCES `teilnehmer` (`id`);
 
 --
 -- Constraints for table `teilnehmer`
 --
 ALTER TABLE `teilnehmer`
-  ADD CONSTRAINT `teilnehmer_ibfk_1` FOREIGN KEY (`type`) REFERENCES `usertypes` (`typeId`);
+  ADD CONSTRAINT `teilnehmer_ibfk_1` FOREIGN KEY (`type`) REFERENCES `userTypes` (`typeId`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

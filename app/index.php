@@ -2,6 +2,7 @@
 
 <html lang="en">
 <head>
+  <title>Atlas of Smooth Spaces - PEEK Project</title> 
   <script type="text/javascript" src="https://twgljs.org/dist/4.x/twgl-full.min.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">

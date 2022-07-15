@@ -68,6 +68,8 @@ $wgGroupPermissions['*']['edit'] = true;
 ```
 and then change them locally (see further below how to start the app and interact with the frontend). Then after adding the accounts, make a database dump by exporting and then import that new database into the remote server on mdw.
 
+**NOTE**: Don't forget to change those entries back before pushing onto the mdw-server.
+
 ### Starting the whole thing
 
 Locally you run docker and then find the website on `localhost:8080`. You can then navigate to wiki which will open `localhost:8080/w/index.php`. You could also directly navigate there.
@@ -75,12 +77,16 @@ Locally you run docker and then find the website on `localhost:8080`. You can th
 ## Database dump
 
 There are some of the recent database dumps in the `db/backup` folder.
-You can run the `./initialize-sql.sh` script in the root folder. It will create an initialization sql script when running docker. To make more recent backups, just export the current state of the database into the backup folder. I typically use the `phpmyadmin`, which is incidentally also started with the docker-compose statement. You can find it on `localhost:8081`. If that port is used somehow, you could change the ports in the `docker-compose.yml` file.  
+You can run the `./initialize-sql.sh` script in the root folder. It will paste the initialization sql script into the `db/init.sql` file. After running *./initialize-sql.sh* you can run `docker-compose up --build` (see next paragrarph). To make more recent backups, just export the current state of the database into the backup folder. I typically use the `phpmyadmin`, which is incidentally also started with the docker-compose statement. You can find it on `localhost:8081`. If that port is used somehow, you could change the ports in the `docker-compose.yml` file.  
 
 
 ## Docker
 
-We show now how to start the docker containers. Before starting them you need to run the `./initialize-sql.sh` script so that the database is using the most recent version of the databse dumps. Alternatively you could run the `./docker-up.sh` script, which combines the two steps. If you do not have the rights to run `docker compose` you need to `sudo` any of these commands including the following:
+We show now how to start the docker containers. Before starting them you need to run the `./initialize-sql.sh` script so that the database is using the most recent version of the databse dumps. Alternatively you could run the 
+```sh
+$ ./docker-up.sh
+``` 
+script, which combines the two steps. If you do not have the rights to run `docker compose` you need to `sudo` any of these commands including the following:
 
 ```bash
 docker-compose up --build -d

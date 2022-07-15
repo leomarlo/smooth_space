@@ -1,20 +1,20 @@
 <?php
 
     $allEventsSQL = "SELECT  
-        ev.eventId, ev.name, ev.host, ev.email, ev.from_date, ev.until_date, ev.wo, ev.beginn, ev.virtuell, ps.postId, ps.title, ps.subtitle , eS.description as EventStatus, eT.description as EventType
+        ev.eventId, ev.name, ev.host, ev.email, ev.from_date, ev.until_date, ev.wo, ev.beginn, ev.virtuell, ps.postId, ps.title, ps.subtitle , eS.description as eventstatus, eT.description as eventtype
         FROM events ev 
         LEFT JOIN posts ps ON ev.postId=ps.postId
         LEFT JOIN gatherings gth ON ev.gatheringId=gth.gatheringId
-        LEFT JOIN eventType eT ON gth.eventTypeId=eT.eventTypeId
-        LEFT JOIN eventStatus eS ON ev.statusId=eS.statusId
+        LEFT JOIN eventtype eT ON gth.eventtypeId=eT.eventtypeId
+        LEFT JOIN eventstatus eS ON ev.statusId=eS.statusId
         ORDER BY ev.from_date DESC;";
 
 
-    $allMeetingsSQL = "SELECT mt.meetingId, mt.date, mt.location, mt.virtuell, mt.description, eS.description AS statusDescription, eS.statusId, ps.postId, ps.posttypeId, ps.title, ps.subtitle, ps.author, eT.eventTypeId, eT.description AS eventTypeDescription, mnts.minutes, tn.Name AS minutesTaker
+    $allMeetingsSQL = "SELECT mt.meetingId, mt.date, mt.location, mt.virtuell, mt.description, eS.description AS statusDescription, eS.statusId, ps.postId, ps.posttypeId, ps.title, ps.subtitle, ps.author, eT.eventtypeId, eT.description AS eventtypeDescription, mnts.minutes, tn.Name AS minutesTaker
         FROM meetings mt 
-        LEFT JOIN eventStatus eS ON mt.statusTypeId=eS.statusId
+        LEFT JOIN eventstatus eS ON mt.statusTypeId=eS.statusId
         LEFT JOIN gatherings gth ON mt.gatheringId=gth.gatheringId
-        LEFT JOIN eventType eT ON gth.eventTypeId=eT.eventTypeId
+        LEFT JOIN eventtype eT ON gth.eventtypeId=eT.eventtypeId
         LEFT JOIN posts ps ON ps.postId=mt.postId
         LEFT JOIN `minutes` mnts ON mnts.gatheringId=gth.gatheringId
         LEFT JOIN teilnehmer tn ON mnts.nameId=tn.id
@@ -23,15 +23,15 @@
 
     $allProfilesSQL = "SELECT pf.nameId, tn.Name, ps.title, ps.subtitle, media.path AS src, media.alt, media.author AS takenBy, pf.website AS href, pf.website_text, tn.Affiliation
         FROM profile pf
-        LEFT JOIN mediaInPosts mip ON pf.postId=mip.postId
+        LEFT JOIN mediainposts mip ON pf.postId=mip.postId
         LEFT JOIN media ON media.mediaId=mip.mediaId
         LEFT JOIN posts ps ON ps.postId=pf.postId
         LEFT JOIN teilnehmer tn ON tn.id=pf.nameId;";
 
     function getProjectRolesSQL($nameId, $roleTypeId){
         return "SELECT pR.roleId, pR.role, pR.description
-        FROM roleAssignment rA
-        LEFT JOIN projectRoles pR ON pR.roleId=rA.roleId
+        FROM roleassignment rA
+        LEFT JOIN projectroles pR ON pR.roleId=rA.roleId
         WHERE rA.nameId=" . $nameId . " AND pR.roleTypeId=" . $roleTypeId . ";";
     }
 
@@ -76,7 +76,7 @@
         $mediatypeId = 1;
         return "SELECT md.path, md.author, md.alt
             FROM posts ps
-            INNER JOIN mediaInPosts mIP ON ps.postId=mIP.postId
+            INNER JOIN mediainposts mIP ON ps.postId=mIP.postId
             INNER JOIN media md ON md.mediaId=mIP.mediaId
             WHERE ps.postId=" . $postid . " AND md.mediatypeId=" . $mediatypeId . ";";
     }

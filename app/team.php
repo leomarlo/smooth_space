@@ -22,111 +22,65 @@
       <div class="col-md-8 col-sm-8 col-xs-8 mainheight_ scrollable_ testdiv_">
 
 
-      <?php
-          // require("dotenv.php")
-          require_once "./php/dbconfig.php";
-          // This will load:
-          // conn (the database connection object)
-          require_once "./php/templates.php";  
-          // This will load:
-          // get_Event
-          require_once "./php/queries.php"; 
-          // This will load:
-          // getParticipantsOfEventSQL, getParagraphsOfEventSQL, getImagesOfEventSQL, allEventsSQL
-          
-          // fetch all the events
-          $stmt = $conn->prepare($allProfilesSQL);  // THANKS TO https://www.geeksforgeeks.org/how-to-fetch-data-from-database-in-php-pdo-using-loop/
-          $stmt->execute();
-          $profiles = $stmt->fetchAll();
+    <?php
+        // require("dotenv.php")
+        require_once "./php/dbconfig.php";
+        // This will load:
+        // conn (the database connection object)
+        require_once "./php/templates.php";  
+        // This will load:
+        // get_Event
+        require_once "./php/queries.php"; 
+        // This will load:
+        // getParticipantsOfEventSQL, getParagraphsOfEventSQL, getImagesOfEventSQL, allEventsSQL
+        
+        // fetch all the events
+        $stmt = $conn->prepare($allProfilesSQL);  // THANKS TO https://www.geeksforgeeks.org/how-to-fetch-data-from-database-in-php-pdo-using-loop/
+        $stmt->execute();
+        $profiles = $stmt->fetchAll();
 
-          for ($i=0; $i<count($profiles); $i++){
+        
+        echo '<div class="col-md-2 col-sm-2 col-xs-2 mainheight_ testdiv_"></div>';
+        echo '<div class="col-md-8 col-sm-8 col-xs-8 mainheight_ scrollable_ testdiv_">';
+        
+        for ($i=0; $i<count($profiles); $i++){
 
-              $thisMeetingId = $meetings[$i]["meetingId"];
-              // get the fluid roles of this profile
-              $stmt = $conn->prepare(getProjectRolesSQL($profiles[$i]["nameId"], 1)); 
-              $stmt->execute();
-              $fluidroles = $stmt->fetchAll();
-              // get the project roles of this profile
-              $stmt = $conn->prepare(getProjectRolesSQL($profiles[$i]["nameId"], 2)); 
-              $stmt->execute();
-              $projectroles = $stmt->fetchAll();
-              // card DOM
-              $cardDOMid = 'profile_card' . $profiles[$i]["nameId"];
-              echo getProfile($profiles[$i], $cardDOMid , $fluidroles, $projectroles); 
-              echo '<br>';
-          } 
-        ?>
+            $thisMeetingId = $meetings[$i]["meetingId"];
+            // get the fluid roles of this profile
+            $stmt = $conn->prepare(getProjectRolesSQL($profiles[$i]["nameId"], 1)); 
+            $stmt->execute();
+            $fluidroles = $stmt->fetchAll();
+            // get the project roles of this profile
+            $stmt = $conn->prepare(getProjectRolesSQL($profiles[$i]["nameId"], 2)); 
+            $stmt->execute();
+            $projectroles = $stmt->fetchAll();
+            // card DOM
+            $cardDOMid = 'profile_card' . $profiles[$i]["nameId"];
+            echo getProfile($profiles[$i], $cardDOMid , $fluidroles, $projectroles); 
+            echo '<br>';
+        } 
 
+        echo '</div>';
+        echo '<div class="col-md-2 col-sm-2 col-xs-2 mainheight_ testdiv_ scrollable_ ">';
+        echo '<div class="quite_long_ testdiv_" id="project_sidenav">';
+        
+        for ($i=0; $i<count($profiles); $i++){
+          echo '<div class="row mt-4">
+                  <div class="col-sm-12 col-md-12">
+                    <div class="card cardborder_ rounded_card_borders_ gray_ " id="' . $profile["title"] . '_cardlette">
+                      <div class="card-body center_">' . $profile["title"] . '</div>
+                    </div>
+                  </div>
+                </div>';
+        }
+        echo '</div></div>';  
+      
+      ?>
+      
 
+        
 
-
-      </div>
-      <div class="col-md-2 col-sm-2 col-xs-2 mainheight_ testdiv_ scrollable_ ">
-
-        <div class="quite_long_ testdiv_" id="project_sidenav">
-
-          <div class="row mt-4">
-            <div class="col-sm-12 col-md-12">
-              <div class="card cardborder_ rounded_card_borders_ gray_ " id="hanne_pilgrim_cardlette">
-                <div class="card-body center_">Hanne Pilgrim</div>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-4">
-            <div class="col-sm-12 col-md-12">
-              <div class="card cardborder_ rounded_card_borders_ gray_ " id="johannes_hiemetsberger_cardlette">
-                <div class="card-body center_">Johannes Hiemetsberger</div>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-4">
-            <div class="col-sm-12 col-md-12">
-              <div class="card cardborder_ rounded_card_borders_ gray_ " id="rose_breuss_cardlette">
-                <div class="card-body center_">Rose Breuss</div>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-4">
-            <div class="col-sm-12 col-md-12">
-              <div class="card cardborder_ rounded_card_borders_ gray_ " id="stephanie_schroedter_cardlette">
-                <div class="card-body center_">Stephanie Schroedter</div>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-4">
-            <div class="col-sm-12 col-md-12">
-              <div class="card cardborder_ rounded_card_borders_ gray_" id="leonhard_horstmeyer_cardlette">
-                <div class="card-body center_">Leonhard Horstmeyer</div>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-4">
-            <div class="col-sm-12 col-md-12">
-              <div class="card cardborder_ rounded_card_borders_ gray_ " id="william_edouard_franck_cardlette">
-                <div class="card-body center_">William Edouard Franck</div>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-4">
-            <div class="col-sm-12 col-md-12">
-              <div class="card cardborder_ rounded_card_borders_ gray_ " id="maria_shurkhal_cardlette">
-                <div class="card-body center_">Maria Shurkhal</div>
-              </div>
-            </div>
-          </div>
-          <div class="row mt-4">
-            <div class="col-sm-12 col-md-12">
-              <div class="card cardborder_ rounded_card_borders_ gray_ " id="magdalena_eidenhammer_cardlette">
-                <div class="card-body center_">Magdalena Eidenhammer</div>
-              </div>
-            </div>
-          </div>
-
-
-
-        </div>
-
-      </div>
+        
     </div>
     <div class="row foreground_ bottomnav_ navheight_ totalwidth_ testdiv_">
       <div class="col-md-2 col-sm-2 col-xs-2 navheight_ testdiv_ menu_">
