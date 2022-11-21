@@ -5,7 +5,7 @@ info.php
 
 ## no cache or anything of that shizzle
 *.cache
-
+*/node_modules*
 ## No environment variables
 app/.env
 app/w/cache
