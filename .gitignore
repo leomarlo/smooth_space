@@ -21,3 +21,4 @@ app/w/*.git
 
 ## no big video files
 *.mp4
+*.webm
