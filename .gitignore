@@ -17,3 +17,7 @@ app/w/*.git
 
 ## No data dumps
 # *.sql
+
+
+## no big video files
+*.mp4
